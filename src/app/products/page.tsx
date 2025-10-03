@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CheckCircle, Clock, Award, Filter, Search } from 'lucide-react';
+import { CheckCircle, Clock, Award, Filter, Search, Download, FileText, Star, Globe, Shield } from 'lucide-react';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { products, services } from '@/data/content';
@@ -27,6 +27,29 @@ export default function Products() {
     'Denim': '👖'
   };
 
+  const catalogueFeatures = [
+    {
+      icon: FileText,
+      title: "Complete Product Range",
+      description: "Detailed specifications for all our garment categories"
+    },
+    {
+      icon: Star,
+      title: "Quality Standards",
+      description: "Comprehensive quality control and certification information"
+    },
+    {
+      icon: Globe,
+      title: "Global Compliance",
+      description: "International standards and regulatory compliance details"
+    },
+    {
+      icon: Shield,
+      title: "Sustainability",
+      description: "Our commitment to eco-friendly manufacturing practices"
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -40,6 +63,89 @@ export default function Products() {
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
               Discover our comprehensive range of premium quality garments designed for global markets
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="accent" size="lg" className="flex items-center justify-center">
+                <Download className="w-5 h-5 mr-2" />
+                Download Full Catalogue
+              </Button>
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                Request Custom Quote
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Catalogue Download CTA */}
+      <section className="py-16 bg-gradient-to-r from-blue-50 to-teal-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Complete Product Catalogue
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Get instant access to our comprehensive product catalogue featuring detailed specifications, 
+              pricing, and ordering information for our entire range.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {catalogueFeatures.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Download Our 2024 Product Catalogue
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Our comprehensive catalogue includes over 200 product variations, detailed specifications, 
+                  minimum order quantities, lead times, and pricing information. Perfect for buyers, 
+                  procurement teams, and business partners.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    "200+ Product Variations",
+                    "Detailed Technical Specifications",
+                    "Pricing & MOQ Information",
+                    "Quality Certifications",
+                    "Sustainability Credentials"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-gradient-primary rounded-2xl p-8 text-white mb-6">
+                  <FileText className="w-16 h-16 mx-auto mb-4" />
+                  <h4 className="text-xl font-bold mb-2">PDF Catalogue</h4>
+                  <p className="text-sm opacity-90 mb-4">Complete 50-page digital catalogue</p>
+                  <div className="text-2xl font-bold">FREE</div>
+                </div>
+                <Button variant="accent" size="lg" className="w-full">
+                  <Download className="w-5 h-5 mr-2" />
+                  Download Now (PDF, 15MB)
+                </Button>
+                <p className="text-xs text-gray-500 mt-2">
+                  No registration required • Instant download
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

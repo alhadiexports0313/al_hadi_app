@@ -1,4 +1,4 @@
-import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield } from 'lucide-react';
+import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { companyInfo, certifications, stats } from '@/data/content';
@@ -60,6 +60,88 @@ export default function About() {
     }
   ];
 
+  const leadership = [
+    {
+      name: "Muhammad Hassan",
+      position: "Chief Executive Officer",
+      experience: "15+ years",
+      expertise: "Strategic Leadership & Global Business Development",
+      description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion."
+    },
+    {
+      name: "Fatima Ahmed",
+      position: "Chief Operating Officer",
+      experience: "12+ years",
+      expertise: "Operations Management & Quality Assurance",
+      description: "Ensuring operational excellence and maintaining our high-quality standards across all processes."
+    },
+    {
+      name: "Ali Raza",
+      position: "Head of Production",
+      experience: "18+ years",
+      expertise: "Manufacturing & Process Optimization",
+      description: "Overseeing production operations and implementing innovative manufacturing solutions."
+    },
+    {
+      name: "Sarah Khan",
+      position: "Director of Quality Control",
+      experience: "10+ years",
+      expertise: "Quality Management & Compliance",
+      description: "Maintaining our commitment to quality through rigorous testing and certification processes."
+    }
+  ];
+
+  const coreStrengths = [
+    {
+      icon: Factory,
+      title: "State-of-the-Art Manufacturing",
+      description: "Modern facilities equipped with latest technology and machinery for efficient production",
+      metrics: "50,000+ sq ft facility"
+    },
+    {
+      icon: Users,
+      title: "Skilled Workforce",
+      description: "Experienced team of professionals dedicated to delivering exceptional quality",
+      metrics: "500+ skilled workers"
+    },
+    {
+      icon: Globe,
+      title: "Global Supply Chain",
+      description: "Established network of suppliers and logistics partners worldwide",
+      metrics: "25+ countries served"
+    },
+    {
+      icon: Award,
+      title: "Quality Certifications",
+      description: "International certifications ensuring compliance with global standards",
+      metrics: "ISO, GOTS, OEKO-TEX certified"
+    },
+    {
+      icon: TrendingUp,
+      title: "Scalable Production",
+      description: "Flexible manufacturing capacity to meet varying order volumes",
+      metrics: "1M+ garments annually"
+    },
+    {
+      icon: Clock,
+      title: "Timely Delivery",
+      description: "Reliable delivery schedules with 98.5% on-time performance",
+      metrics: "98.5% on-time delivery"
+    },
+    {
+      icon: CheckCircle,
+      title: "Quality Assurance",
+      description: "Comprehensive quality control at every stage of production",
+      metrics: "<0.5% defect rate"
+    },
+    {
+      icon: Zap,
+      title: "Innovation Focus",
+      description: "Continuous investment in technology and process improvements",
+      metrics: "R&D investment 5% of revenue"
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -71,7 +153,7 @@ export default function About() {
               About <span className="text-accent">{companyInfo.name}</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-              {companyInfo.experience} of excellence in garment manufacturing and export
+              {stats.find(s => s.label.includes('Years'))?.number}+ years of excellence in garment manufacturing and export
             </p>
           </div>
         </div>
@@ -86,12 +168,12 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in {companyInfo.founded}, {companyInfo.name} has grown from a small local manufacturer 
+                Founded in 2010, {companyInfo.name} has grown from a small local manufacturer 
                 to a globally recognized leader in garment export. Our journey began with a simple mission: 
                 to create high-quality garments that meet international standards while maintaining competitive pricing.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Today, we proudly serve clients in {companyInfo.countries} countries, employing over {companyInfo.employees} 
+                Today, we proudly serve clients in 25+ countries, employing over 500 
                 skilled professionals who share our commitment to excellence. Our state-of-the-art manufacturing 
                 facility combines traditional craftsmanship with modern technology to deliver exceptional results.
               </p>
@@ -105,19 +187,19 @@ export default function About() {
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <span>Founded:</span>
-                    <span className="font-semibold">{companyInfo.founded}</span>
+                    <span className="font-semibold">2010</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Employees:</span>
-                    <span className="font-semibold">{companyInfo.employees}</span>
+                    <span className="font-semibold">500+</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Countries Served:</span>
-                    <span className="font-semibold">{companyInfo.countries}</span>
+                    <span className="font-semibold">25+</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Experience:</span>
-                    <span className="font-semibold">{companyInfo.experience}</span>
+                    <span className="font-semibold">14+ Years</span>
                   </div>
                 </div>
               </div>
@@ -161,6 +243,71 @@ export default function About() {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Leadership Team
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Meet the experienced professionals who drive our company's vision and ensure operational excellence.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {leadership.map((leader, index) => (
+              <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <span className="text-white font-bold text-2xl">{leader.name.split(' ').map(n => n[0]).join('')}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{leader.name}</h3>
+                  <p className="text-primary font-medium mb-2">{leader.position}</p>
+                  <p className="text-sm text-gray-600 mb-3">{leader.experience} Experience</p>
+                  <p className="text-xs text-gray-500 mb-3 font-medium">{leader.expertise}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{leader.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Strengths */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Core Strengths
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The key capabilities and advantages that set us apart in the global garment manufacturing industry.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {coreStrengths.map((strength, index) => {
+              const IconComponent = strength.icon;
+              return (
+                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{strength.title}</h3>
+                    <p className="text-sm text-gray-600 mb-3 leading-relaxed">{strength.description}</p>
+                    <div className="text-xs font-medium text-primary bg-blue-50 rounded-full px-3 py-1">
+                      {strength.metrics}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

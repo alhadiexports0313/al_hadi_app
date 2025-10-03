@@ -1,4 +1,4 @@
-import { ArrowRight, Award, Globe, Shield, Truck, Users, Star, CheckCircle, Clock, DollarSign, Wrench, Leaf } from 'lucide-react';
+import { ArrowRight, Award, Globe, Shield, Truck, Users, Star, CheckCircle, Clock, DollarSign, Wrench, Leaf, Target, Eye, Heart } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/Card';
 import { companyInfo, products, stats, whyChooseUs, testimonials } from '@/data/content';
@@ -54,6 +54,85 @@ export default function Home() {
                 <div className="text-xs sm:text-sm text-gray-500">{stat.description}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company Snapshot - Vision & Mission */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Company Snapshot
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Driving excellence in garment manufacturing through innovation, sustainability, and unwavering commitment to quality.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
+            {/* Vision */}
+            <Card className="text-center lg:text-left group hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex justify-center lg:justify-start mb-6">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Eye className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  To be the global leader in sustainable garment manufacturing, setting industry standards for quality, 
+                  innovation, and ethical practices while empowering communities and protecting our environment.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Mission */}
+            <Card className="text-center lg:text-left group hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex justify-center lg:justify-start mb-6">
+                  <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Target className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  To deliver world-class garments that combine traditional craftsmanship with modern innovation, 
+                  ensuring sustainable practices and exceeding customer expectations in quality, design, and service.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Core Values */}
+          <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8 lg:p-12">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Core Values</h3>
+              <p className="text-gray-600">The principles that guide everything we do</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Excellence</h4>
+                <p className="text-sm text-gray-600">Pursuing perfection in every stitch, every process, and every partnership.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Leaf className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Sustainability</h4>
+                <p className="text-sm text-gray-600">Committed to environmental responsibility and ethical manufacturing practices.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Heart className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Integrity</h4>
+                <p className="text-sm text-gray-600">Building trust through transparency, honesty, and reliable partnerships.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
