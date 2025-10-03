@@ -1,9 +1,19 @@
+'use client';
+
 import { ArrowRight, Award, Globe, Shield, Truck, Users, Star, CheckCircle, Clock, DollarSign, Wrench, Leaf, Target, Eye, Heart } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/Card';
 import { companyInfo, products, stats, whyChooseUs, testimonials } from '@/data/content';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   const iconMap = {
     Award,
     Globe,
@@ -19,25 +29,105 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-primary text-white py-16 sm:py-20 lg:py-32 overflow-hidden animate-gradient">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-up">
-              {companyInfo.tagline.split(' ').slice(0, 2).join(' ')}
-              <span className="block text-accent mt-2">{companyInfo.tagline.split(' ').slice(2).join(' ')}</span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in px-4">
-              {companyInfo.description}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in px-4">
-              <Button variant="accent" size="lg" className="text-lg w-full sm:w-auto">
-                View Our Products
+      {/* Hero Section - MANDATORY INTERACTIVITY */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Parallax Animation */}
+        <div 
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[3000ms] ease-out ${
+            isLoaded ? 'scale-105' : 'scale-100'
+          }`}
+          style={{
+            backgroundImage: `url('data:image/svg+xml;base64,${btoa(`
+              <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="garmentPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                    <rect width="200" height="200" fill="#1e40af"/>
+                    <circle cx="50" cy="50" r="20" fill="#3b82f6" opacity="0.3"/>
+                    <circle cx="150" cy="50" r="15" fill="#60a5fa" opacity="0.2"/>
+                    <circle cx="100" cy="150" r="25" fill="#93c5fd" opacity="0.4"/>
+                    <rect x="75" y="75" width="50" height="50" fill="#dbeafe" opacity="0.1"/>
+                  </pattern>
+                </defs>
+                <rect width="1920" height="1080" fill="url(#garmentPattern)"/>
+                <rect width="1920" height="1080" fill="url(#garmentPattern)" opacity="0.7"/>
+                <!-- Garment production elements -->
+                <g opacity="0.1">
+                  <rect x="200" y="200" width="100" height="150" rx="10" fill="#ffffff"/>
+                  <rect x="220" y="220" width="60" height="20" fill="#1e40af"/>
+                  <rect x="220" y="250" width="60" height="80" fill="#3b82f6"/>
+                  <circle cx="250" cy="180" r="15" fill="#60a5fa"/>
+                </g>
+                <g opacity="0.1">
+                  <rect x="800" y="300" width="120" height="180" rx="10" fill="#ffffff"/>
+                  <rect x="820" y="320" width="80" height="25" fill="#1e40af"/>
+                  <rect x="820" y="355" width="80" height="100" fill="#3b82f6"/>
+                  <circle cx="860" cy="290" r="18" fill="#60a5fa"/>
+                </g>
+                <g opacity="0.1">
+                  <rect x="1400" y="150" width="90" height="140" rx="10" fill="#ffffff"/>
+                  <rect x="1415" y="170" width="60" height="18" fill="#1e40af"/>
+                  <rect x="1415" y="195" width="60" height="75" fill="#3b82f6"/>
+                  <circle cx="1445" cy="140" r="12" fill="#60a5fa"/>
+                </g>
+                <!-- Sewing machine elements -->
+                <g opacity="0.08">
+                  <rect x="600" y="600" width="80" height="60" fill="#ffffff"/>
+                  <circle cx="640" cy="630" r="25" fill="#1e40af"/>
+                  <rect x="620" y="610" width="40" height="5" fill="#3b82f6"/>
+                </g>
+                <g opacity="0.08">
+                  <rect x="1200" y="700" width="80" height="60" fill="#ffffff"/>
+                  <circle cx="1240" cy="730" r="25" fill="#1e40af"/>
+                  <rect x="1220" y="710" width="40" height="5" fill="#3b82f6"/>
+                </g>
+              </svg>
+            `)}`
+          }}
+        />
+        
+        {/* Dark Semi-transparent Overlay */}
+        <div 
+          className="absolute inset-0 transition-opacity duration-2000 ease-out"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
+        />
+        
+        {/* Hero Content */}
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 transition-all duration-1000 ease-out ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            AL HADI EXPORTS
+          </h1>
+          
+          <p className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-12 font-light transition-all duration-1000 ease-out delay-300 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            Global Leaders in Knit Fashion & Retail Garments
+          </p>
+          
+          <div className={`transition-all duration-1000 ease-out delay-600 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <Link href="/products">
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="text-lg px-8 py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+              >
+                Explore Our Quality
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg border-white text-white hover:bg-white hover:text-primary w-full sm:w-auto">
-                Get Quote
-              </Button>
+            </Link>
+          </div>
+        </div>
+        
+        {/* Scroll Indicator */}
+        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white transition-all duration-1000 ease-out delay-1000 ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}>
+          <div className="animate-bounce">
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </div>
