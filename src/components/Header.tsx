@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, MapPin, Download } from 'lucide-react';
 import Link from 'next/link';
+import { Menu, X, Phone, Mail, MapPin, Download } from 'lucide-react';
+import { downloadCompanyProfilePDF } from '@/lib/utils';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -107,7 +108,10 @@ const Header = () => {
 
             {/* Primary CTA Button - Download Company Profile */}
             <div className="hidden lg:block">
-              <button className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-2 group">
+              <button 
+                onClick={downloadCompanyProfilePDF}
+                className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-2 group"
+              >
                 <Download className="w-4 h-4 group-hover:animate-bounce" />
                 <span>Download Company Profile</span>
               </button>
@@ -153,7 +157,10 @@ const Header = () => {
               <div className="pt-4 px-4">
                 <button 
                   className="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-4 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 group"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    downloadCompanyProfilePDF();
+                    setIsMenuOpen(false);
+                  }}
                 >
                   <Download className="w-4 h-4 group-hover:animate-bounce" />
                   <span>Download Company Profile</span>

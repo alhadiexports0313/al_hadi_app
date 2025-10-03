@@ -1,11 +1,12 @@
 'use client';
 
-import { ArrowRight, Award, Globe, Shield, Truck, Users, Star, CheckCircle, Clock, DollarSign, Wrench, Leaf, Target, Eye, Heart } from 'lucide-react';
+import { ArrowRight, Award, Globe, Shield, Truck, Users, Star, CheckCircle, Clock, DollarSign, Wrench, Leaf, Target, Eye, Heart, Download } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/Card';
 import { companyInfo, products, stats, whyChooseUs, testimonials } from '@/data/content';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { downloadCompanyProfilePDF } from '@/lib/utils';
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -105,7 +106,7 @@ export default function Home() {
             Global Leaders in Knit Fashion & Retail Garments
           </p>
           
-          <div className={`transition-all duration-1000 ease-out delay-600 ${
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 ease-out delay-600 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <Link href="/products">
@@ -118,6 +119,16 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+            
+            <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={downloadCompanyProfilePDF}
+              className="text-lg px-8 py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Company Profile
+            </Button>
           </div>
         </div>
         
