@@ -1,89 +1,105 @@
-import { CheckCircle, Clock, Cog, Factory, Shield, Award, Users, Zap, Leaf, Globe, ArrowRight, Settings, Truck, Target } from 'lucide-react';
+import { CheckCircle, Clock, Cog, Factory, Shield, Award, Users, Zap, Leaf, Globe, ArrowRight, Settings, Truck, Target, Scissors, Palette, Sparkles, Package, Search, Gauge, Wrench, Monitor } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
-import { certifications, services } from '@/data/content';
 
 export default function Manufacturing() {
+  // Enhanced Process Flow with specific manufacturing steps
   const processSteps = [
     {
       id: 1,
-      title: "Design & Development",
-      description: "Collaborative design process with our expert team to bring your vision to life",
-      icon: Target,
-      duration: "3-5 days",
-      details: ["Pattern making", "Tech pack creation", "Sample development", "Fit sessions"]
+      title: "Cutting",
+      description: "Precision fabric cutting using advanced CAD systems and automated cutting machines",
+      icon: Scissors,
+      duration: "2-3 days",
+      details: ["Pattern layout optimization", "Automated cutting systems", "Fabric waste minimization", "Quality marking"],
+      color: "from-blue-500 to-blue-600"
     },
     {
       id: 2,
-      title: "Material Sourcing",
-      description: "Premium fabric selection from certified suppliers worldwide",
-      icon: Globe,
-      duration: "5-7 days",
-      details: ["Fabric selection", "Quality testing", "Color matching", "Bulk ordering"]
+      title: "Stitching",
+      description: "Expert stitching using state-of-the-art sewing machines and skilled craftspeople",
+      icon: Settings,
+      duration: "8-12 days",
+      details: ["Single needle stitching", "Overlock finishing", "Flat lock seaming", "Button hole creation"],
+      color: "from-green-500 to-green-600"
     },
     {
       id: 3,
-      title: "Production Planning",
-      description: "Detailed production scheduling and resource allocation",
-      icon: Settings,
-      duration: "2-3 days",
-      details: ["Production timeline", "Resource allocation", "Quality checkpoints", "Delivery planning"]
+      title: "Embroidery/Dyeing",
+      description: "Custom embroidery and professional dyeing with eco-friendly processes",
+      icon: Palette,
+      duration: "3-5 days",
+      details: ["Custom embroidery designs", "Color matching", "Eco-friendly dyeing", "Print application"],
+      color: "from-purple-500 to-purple-600"
     },
     {
       id: 4,
-      title: "Manufacturing",
-      description: "Precision manufacturing using state-of-the-art machinery",
-      icon: Factory,
-      duration: "15-25 days",
-      details: ["Cutting", "Sewing", "Finishing", "Quality control"]
+      title: "Finishing",
+      description: "Professional finishing touches including pressing, trimming, and final assembly",
+      icon: Sparkles,
+      duration: "2-4 days",
+      details: ["Steam pressing", "Thread trimming", "Final assembly", "Accessory attachment"],
+      color: "from-orange-500 to-orange-600"
     },
     {
       id: 5,
-      title: "Quality Assurance",
-      description: "Rigorous quality testing at every stage of production",
-      icon: Shield,
-      duration: "2-3 days",
-      details: ["Final inspection", "Testing", "Packaging", "Documentation"]
-    },
-    {
-      id: 6,
-      title: "Shipping & Delivery",
-      description: "Secure packaging and timely delivery to your destination",
-      icon: Truck,
-      duration: "5-15 days",
-      duration_note: "Varies by location",
-      details: ["Packaging", "Documentation", "Shipping", "Tracking"]
+      title: "Quality Control",
+      description: "Comprehensive quality inspection ensuring every garment meets international standards",
+      icon: Search,
+      duration: "1-2 days",
+      details: ["Visual inspection", "Measurement verification", "Defect identification", "Final approval"],
+      color: "from-red-500 to-red-600"
     }
   ];
 
-  const facilities = [
+  // Enhanced Machinery Data with specific counts
+  const stitchingMachinery = [
+    { name: "Flat Lock", count: 85, icon: Settings, description: "Professional flat seaming" },
+    { name: "Single Needle", count: 129, icon: Zap, description: "Precision single needle stitching" },
+    { name: "Over Lock", count: 155, icon: Cog, description: "Edge finishing and seaming" },
+    { name: "Button Hole", count: 45, icon: Target, description: "Automated button hole creation" },
+    { name: "Button Attach", count: 38, icon: Package, description: "Button attachment machines" },
+    { name: "Blind Stitch", count: 22, icon: Wrench, description: "Invisible hemming machines" }
+  ];
+
+  const dyeingMachinery = [
+    { name: "Jet Dyeing", count: 12, icon: Palette, description: "High-efficiency jet dyeing machines" },
+    { name: "Beam Dyeing", count: 8, icon: Factory, description: "Large capacity beam dyeing" },
+    { name: "Sample Dyeing", count: 6, icon: Gauge, description: "Small batch sample dyeing" },
+    { name: "Washing Machines", count: 15, icon: Sparkles, description: "Industrial washing systems" },
+    { name: "Hydro Extractors", count: 10, icon: Zap, description: "Water extraction machines" },
+    { name: "Stenters", count: 4, icon: Monitor, description: "Fabric finishing machines" }
+  ];
+
+  // Enhanced Certifications with specific ones mentioned
+  const certifications = [
     {
-      title: "Cutting Department",
-      description: "Advanced automated cutting systems for precision and efficiency",
-      capacity: "10,000 pieces/day",
-      equipment: ["CAD cutting systems", "Laser cutting machines", "Fabric spreading tables"],
-      icon: Zap
+      name: "SEDEX",
+      fullName: "Supplier Ethical Data Exchange",
+      description: "Ethical trade and responsible business practices",
+      logo: "🏢",
+      benefits: ["Ethical sourcing", "Supply chain transparency", "Worker welfare"]
     },
     {
-      title: "Sewing Floor",
-      description: "Modern sewing lines with skilled craftspeople",
-      capacity: "5,000 garments/day",
-      equipment: ["Industrial sewing machines", "Overlock machines", "Button hole machines"],
-      icon: Cog
+      name: "BSCI",
+      fullName: "Business Social Compliance Initiative",
+      description: "Social compliance and sustainability standards",
+      logo: "🤝",
+      benefits: ["Social compliance", "Worker rights", "Environmental protection"]
     },
     {
-      title: "Finishing Unit",
-      description: "Complete finishing services for perfect garment presentation",
-      capacity: "8,000 pieces/day",
-      equipment: ["Steam pressing", "Ironing stations", "Packaging systems"],
-      icon: Award
+      name: "HIGG",
+      fullName: "Higg Index Facility Environmental Module",
+      description: "Environmental performance measurement",
+      logo: "🌱",
+      benefits: ["Environmental impact", "Sustainability metrics", "Resource efficiency"]
     },
     {
-      title: "Quality Control",
-      description: "Dedicated QC department ensuring highest standards",
-      capacity: "100% inspection",
-      equipment: ["Testing equipment", "Measurement tools", "Documentation systems"],
-      icon: Shield
+      name: "Accord Pakistan",
+      fullName: "Pakistan Accord on Fire and Building Safety",
+      description: "Workplace safety and building standards",
+      logo: "🛡️",
+      benefits: ["Fire safety", "Building safety", "Worker protection"]
     }
   ];
 
@@ -129,48 +145,86 @@ export default function Manufacturing() {
         </div>
       </section>
 
-      {/* Process Flow Timeline */}
+      {/* Enhanced Process Flow Timeline */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Manufacturing Process
+              Manufacturing Process Flow
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              From concept to delivery, our streamlined process ensures quality, efficiency, and timely completion of every order.
+              Our streamlined 5-step manufacturing process ensures quality, efficiency, and timely completion of every order.
             </p>
           </div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-primary h-full"></div>
-            
-            <div className="space-y-8 lg:space-y-12">
-              {processSteps.map((step, index) => {
-                const IconComponent = step.icon;
-                const isEven = index % 2 === 0;
-                
-                return (
-                  <div key={step.id} className={`flex flex-col lg:flex-row items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8`}>
-                    {/* Content Card */}
-                    <div className={`w-full lg:w-5/12 ${isEven ? 'lg:text-right' : 'lg:text-left'}`}>
-                      <Card className="group hover:shadow-xl transition-all duration-300">
-                        <CardContent className="p-6 lg:p-8">
-                          <div className={`flex items-center gap-4 mb-4 ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
-                            <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                              <IconComponent className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
-                              <div className="flex items-center gap-2 text-sm text-gray-500">
-                                <Clock className="w-4 h-4" />
-                                <span>{step.duration}</span>
-                                {step.duration_note && <span className="text-xs">({step.duration_note})</span>}
+          {/* Desktop Horizontal Timeline */}
+          <div className="hidden lg:block">
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-green-500 via-purple-500 via-orange-500 to-red-500 transform -translate-y-1/2"></div>
+              
+              <div className="flex justify-between items-center relative">
+                {processSteps.map((step, index) => {
+                  const IconComponent = step.icon;
+                  return (
+                    <div key={step.id} className="flex flex-col items-center group">
+                      {/* Timeline Node */}
+                      <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300 mb-6 relative z-10`}>
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                      
+                      {/* Content Card */}
+                      <Card className="w-64 group-hover:shadow-xl transition-all duration-300">
+                        <CardContent className="p-6 text-center">
+                          <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+                          <div className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-3">
+                            <Clock className="w-4 h-4" />
+                            <span>{step.duration}</span>
+                          </div>
+                          <p className="text-sm text-gray-600 mb-4">{step.description}</p>
+                          <div className="space-y-2">
+                            {step.details.map((detail, i) => (
+                              <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
+                                <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                                <span>{detail}</span>
                               </div>
-                            </div>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile/Tablet Vertical Timeline */}
+          <div className="lg:hidden">
+            <div className="relative">
+              {/* Vertical Timeline Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-green-500 via-purple-500 via-orange-500 to-red-500"></div>
+              
+              <div className="space-y-8">
+                {processSteps.map((step, index) => {
+                  const IconComponent = step.icon;
+                  return (
+                    <div key={step.id} className="flex items-start gap-6">
+                      {/* Timeline Node */}
+                      <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-lg relative z-10 flex-shrink-0`}>
+                        <IconComponent className="w-8 h-8 text-white" />
+                      </div>
+                      
+                      {/* Content Card */}
+                      <Card className="flex-1 hover:shadow-xl transition-all duration-300">
+                        <CardContent className="p-6">
+                          <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                          <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <Clock className="w-4 h-4" />
+                            <span>{step.duration}</span>
                           </div>
                           <p className="text-gray-600 mb-4">{step.description}</p>
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {step.details.map((detail, i) => (
                               <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
                                 <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
@@ -181,71 +235,68 @@ export default function Manufacturing() {
                         </CardContent>
                       </Card>
                     </div>
-
-                    {/* Timeline Node */}
-                    <div className="hidden lg:flex w-2/12 justify-center">
-                      <div className="w-8 h-8 bg-white border-4 border-primary rounded-full flex items-center justify-center shadow-lg">
-                        <span className="text-sm font-bold text-primary">{step.id}</span>
-                      </div>
-                    </div>
-
-                    {/* Spacer for alternating layout */}
-                    <div className="hidden lg:block w-5/12"></div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Facility Details */}
+      {/* Enhanced Facilities with Machinery Lists */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              World-Class Facilities
+              Manufacturing Facilities
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Our state-of-the-art manufacturing facilities are equipped with the latest technology and operated by skilled professionals.
+              Our state-of-the-art facilities house advanced machinery operated by skilled professionals.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {facilities.map((facility, index) => {
-              const IconComponent = facility.icon;
-              return (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300">
-                  <CardContent className="p-6 lg:p-8">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 text-white" />
+          {/* Stitching Machinery */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Stitching Department</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {stitchingMachinery.map((machine, index) => {
+                const IconComponent = machine.icon;
+                return (
+                  <Card key={index} className="group hover:shadow-xl transition-all duration-300">
+                    <CardContent className="p-6 text-center">
+                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="w-8 h-8 text-white" />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{facility.title}</h3>
-                        <p className="text-gray-600 mb-3">{facility.description}</p>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                          <Factory className="w-4 h-4" />
-                          <span>Capacity: {facility.capacity}</span>
-                        </div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{machine.name}</h4>
+                      <div className="text-3xl font-bold text-primary mb-2">{machine.count}</div>
+                      <p className="text-sm text-gray-600">{machine.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Dyeing Machinery */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Dyeing Department</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {dyeingMachinery.map((machine, index) => {
+                const IconComponent = machine.icon;
+                return (
+                  <Card key={index} className="group hover:shadow-xl transition-all duration-300">
+                    <CardContent className="p-6 text-center">
+                      <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="w-8 h-8 text-white" />
                       </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">Key Equipment:</h4>
-                      <div className="space-y-2">
-                        {facility.equipment.map((item, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                            <span>{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{machine.name}</h4>
+                      <div className="text-3xl font-bold text-accent mb-2">{machine.count}</div>
+                      <p className="text-sm text-gray-600">{machine.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -285,7 +336,7 @@ export default function Manufacturing() {
         </div>
       </section>
 
-      {/* Certifications */}
+      {/* Enhanced Certifications Grid */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
@@ -293,21 +344,25 @@ export default function Manufacturing() {
               International Certifications
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Our commitment to quality and sustainability is validated by internationally recognized certifications.
+              Our commitment to quality, ethics, and sustainability is validated by internationally recognized certifications.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
-              <Card key={cert.id} className="text-center group hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-primary">
                 <CardContent className="p-6">
-                  <div className="w-20 h-20 bg-gradient-accent rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <Award className="w-10 h-10 text-white" />
+                  {/* Logo Placeholder */}
+                  <div className="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 border-2 border-gray-300">
+                    <span className="text-4xl">{cert.logo}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{cert.name}</h3>
+                  
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{cert.name}</h3>
+                  <p className="text-xs text-gray-500 mb-3 font-medium">{cert.fullName}</p>
                   <p className="text-sm text-gray-600 mb-4">{cert.description}</p>
+                  
                   <div className="space-y-2">
-                    {cert.benefits.slice(0, 2).map((benefit, i) => (
+                    {cert.benefits.map((benefit, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
                         <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
                         <span>{benefit}</span>
