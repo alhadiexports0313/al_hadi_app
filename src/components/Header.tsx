@@ -73,46 +73,48 @@ const Header = () => {
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-            : 'bg-white shadow-md'
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
+            : 'bg-white/90 backdrop-blur-sm'
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo with Garment Icon */}
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-200">
-                <GarmentIcon />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 lg:h-20">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-3 group" aria-label="AL HADI EXPORTS Home">
+              <div className="relative">
+                <GarmentIcon className="w-10 h-10 lg:w-12 lg:h-12 text-primary group-hover:scale-110 transition-transform duration-200" />
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <div className="hidden sm:block">
+                <h1 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-200">
                   AL HADI EXPORTS
                 </h1>
-                <p className="text-xs text-gray-600 -mt-1">Premium Garments Since 1995</p>
+                <p className="text-xs lg:text-sm text-gray-600 -mt-1">Premium Garments Since 1995</p>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
               {navigationItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className="text-gray-700 hover:text-primary font-medium px-3 py-2 rounded-md text-sm transition-all duration-200 hover:bg-primary/5 relative group"
+                  aria-label={`Navigate to ${item.name}`}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full" aria-hidden="true"></span>
                 </Link>
               ))}
-            </div>
+            </nav>
 
             {/* Primary CTA Button - Download Company Profile */}
             <div className="hidden lg:block">
               <button 
                 onClick={downloadCompanyProfilePDF}
                 className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-2 group"
+                aria-label="Download company profile PDF"
               >
-                <Download className="w-4 h-4 group-hover:animate-bounce" />
+                <Download className="w-4 h-4 group-hover:animate-bounce" aria-hidden="true" />
                 <span>Download Company Profile</span>
               </button>
             </div>
@@ -122,20 +124,25 @@ const Header = () => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-700 hover:text-primary p-2 rounded-md transition-colors duration-200"
-                aria-label="Toggle mobile menu"
+                aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
               </button>
             </div>
           </div>
 
           {/* Enhanced Mobile Menu */}
           <div 
+            id="mobile-menu"
             className={`lg:hidden transition-all duration-300 ease-in-out ${
               isMenuOpen 
                 ? 'max-h-screen opacity-100 visible' 
                 : 'max-h-0 opacity-0 invisible'
             }`}
+            role="navigation"
+            aria-label="Mobile navigation"
           >
             <div className="px-2 pt-2 pb-6 space-y-1 bg-white border-t border-gray-200 shadow-xl rounded-b-lg">
               {navigationItems.map((item, index) => (
@@ -144,6 +151,7 @@ const Header = () => {
                   href={item.href}
                   className="text-gray-700 hover:text-primary hover:bg-primary/5 block px-4 py-4 rounded-lg text-base font-medium transition-all duration-200 border-l-4 border-transparent hover:border-primary transform hover:translate-x-1"
                   onClick={() => setIsMenuOpen(false)}
+                  aria-label={`Navigate to ${item.name}`}
                   style={{
                     animationDelay: `${index * 50}ms`,
                     animation: isMenuOpen ? 'slideInLeft 0.3s ease-out forwards' : 'none'
@@ -161,8 +169,9 @@ const Header = () => {
                     downloadCompanyProfilePDF();
                     setIsMenuOpen(false);
                   }}
+                  aria-label="Download company profile PDF"
                 >
-                  <Download className="w-4 h-4 group-hover:animate-bounce" />
+                  <Download className="w-4 h-4 group-hover:animate-bounce" aria-hidden="true" />
                   <span>Download Company Profile</span>
                 </button>
               </div>
@@ -171,22 +180,22 @@ const Header = () => {
               <div className="pt-4 px-4 border-t border-gray-100 mt-4">
                 <div className="space-y-3 text-sm text-gray-600">
                   <div className="flex items-center space-x-2">
-                    <Phone className="w-4 h-4 text-primary" />
-                    <span>+92 52 123 4567</span>
+                    <Phone className="w-4 h-4 text-primary" aria-hidden="true" />
+                    <a href="tel:+925212345678" className="hover:text-primary transition-colors">+92 52 123 4567</a>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Mail className="w-4 h-4 text-primary" />
-                    <span>info@alhadiexports.com</span>
+                    <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
+                    <a href="mailto:info@alhadiexports.com" className="hover:text-primary transition-colors">info@alhadiexports.com</a>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <MapPin className="w-4 h-4 text-primary" />
+                    <MapPin className="w-4 h-4 text-primary" aria-hidden="true" />
                     <span>Sialkot, Pakistan</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </nav>
+        </div>
       </header>
 
       {/* Mobile menu overlay */}
@@ -194,6 +203,7 @@ const Header = () => {
         <div 
           className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
         />
       )}
     </>

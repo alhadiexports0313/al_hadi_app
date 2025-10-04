@@ -62,32 +62,18 @@ export default function About() {
 
   const leadership = [
     {
-      name: "Muhammad Hassan",
+      name: "Danish Qazi",
       position: "Chief Executive Officer",
       experience: "15+ years",
       expertise: "Strategic Leadership & Global Business Development",
       description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion."
     },
     {
-      name: "Fatima Ahmed",
-      position: "Chief Operating Officer",
+      name: "Zeeshan Qazi",
+      position: "Director",
       experience: "12+ years",
-      expertise: "Operations Management & Quality Assurance",
-      description: "Ensuring operational excellence and maintaining our high-quality standards across all processes."
-    },
-    {
-      name: "Ali Raza",
-      position: "Head of Production",
-      experience: "18+ years",
-      expertise: "Manufacturing & Process Optimization",
-      description: "Overseeing production operations and implementing innovative manufacturing solutions."
-    },
-    {
-      name: "Sarah Khan",
-      position: "Director of Quality Control",
-      experience: "10+ years",
-      expertise: "Quality Management & Compliance",
-      description: "Maintaining our commitment to quality through rigorous testing and certification processes."
+      expertise: "Operations Management & Business Development",
+      description: "Driving operational excellence and strategic partnerships for global market expansion."
     }
   ];
 
@@ -248,32 +234,35 @@ export default function About() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-20">
+      <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Leadership Team
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Meet the experienced professionals who drive our company's vision and ensure operational excellence.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leadership.map((leader, index) => (
-              <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-2xl">{leader.name.split(' ').map(n => n[0]).join('')}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{leader.name}</h3>
-                  <p className="text-primary font-medium mb-2">{leader.position}</p>
-                  <p className="text-sm text-gray-600 mb-3">{leader.experience} Experience</p>
-                  <p className="text-xs text-gray-500 mb-3 font-medium">{leader.expertise}</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">{leader.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Centered grid for 2 leadership cards */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-4xl w-full">
+              {leadership.map((leader, index) => (
+                <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 mx-auto w-full max-w-sm">
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-bold text-2xl sm:text-3xl">{leader.name.split(' ').map(n => n[0]).join('')}</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">{leader.name}</h3>
+                    <p className="text-primary font-medium mb-3 text-base sm:text-lg">{leader.position}</p>
+                    <p className="text-sm sm:text-base text-gray-600 mb-3">{leader.experience} Experience</p>
+                    <p className="text-xs sm:text-sm text-gray-500 mb-4 font-medium">{leader.expertise}</p>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{leader.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
