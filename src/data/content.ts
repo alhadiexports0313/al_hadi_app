@@ -7,9 +7,9 @@ export const companyInfo = {
   countries: "25+",
   experience: "14+ Years",
   contact: {
-    phone: "+92-42-35123456",
+    phone: "+92-21-32434479, +92-300 2211587 ",
     email: "info@alhadiexports.com",
-    address: "Industrial Estate, Lahore, Pakistan",
+    address: "Industrial Estate, D/103-B S.I.T.E. Karachi-75700 Pakistan",
     website: "www.alhadiexports.com"
   },
   social: {
@@ -29,7 +29,7 @@ export const products = [
     features: ["Anti-Pill Fleece", "Adjustable Hood", "Kangaroo Pocket", "Ribbed Cuffs"],
     minOrder: "300 pieces",
     leadTime: "18-22 days",
-    image: "/api/placeholder/400/300",
+    image: "https://m.media-amazon.com/images/I/71Dmdf7sOSL._UY1000_.jpg",//"/api/placeholder/400/300",                       
     certifications: ["OEKO-TEX", "WRAP"]
   },
   {

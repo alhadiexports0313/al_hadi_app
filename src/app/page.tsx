@@ -31,106 +31,67 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section - MANDATORY INTERACTIVITY */}
-      <section 
+      <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24"
         role="banner"
         aria-label="Hero section with company introduction"
       >
         {/* Background Image with Parallax Animation */}
-        <div 
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[3000ms] ease-out ${
-            isLoaded ? 'scale-105' : 'scale-100'
-          }`}
+        <div
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed sm:bg-scroll transition-transform 
+            duration-[3000ms] ease-out ${isLoaded ? 'scale-105' : 'scale-100'
+            }`}
           style={{
-            backgroundImage: `url('data:image/svg+xml;base64,${btoa(`
-              <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="garmentPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-                    <rect width="200" height="200" fill="#1e40af"/>
-                    <circle cx="50" cy="50" r="20" fill="#3b82f6" opacity="0.3"/>
-                    <circle cx="150" cy="50" r="15" fill="#60a5fa" opacity="0.2"/>
-                    <circle cx="100" cy="150" r="25" fill="#93c5fd" opacity="0.4"/>
-                    <rect x="75" y="75" width="50" height="50" fill="#dbeafe" opacity="0.1"/>
-                  </pattern>
-                </defs>
-                <rect width="1920" height="1080" fill="url(#garmentPattern)"/>
-                <rect width="1920" height="1080" fill="url(#garmentPattern)" opacity="0.7"/>
-                <!-- Garment production elements -->
-                <g opacity="0.1">
-                  <rect x="200" y="200" width="100" height="150" rx="10" fill="#ffffff"/>
-                  <rect x="220" y="220" width="60" height="20" fill="#1e40af"/>
-                  <rect x="220" y="250" width="60" height="80" fill="#3b82f6"/>
-                  <circle cx="250" cy="180" r="15" fill="#60a5fa"/>
-                </g>
-                <g opacity="0.1">
-                  <rect x="800" y="300" width="120" height="180" rx="10" fill="#ffffff"/>
-                  <rect x="820" y="320" width="80" height="25" fill="#1e40af"/>
-                  <rect x="820" y="355" width="80" height="100" fill="#3b82f6"/>
-                  <circle cx="860" cy="290" r="18" fill="#60a5fa"/>
-                </g>
-                <g opacity="0.1">
-                  <rect x="1400" y="150" width="90" height="140" rx="10" fill="#ffffff"/>
-                  <rect x="1415" y="170" width="60" height="18" fill="#1e40af"/>
-                  <rect x="1415" y="195" width="60" height="75" fill="#3b82f6"/>
-                  <circle cx="1445" cy="140" r="12" fill="#60a5fa"/>
-                </g>
-                <!-- Sewing machine elements -->
-                <g opacity="0.08">
-                  <rect x="600" y="600" width="80" height="60" fill="#ffffff"/>
-                  <circle cx="640" cy="630" r="25" fill="#1e40af"/>
-                  <rect x="620" y="610" width="40" height="5" fill="#3b82f6"/>
-                </g>
-                <g opacity="0.08">
-                  <rect x="1200" y="700" width="80" height="60" fill="#ffffff"/>
-                  <circle cx="1240" cy="730" r="25" fill="#1e40af"/>
-                  <rect x="1220" y="710" width="40" height="5" fill="#3b82f6"/>
-                </g>
-              </svg>
-            `)}`
+            backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFxGzCiqz86ijTvPUyrjUyXRFOd5W4UNMHQ&s')`,
+            backgroundAttachment: 'scroll', //'fixed',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center', //'center center',
+            backgroundRepeat: 'no-repeat',
+            imageRendering: 'auto', // ensures smooth rendering
+            transform: 'translateZ(0)', // GPU render optimization
           }}
         />
+
+        {/* Professional Gradient Overlay for Text Readability */}
+        {/*<div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-slate-900/75"></div>
         
-        {/* Dark Semi-transparent Overlay */}
-        <div 
-          className="absolute inset-0 transition-opacity duration-2000 ease-out"
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
-        />
+        {/* Additional Subtle Overlay for Enhanced Contrast */}
+        {/*<div className="absolute inset-0 bg-black/20"></div>
+        
+
         
         {/* Hero Content */}
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
-          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight transition-all duration-1000 ease-out ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+        <div className="relative z-10 text-center text-blue-950 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
             AL HADI EXPORTS
           </h1>
-          
-          <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-8 sm:mb-10 lg:mb-12 font-light leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+
+          <p className={`text-lg sm:text-xl text-white md:text-2xl lg:text-3xl xl:text-4xl mb-8 sm:mb-10 lg:mb-12 font-light leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
             Global Leaders in Knit Fashion & Retail Garments
           </p>
-          
-          <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-lg mx-auto transition-all duration-1000 ease-out delay-600 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <Link 
-              href="/products" 
+
+          <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-lg mx-auto transition-all duration-1000 ease-out delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+            <Link
+              href="/products"
               className="w-full sm:w-auto"
               aria-label="Explore our quality products"
             >
-              <Button 
-                variant="secondary" 
-                size="lg" 
+              <Button
+                variant="secondary"
+                size="lg"
                 className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
               >
                 Explore Our Quality
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               </Button>
             </Link>
-            
-            <Button 
-              variant="outline" 
-              size="lg" 
+
+            <Button
+              variant="outline"
+              size="lg"
               onClick={downloadCompanyProfilePDF}
               className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
               aria-label="Download company profile PDF"
@@ -140,11 +101,10 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        
+
         {/* Scroll Indicator */}
-        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white transition-all duration-1000 ease-out delay-1000 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}>
+        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white transition-all duration-1000 ease-out delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
           <div className="animate-bounce">
             <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
               <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
@@ -158,7 +118,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-4 rounded-lg hover:bg-white transition-colors animate-fade-in" style={{animationDelay: `${index * 100}ms`}}>
+              <div key={index} className="text-center p-4 rounded-lg hover:bg-white transition-colors animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
                 <div className="text-gray-600 font-medium text-xs sm:text-sm md:text-base">{stat.label}</div>
                 <div className="text-xs sm:text-sm text-gray-500">{stat.description}</div>
@@ -191,7 +151,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-                  To be the global leader in sustainable garment manufacturing, setting industry standards for quality, 
+                  To be the global leader in sustainable garment manufacturing, setting industry standards for quality,
                   innovation, and ethical practices while empowering communities and protecting our environment.
                 </p>
               </CardContent>
@@ -207,7 +167,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Our Mission</h3>
                 <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-                  To deliver world-class garments that combine traditional craftsmanship with modern innovation, 
+                  To deliver world-class garments that combine traditional craftsmanship with modern innovation,
                   ensuring sustainable practices and exceeding customer expectations in quality, design, and service.
                 </p>
               </CardContent>
@@ -258,7 +218,7 @@ export default function Home() {
               We combine traditional craftsmanship with modern technology to deliver exceptional garments that meet global standards.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyChooseUs.map((feature, index) => {
               const IconComponent = iconMap[feature.icon as keyof typeof iconMap];
@@ -291,10 +251,10 @@ export default function Home() {
               From formal wear to casual clothing, we manufacture a diverse range of high-quality garments for global markets.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {products.slice(0, 6).map((product, index) => (
-              <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 100}ms`}}>
+              <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className={`h-40 sm:h-48 ${index % 2 === 0 ? 'bg-gradient-primary' : 'bg-gradient-accent'} flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
                   <div className="text-white text-center">
                     <div className="text-4xl sm:text-6xl mb-2 group-hover:scale-110 transition-transform duration-300">👔</div>
@@ -324,7 +284,7 @@ export default function Home() {
               </Card>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <Button variant="primary" size="lg">
               View All Products
@@ -344,7 +304,7 @@ export default function Home() {
               Trusted by businesses worldwide for quality, reliability, and exceptional service.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
               <Card key={testimonial.id} className="text-center">

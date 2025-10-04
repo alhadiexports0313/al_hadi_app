@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -66,14 +67,16 @@ export default function About() {
       position: "Chief Executive Officer",
       experience: "15+ years",
       expertise: "Strategic Leadership & Global Business Development",
-      description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion."
+      description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion.",
+      image: "/images/leadership/danish_img_final.jpg"
     },
     {
       name: "Zeeshan Qazi",
       position: "Director",
       experience: "12+ years",
       expertise: "Operations Management & Business Development",
-      description: "Driving operational excellence and strategic partnerships for global market expansion."
+      description: "Driving operational excellence and strategic partnerships for global market expansion.",
+      image: "/images/leadership/zeesahn_image2.png"
     }
   ];
 
@@ -154,13 +157,13 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in 2010, {companyInfo.name} has grown from a small local manufacturer 
-                to a globally recognized leader in garment export. Our journey began with a simple mission: 
+                Founded in 2010, {companyInfo.name} has grown from a small local manufacturer
+                to a globally recognized leader in garment export. Our journey began with a simple mission:
                 to create high-quality garments that meet international standards while maintaining competitive pricing.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Today, we proudly serve clients in 25+ countries, employing over 500 
-                skilled professionals who share our commitment to excellence. Our state-of-the-art manufacturing 
+                Today, we proudly serve clients in 25+ countries, employing over 500
+                skilled professionals who share our commitment to excellence. Our state-of-the-art manufacturing
                 facility combines traditional craftsmanship with modern technology to deliver exceptional results.
               </p>
               <Button variant="primary" size="lg">
@@ -207,8 +210,8 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To manufacture and export premium quality garments that exceed customer expectations 
-                  while maintaining sustainable and ethical business practices. We strive to be the 
+                  To manufacture and export premium quality garments that exceed customer expectations
+                  while maintaining sustainable and ethical business practices. We strive to be the
                   preferred partner for businesses seeking reliable, high-quality garment manufacturing solutions.
                 </p>
               </CardContent>
@@ -223,8 +226,8 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To become the world's most trusted garment manufacturer, known for innovation, 
-                  sustainability, and exceptional quality. We envision a future where our products 
+                  To become the world's most trusted garment manufacturer, known for innovation,
+                  sustainability, and exceptional quality. We envision a future where our products
                   contribute to a more sustainable fashion industry while empowering communities globally.
                 </p>
               </CardContent>
@@ -244,26 +247,40 @@ export default function About() {
               Meet the experienced professionals who drive our company's vision and ensure operational excellence.
             </p>
           </div>
-          
-          {/* Centered grid for 2 leadership cards */}
+          {/*Centered grid for 2 leadership cards */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-4xl w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 max-w-5xl w-full">
               {leadership.map((leader, index) => (
-                <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 mx-auto w-full max-w-sm">
+                <Card
+                  key={index}
+                  className="text-center group hover:shadow-2xl transition-all duration-300 mx-auto w-full max-w-md bg-yellow-200 rounded-2xl"
+                >
                   <CardContent className="p-6 sm:p-8">
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-2xl sm:text-3xl">{leader.name.split(' ').map(n => n[0]).join('')}</span>
+                    {/* Full-width image section */}
+                    <div className="relative w-full h-80 sm:h-96 mb-4 overflow-hidden rounded-lg border-4 border-primary/20 shadow-lg">
+                      <Image
+                        src={leader.image}
+                        alt={`${leader.name} - ${leader.position}`}
+                        fill
+                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        sizes="100vw"
+                      />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">{leader.name}</h3>
-                    <p className="text-primary font-medium mb-3 text-base sm:text-lg">{leader.position}</p>
-                    <p className="text-sm sm:text-base text-gray-600 mb-3">{leader.experience} Experience</p>
-                    <p className="text-xs sm:text-sm text-gray-500 mb-4 font-medium">{leader.expertise}</p>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{leader.description}</p>
+
+                    {/* Text content with white color and compact spacing */}
+                    <div className="space-y-0.5">
+                      <h3 className="text-2xl sm:text-3xl font-bold">{leader.name}</h3>
+                      <p className="font-semibold text-lg sm:text-xl text-blue-500">{leader.position}</p>
+                      <p className="text-base sm:text-lg font-medium text-blue-500">{leader.experience} Experience</p>
+                      <p className="text-sm sm:text-base italic text-blue-500">{leader.expertise}</p>
+                      <p className="text-base sm:text-lg leading-relaxed pt-1 text-gray-400">{leader.description}</p>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
@@ -278,7 +295,7 @@ export default function About() {
               The key capabilities and advantages that set us apart in the global garment manufacturing industry.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreStrengths.map((strength, index) => {
               const IconComponent = strength.icon;
@@ -312,7 +329,7 @@ export default function About() {
               These values guide every decision we make and every relationship we build.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
               const IconComponent = value.icon;
@@ -345,7 +362,7 @@ export default function About() {
               Key milestones that have shaped our company's growth and success.
             </p>
           </div>
-          
+
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-primary"></div>
             <div className="space-y-12">
@@ -382,7 +399,7 @@ export default function About() {
               Numbers that reflect our commitment to excellence and growth.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
@@ -406,7 +423,7 @@ export default function About() {
               Our commitment to quality and sustainability is validated by international certifications.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
               <Card key={index} className="text-center">

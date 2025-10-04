@@ -11,12 +11,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "AL HADI EXPORTS - Premium Garments Manufacturer & Exporter",
-  description: "Leading manufacturer and exporter of premium quality garments since 1995. Specializing in custom apparel manufacturing, private labeling, and worldwide shipping from Sialkot, Pakistan.",
-  keywords: "garments export, clothing manufacturer, custom apparel, private label, textile export, Pakistan garments, Sialkot textiles",
+  description: "Leading manufacturer and exporter of premium quality garments since 2000. Specializing in custom apparel manufacturing, private labeling, and worldwide shipping from Karachi, Pakistan.",
+  keywords: "garments export, clothing manufacturer, custom apparel, private label, textile export, Pakistan garments, Karachi textiles",
   authors: [{ name: "AL HADI EXPORTS" }],
   openGraph: {
     title: "AL HADI EXPORTS - Premium Garments Manufacturer",
-    description: "Leading garments manufacturer and exporter from Pakistan since 1995",
+    description: "Leading garments manufacturer and exporter from Pakistan since 2000",
     type: "website",
     locale: "en_US",
   },
