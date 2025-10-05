@@ -344,11 +344,18 @@ export default function Home() {
             Contact us today to discuss your garment manufacturing needs and get a customized quote for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="lg" className="flex items-center justify-center">
-              Get Quote Now
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Link href="/contact">
+              <Button variant="accent" size="lg" className="flex items-center justify-center">
+                Get Quote Now
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-white text-white hover:bg-white hover:text-primary"
+              onClick={downloadCompanyProfilePDF}
+            >
               Download Catalog
             </Button>
           </div>

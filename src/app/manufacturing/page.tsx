@@ -1,3 +1,6 @@
+'use client';
+
+import Link from 'next/link';
 import { CheckCircle, Clock, Cog, Factory, Shield, Award, Users, Zap, Leaf, Globe, ArrowRight, Settings, Truck, Target, Scissors, Palette, Sparkles, Package, Search, Gauge, Wrench, Monitor } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
@@ -134,10 +137,28 @@ export default function Manufacturing() {
               ensure every garment meets the highest international standards.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="accent" size="lg" className="text-lg">
+              <Button 
+                variant="accent" 
+                size="lg" 
+                className="text-lg"
+                onClick={() => {
+                  const element = document.getElementById('manufacturing-process');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 View Our Process
               </Button>
-              <Button variant="outline" size="lg" className="text-lg border-white text-white hover:bg-white hover:text-primary">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg border-white text-white hover:bg-white hover:text-primary"
+                onClick={() => {
+                  // You can replace this with actual capabilities download functionality
+                  alert('Manufacturing capabilities brochure download will be available soon. Please contact us for immediate access.');
+                }}
+              >
                 Download Capabilities
               </Button>
             </div>
@@ -146,7 +167,7 @@ export default function Manufacturing() {
       </section>
 
       {/* Enhanced Process Flow Timeline */}
-      <section className="py-16 sm:py-20">
+      <section id="manufacturing-process" className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -386,11 +407,21 @@ export default function Manufacturing() {
             Partner with us for world-class garment manufacturing that combines quality, efficiency, and sustainability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="lg" className="flex items-center justify-center">
-              Request Factory Tour
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Link href="/contact">
+              <Button variant="accent" size="lg" className="flex items-center justify-center">
+                Request Factory Tour
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => {
+                // You can replace this with actual brochure download functionality
+                alert('Capabilities brochure download will be available soon. Please contact us for immediate access.');
+              }}
+            >
               Download Capabilities Brochure
             </Button>
           </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { products } from '@/data/content';
 import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck } from 'lucide-react';
 
@@ -337,10 +338,15 @@ export default function ProductsPage() {
 
                     {/* Action Buttons */}
                     <div className="flex gap-3">
-                      <button className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm font-medium">
-                        Get Quote
-                      </button>
-                      <button className="flex-1 border border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors duration-300 text-sm font-medium">
+                      <Link href="/contact" className="flex-1">
+                        <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm font-medium">
+                          Get Quote
+                        </button>
+                      </Link>
+                      <button 
+                        className="flex-1 border border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors duration-300 text-sm font-medium"
+                        onClick={() => alert(`Product Details:\n\nName: ${product.name}\nCategory: ${product.category}\nDescription: ${product.description}\nFeatures: ${product.features.join(', ')}\nMin Order: ${product.minOrder}\nLead Time: ${product.leadTime}\nCertifications: ${product.certifications.join(', ')}`)}
+                      >
                         Details
                       </button>
                     </div>
@@ -556,9 +562,11 @@ export default function ProductsPage() {
             Contact our team today to discuss your requirements and get a customized quote
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300">
-              Request Quote
-            </button>
+            <Link href="/contact">
+              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300">
+                Request Quote
+              </button>
+            </Link>
             <button 
               onClick={generateProductCataloguePDF}
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center gap-2"

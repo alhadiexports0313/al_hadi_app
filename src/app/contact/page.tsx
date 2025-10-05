@@ -241,7 +241,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Enhanced Contact Form */}
-            <div>
+            <div id="contact-form">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Get a Custom Quote
               </h2>
@@ -581,11 +581,28 @@ export default function ContactPage() {
             Join 500+ satisfied clients worldwide. Get your custom quote and samples within 24-48 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={() => {
+                const element = document.getElementById('contact-form');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               <FileText className="h-5 w-5 mr-2" />
               Request Detailed Quote
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => {
+                // You can replace this with actual catalog download functionality
+                alert('Catalog download will be available soon. Please contact us for immediate access to our full product catalog.');
+              }}
+            >
               <Globe className="h-5 w-5 mr-2" />
               Download Full Catalog
             </Button>

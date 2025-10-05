@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Globe, MapPin, Users, TrendingUp, Award, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -291,12 +292,16 @@ export default function Customers() {
             support your garment manufacturing needs with our proven expertise and reliability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="lg">
-              Start Partnership
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-              Schedule Consultation
-            </Button>
+            <Link href="/contact">
+              <Button variant="accent" size="lg">
+                Start Partnership
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                Schedule Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
