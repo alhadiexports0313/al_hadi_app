@@ -291,9 +291,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="primary" size="lg">
-              View All Products
-            </Button>
+            <Link href="/products">
+              <Button variant="primary" size="lg">
+                View All Products
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
