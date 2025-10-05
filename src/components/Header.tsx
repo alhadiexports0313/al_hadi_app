@@ -83,7 +83,7 @@ const Header = () => {
               {/* <div className="relative">
                 <GarmentIcon />
               </div> */}
-              <div className="relative w-10 h-10">
+              <div className="relative w-25 h-25">
                 <img
                   src="/images/about us/logo.png" 
                   alt="AL HADI EXPORTS Logo"

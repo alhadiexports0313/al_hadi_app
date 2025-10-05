@@ -1,8 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { companyInfo, certifications, stats } from '@/data/content';
+import { downloadCompanyProfilePDF } from '@/lib/utils';
 
 export default function About() {
   const milestones = [
@@ -166,9 +169,12 @@ export default function About() {
                 skilled professionals who share our commitment to excellence. Our state-of-the-art manufacturing
                 facility combines traditional craftsmanship with modern technology to deliver exceptional results.
               </p>
-              <Button variant="primary" size="lg">
+              <button 
+                className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                onClick={downloadCompanyProfilePDF}
+              >
                 Download Company Profile
-              </Button>
+              </button>
             </div>
             <div className="relative">
               <div className="bg-gradient-primary rounded-2xl p-8 text-white">
