@@ -42,7 +42,7 @@ export default function Home() {
             duration-[3000ms] ease-out ${isLoaded ? 'scale-105' : 'scale-100'
             }`}
           style={{
-            backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFxGzCiqz86ijTvPUyrjUyXRFOd5W4UNMHQ&s')`,
+            backgroundImage: `url('./images/manufacturing/manfucture_15.jpg')`,
             backgroundAttachment: 'scroll', //'fixed',
             backgroundSize: 'cover',
             backgroundPosition: 'center', //'center center',
@@ -61,13 +61,13 @@ export default function Home() {
 
         
         {/* Hero Content */}
-        <div className="relative z-10 text-center text-blue-950 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
+        <div className="relative z-10 text-center text-gray-900 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
           <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
             AL HADI EXPORTS
           </h1>
 
-          <p className={`text-lg sm:text-xl text-white md:text-2xl lg:text-3xl xl:text-4xl mb-8 sm:mb-10 lg:mb-12 font-light leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          <p className={`text-lg sm:text-xl text-gray-900 md:text-2xl lg:text-3xl xl:text-4xl mb-8 sm:mb-10 lg:mb-12 font-bold leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
             Global Leaders in Knit Fashion & Retail Garments
           </p>
@@ -82,7 +82,7 @@ export default function Home() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+                className="w-full sm:w-auto text-gray-900 sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
               >
                 Explore Our Quality
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
@@ -93,7 +93,7 @@ export default function Home() {
               variant="outline"
               size="lg"
               onClick={downloadCompanyProfilePDF}
-              className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+              className="w-full sm:w-auto text-gray-900 sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30"
               aria-label="Download company profile PDF"
             >
               <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
@@ -151,8 +151,11 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-                  To be the global leader in sustainable garment manufacturing, setting industry standards for quality,
-                  innovation, and ethical practices while empowering communities and protecting our environment.
+                  To emerge as a global pioneer in sustainable garment manufacturing, setting new benchmarks for quality, innovation, 
+                  and ethical excellence. Our core policy champions women’s empowerment and well-being, while our long-term goals 
+                  emphasize eco-friendly production and a steadfast commitment to reducing our carbon footprint. 
+                  Through these principles, we strive to foster a sustainable, inclusive, and forward-thinking work environment
+                   that benefits both people and the planet.
                 </p>
               </CardContent>
             </Card>
@@ -167,8 +170,10 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Our Mission</h3>
                 <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-                  To deliver world-class garments that combine traditional craftsmanship with modern innovation,
-                  ensuring sustainable practices and exceeding customer expectations in quality, design, and service.
+                  To create exceptional garments that blend traditional craftsmanship with modern innovation. 
+                  We are dedicated to sustainability, ethical production, and continuous improvement — ensuring 
+                  every product exceeds customer expectations in quality, design, and service, while fostering 
+                  a positive impact on people and the planet through responsible and forward-thinking manufacturing practices..
                 </p>
               </CardContent>
             </Card>

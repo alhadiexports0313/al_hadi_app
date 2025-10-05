@@ -29,7 +29,7 @@ export const products = [
     features: ["Anti-Pill Fleece", "Adjustable Hood", "Kangaroo Pocket", "Ribbed Cuffs"],
     minOrder: "300 pieces",
     leadTime: "18-22 days",
-    image: "https://m.media-amazon.com/images/I/71Dmdf7sOSL._UY1000_.jpg",//"/api/placeholder/400/300",                       
+    image:"/api/placeholder/400/300",                       
     certifications: ["OEKO-TEX", "WRAP"]
   },
   {

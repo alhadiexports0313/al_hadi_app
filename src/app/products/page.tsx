@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { products } from '@/data/content';
 import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck } from 'lucide-react';
 
@@ -85,9 +86,31 @@ const generateProductCataloguePDF = () => {
   URL.revokeObjectURL(url);
 };
 
+// Function to get all product images from the all_products folder
+const getProductImages = () => {
+  // This would typically be done server-side, but for demo purposes
+  // we'll create a list of known images that can be expanded
+  const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
+  const knownImages = [
+    'Fleece_Hooded_Jackets.jpg',
+    "Fleece_Hooded_Jackets_1.jpg",
+    "fleece_sweatshirts_1.jpg",
+    "fleece_sweatshirts_2.jpg",
+    "fleece_sweatshirts.jpg"
+    // Add more images as they are added to the folder
+  ];
+  
+  return knownImages.map(imageName => ({
+    name: imageName.replace(/\.[^/.]+$/, "").replace(/_/g, ' '), // Remove extension and replace underscores
+    src: `/images/products/man/${imageName}`,
+    category: 'Product Gallery'
+  }));
+};
+
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const [productImages, setProductImages] = useState(getProductImages());
 
   // Get unique categories
   const categories = ['All', ...Array.from(new Set(products.map(product => product.category)))];
@@ -334,6 +357,100 @@ export default function ProductsPage() {
               </p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* All Products Image Gallery */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Product Gallery
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our premium collection of garments with high-quality images showcasing our craftsmanship and attention to detail.
+            </p>
+          </div>
+
+          {/* Dynamic Product Images Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:gap-8">
+            {productImages.map((product, index) => (
+              <div
+                key={index}
+                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden"
+              >
+                {/* Image Container */}
+                <div className="relative aspect-square overflow-hidden rounded-t-2xl">
+                  <Image
+                    src={product.src}
+                    alt={product.name}
+                    fill
+                    className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                  />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 className="font-semibold text-gray-900 text-sm truncate">
+                          {product.name}
+                        </h3>
+                        <p className="text-xs text-gray-600 mt-1">
+                          Premium Quality
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Product Info */}
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 text-center text-sm group-hover:text-blue-600 transition-colors duration-300">
+                    {product.name}
+                  </h3>
+                </div>
+
+                {/* Decorative Border */}
+                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-200 transition-colors duration-300"></div>
+              </div>
+            ))}
+
+            {/* Add More Products Placeholder */}
+            <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border-2 border-dashed border-blue-300">
+              <div className="aspect-square flex flex-col items-center justify-center p-6">
+                <div className="w-16 h-16 bg-blue-200 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-300 transition-colors duration-300">
+                  <Package className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="font-semibold text-blue-800 text-center text-sm mb-2">
+                  More Products
+                </h3>
+                <p className="text-xs text-blue-600 text-center">
+                  Coming Soon
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Gallery Stats */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">{productImages.length}+</div>
+              <div className="text-gray-600">Product Images</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">HD</div>
+              <div className="text-gray-600">Quality Images</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
+              <div className="text-gray-600">Authentic Products</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-gray-600">Gallery Updates</div>
+            </div>
+          </div>
         </div>
       </section>
 

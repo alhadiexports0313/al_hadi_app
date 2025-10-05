@@ -46,7 +46,7 @@ const Footer = () => {
               <h3 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent mb-4">
                 AL HADI EXPORTS
               </h3>
-              <p className="text-blue-100 text-sm mb-2">Premium Garments Since 1995</p>
+              <p className="text-blue-100 text-sm mb-2">Premium Garments Since 2010</p>
             </div>
             
             {/* Mission Statement Summary */}
@@ -141,14 +141,14 @@ const Footer = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-gray-300 text-sm">Export Processing Zone</p>
+                    <p className="text-gray-300 text-sm">S.I.T.E Area</p>
                     <p className="text-gray-300 text-sm">Karachi, Sindh</p>
                     <p className="text-gray-300 text-sm">Pakistan 75700</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  <p className="text-gray-300 text-sm">+92 21 123 4567</p>
+                  <p className="text-gray-300 text-sm">+92 0300 2211587</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
@@ -171,7 +171,7 @@ const Footer = () => {
                 © {currentYear} AL HADI EXPORTS. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs">
-                Committed to excellence in garment manufacturing and export since 1995.
+                Committed to excellence in garment manufacturing and export since 2010.
               </p>
             </div>
             <div className="flex flex-wrap justify-center lg:justify-end space-x-6 text-sm">

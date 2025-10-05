@@ -30,18 +30,18 @@ const Header = () => {
 
   // Garment Icon SVG Component
   const GarmentIcon = () => (
-    <svg 
-      className="w-8 h-8 text-primary" 
-      viewBox="0 0 24 24" 
-      fill="none" 
+    <svg
+      className="w-8 h-8 text-primary"
+      viewBox="0 0 24 24"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path 
-        d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V20C19 21.1 18.1 22 17 22H7C5.9 22 5 21.1 5 20V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V20H17V6H7Z" 
+      <path
+        d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V20C19 21.1 18.1 22 17 22H7C5.9 22 5 21.1 5 20V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V20H17V6H7Z"
         fill="currentColor"
       />
-      <path 
-        d="M9 8H15V10H9V8ZM9 12H15V14H9V12Z" 
+      <path
+        d="M9 8H15V10H9V8ZM9 12H15V14H9V12Z"
         fill="currentColor"
       />
     </svg>
@@ -55,7 +55,7 @@ const Header = () => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="w-4 h-4" />
-              <span>+92 52 123 4567</span>
+              <span>+92 300 2211587 - +92 322 2214479</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4" />
@@ -64,31 +64,37 @@ const Header = () => {
           </div>
           <div className="flex items-center space-x-2">
             <MapPin className="w-4 h-4" />
-            <span>Sialkot, Pakistan</span>
+            <span>Karachi, Pakistan</span>
           </div>
         </div>
       </div>
 
       {/* Main Navigation Header */}
-      <header 
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
             : 'bg-white/90 backdrop-blur-sm'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group" aria-label="AL HADI EXPORTS Home">
-              <div className="relative">
-                <GarmentIcon className="w-10 h-10 lg:w-12 lg:h-12 text-primary group-hover:scale-110 transition-transform duration-200" />
+              {/* <div className="relative">
+                <GarmentIcon />
+              </div> */}
+              <div className="relative w-10 h-10">
+                <img
+                  src="/images/about us/logo.png" 
+                  alt="AL HADI EXPORTS Logo"
+                  className="object-contain w-full h-full rounded-lg transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-200">
                   AL HADI EXPORTS
                 </h1>
-                <p className="text-xs lg:text-sm text-gray-600 -mt-1">Premium Garments Since 1995</p>
+                <p className="text-xs lg:text-sm text-gray-600 -mt-1">Premium Garments Since 2010</p>
               </div>
             </Link>
 
@@ -109,7 +115,7 @@ const Header = () => {
 
             {/* Primary CTA Button - Download Company Profile */}
             <div className="hidden lg:block">
-              <button 
+              <button
                 onClick={downloadCompanyProfilePDF}
                 className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-2 group"
                 aria-label="Download company profile PDF"
@@ -134,13 +140,12 @@ const Header = () => {
           </div>
 
           {/* Enhanced Mobile Menu */}
-          <div 
+          <div
             id="mobile-menu"
-            className={`lg:hidden transition-all duration-300 ease-in-out ${
-              isMenuOpen 
-                ? 'max-h-screen opacity-100 visible' 
+            className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen
+                ? 'max-h-screen opacity-100 visible'
                 : 'max-h-0 opacity-0 invisible'
-            }`}
+              }`}
             role="navigation"
             aria-label="Mobile navigation"
           >
@@ -160,10 +165,10 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              
+
               {/* Mobile CTA Button */}
               <div className="pt-4 px-4">
-                <button 
+                <button
                   className="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-4 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 group"
                   onClick={() => {
                     downloadCompanyProfilePDF();
@@ -200,7 +205,7 @@ const Header = () => {
 
       {/* Mobile menu overlay */}
       {isMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
