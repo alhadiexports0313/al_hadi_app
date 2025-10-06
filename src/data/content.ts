@@ -4,7 +4,7 @@ export const companyInfo = {
   description: "Leading manufacturer and exporter of high-quality garments, serving international markets with excellence since 2010. We specialize in sustainable fashion production with state-of-the-art facilities.",
   founded: "2010",
   employees: "500+",
-  countries: "25+",
+  countries: "15+",
   experience: "14+ Years",
   contact: {
     phone: "+92-21-32434479, +92-300 2211587 ",
@@ -27,10 +27,10 @@ export const products = [
     category: "Outerwear",
     description: "Premium fleece hooded jackets with superior warmth and comfort for casual and athletic wear.",
     features: ["Anti-Pill Fleece", "Adjustable Hood", "Kangaroo Pocket", "Ribbed Cuffs"],
-    minOrder: "300 pieces",
-    leadTime: "18-22 days",
+    minOrder: "1500 pieces one /color",
+    leadTime: "30-45 days",
     image:"/api/placeholder/400/300",                       
-    certifications: ["OEKO-TEX", "WRAP"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 2,
@@ -38,10 +38,10 @@ export const products = [
     category: "Casual Wear",
     description: "Classic polo shirts in premium cotton pique with modern fit and professional styling.",
     features: ["100% Cotton Pique", "3-Button Placket", "Side Vents", "Pre-Shrunk"],
-    minOrder: "500 pieces",
-    leadTime: "12-16 days",
+    minOrder: "1500 pieces one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX", "GOTS"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 3,
@@ -49,10 +49,10 @@ export const products = [
     category: "Nightwear",
     description: "Comfortable and stylish nightwear including pajamas, robes, and sleepwear sets.",
     features: ["Soft Cotton", "Breathable Fabric", "Comfortable Fit", "Easy Care"],
-    minOrder: "400 pieces",
-    leadTime: "14-18 days",
+    minOrder: "1500 piece one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX Standard 100", "GOTS"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 4,
@@ -60,10 +60,10 @@ export const products = [
     category: "Casual Wear",
     description: "Essential t-shirts and tank tops in various styles, colors, and premium cotton blends.",
     features: ["Ring-Spun Cotton", "Reinforced Seams", "Tagless Labels", "Color Fast"],
-    minOrder: "600 pieces",
-    leadTime: "10-14 days",
+    minOrder: "1500 piece one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX", "Fair Trade"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 5,
@@ -71,10 +71,10 @@ export const products = [
     category: "Outerwear",
     description: "Cozy sweatshirts and hoodies with brushed fleece lining for ultimate comfort.",
     features: ["Brushed Fleece", "Drawstring Hood", "Ribbed Hem", "Preshrunk"],
-    minOrder: "250 pieces",
-    leadTime: "16-20 days",
+    minOrder: "1500 piece one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["WRAP", "CPSIA"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 6,
@@ -82,10 +82,10 @@ export const products = [
     category: "Formal Wear",
     description: "Professional dress shirts with precision tailoring for corporate and business environments.",
     features: ["100% Cotton", "Wrinkle Resistant", "French Seams", "Mother of Pearl Buttons"],
-    minOrder: "400 pieces",
-    leadTime: "15-20 days",
+    minOrder: "1500 piece one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX", "GOTS"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 7,
@@ -93,10 +93,10 @@ export const products = [
     category: "Athletic Wear",
     description: "High-performance athletic wear designed for sports, fitness, and active lifestyles.",
     features: ["Moisture Wicking", "4-Way Stretch", "Anti-Odor", "UV Protection"],
-    minOrder: "300 pieces",
-    leadTime: "18-25 days",
+    minOrder: "1500 piece one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX", "bluesign®"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 8,
@@ -104,10 +104,10 @@ export const products = [
     category: "Denim",
     description: "Premium denim collection including jeans, jackets, and skirts with contemporary styling.",
     features: ["Premium Denim", "Sustainable Wash", "Reinforced Stitching", "Custom Hardware"],
-    minOrder: "200 pieces",
-    leadTime: "22-30 days",
+    minOrder: "1500 piece one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["GOTS", "Cradle to Cradle"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 9,
@@ -115,10 +115,10 @@ export const products = [
     category: "Kids Wear",
     description: "Safe, comfortable, and playful clothing for children with attention to skin-friendly materials.",
     features: ["Hypoallergenic", "Soft Cotton", "Fun Prints", "Easy Wash"],
-    minOrder: "500 pieces",
-    leadTime: "12-16 days",
+    minOrder: "1500 piece one color",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX Standard 100", "CPSIA"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 10,
@@ -126,10 +126,10 @@ export const products = [
     category: "Workwear",
     description: "Durable uniforms and workwear designed for various industries with focus on functionality.",
     features: ["Durable Fabric", "Reinforced Stress Points", "Multiple Pockets", "Easy Care"],
-    minOrder: "300 pieces",
-    leadTime: "20-25 days",
+    minOrder: "1500 pieces",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["ISO 9001", "WRAP"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 11,
@@ -137,10 +137,10 @@ export const products = [
     category: "Knitwear",
     description: "Elegant knitwear including sweaters, cardigans, and knitted accessories.",
     features: ["Fine Gauge Knit", "Soft Yarn", "Shape Retention", "Pill Resistant"],
-    minOrder: "200 pieces",
-    leadTime: "25-30 days",
+    minOrder: "1500 pieces",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX", "Woolmark"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 12,
@@ -148,10 +148,10 @@ export const products = [
     category: "Accessories",
     description: "Complementary fashion accessories including scarves, hats, and belts.",
     features: ["Premium Materials", "Trendy Designs", "Quality Hardware", "Versatile Styling"],
-    minOrder: "500 pieces",
-    leadTime: "15-20 days",
+    minOrder: "1500 pieces",
+    leadTime: "30-45 days",
     image: "/api/placeholder/400/300",
-    certifications: ["OEKO-TEX", "REACH"]
+    certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   }
 ];
 
@@ -243,7 +243,7 @@ export const stats = [
     description: "Serving global markets"
   },
   {
-    number: "25+",
+    number: "15+",
     label: "Countries Served",
     description: "Worldwide presence"
   },
@@ -253,7 +253,7 @@ export const stats = [
     description: "Expert craftspeople"
   },
   {
-    number: "1M+",
+    number: "2.5M+",
     label: "Garments Produced",
     description: "Annual capacity"
   }

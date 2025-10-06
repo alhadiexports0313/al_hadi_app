@@ -42,7 +42,7 @@ export function downloadCompanyProfilePDF() {
     
     doc.setFontSize(11);
     doc.setTextColor(51, 51, 51);
-    const overviewText = `AL HADI EXPORTS has been a leading manufacturer and exporter of premium quality garments since 2000. Based in Karachi, Pakistan, we specialize in producing high-quality apparel for global markets with a focus on innovation, sustainability, and customer satisfaction.
+    const overviewText = `AL HADI EXPORTS has been a leading manufacturer and exporter of premium quality garments since 2010. Based in Karachi, Pakistan, we specialize in producing high-quality apparel for global markets with a focus on innovation, sustainability, and customer satisfaction.
 
 Our state-of-the-art manufacturing facility spans over 50,000 square feet and employs more than 500 skilled workers. We have successfully served clients across North America, Europe, and Asia, building long-term partnerships based on trust and quality.`;
     
@@ -130,11 +130,11 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
     doc.text('Karachi, Pakistan', 20, 65);
     
     doc.text('Phone:', 20, 80);
-    doc.text('+92 (21) 1234-5678', 20, 90);
+    doc.text('+92 300 2211587', 20, 90);
     
     doc.text('Email:', 20, 105);
     doc.text('info@alhadiexports.com', 20, 115);
-    doc.text('sales@alhadiexports.com', 20, 125);
+    doc.text('danishqazi@alhadiexports.com', 20, 125);
     
     doc.text('Website:', 20, 140);
     doc.text('www.alhadiexports.com', 20, 150);
@@ -147,7 +147,7 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
     doc.setFontSize(11);
     doc.setTextColor(51, 51, 51);
     const whyChoose = [
-      '• 24+ Years of Industry Experience',
+      '• 15+ Years of Industry Experience',
       '• State-of-the-art Manufacturing Facility',
       '• Skilled Workforce of 500+ Employees',
       '• Global Supply Chain Network',

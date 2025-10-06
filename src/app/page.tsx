@@ -42,7 +42,7 @@ export default function Home() {
             duration-[3000ms] ease-out ${isLoaded ? 'scale-105' : 'scale-100'
             }`}
           style={{
-            backgroundImage: `url('./images/manufacturing/manfucture_15.jpg')`,
+            backgroundImage: `url('/images/manufacturing/mac_2.jpg')`,
             backgroundAttachment: 'scroll', //'fixed',
             backgroundSize: 'cover',
             backgroundPosition: 'center', //'center center',
@@ -152,7 +152,7 @@ export default function Home() {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
                   To emerge as a global pioneer in sustainable garment manufacturing, setting new benchmarks for quality, innovation, 
-                  and ethical excellence. Our core policy champions women’s empowerment and well-being, while our long-term goals 
+                  and ethical excellence. Our core policy women’s empowerment and well-being, while our long-term goals 
                   emphasize eco-friendly production and a steadfast commitment to reducing our carbon footprint. 
                   Through these principles, we strive to foster a sustainable, inclusive, and forward-thinking work environment
                    that benefits both people and the planet.

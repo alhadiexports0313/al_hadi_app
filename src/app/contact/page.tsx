@@ -21,6 +21,8 @@ export default function ContactPage() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -28,40 +30,70 @@ export default function ContactPage() {
       ...prev,
       [name]: value
     }));
+    // Clear any previous error messages when user starts typing
+    if (submitStatus === 'error') {
+      setSubmitStatus('idle');
+      setSubmitMessage('');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitMessage('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will get back to you within 24 hours with a detailed response.');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      subject: '',
-      message: '',
-      productInterest: '',
-      orderQuantity: '',
-      timeline: '',
-      budget: ''
-    });
-    
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        setSubmitStatus('success');
+        
+        // Provide different messages based on email delivery status
+        if (responseData.emailSent) {
+          setSubmitMessage('✅ Quote request submitted successfully! We will contact you within 24 hours with a detailed response.');
+        } else {
+          setSubmitMessage('✅ Quote request received! We will contact you soon. (Email delivery may be delayed)');
+        }
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          subject: '',
+          message: '',
+          productInterest: '',
+          orderQuantity: '',
+          timeline: '',
+          budget: ''
+        });
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+      setSubmitMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+92-52-4261234', '+92-300-8765432'],
+      details: ['+92 300 2211587', '+92-322-2214479'],
       description: 'Call us for immediate assistance',
       availability: '24/7 Support Available'
     },
@@ -75,14 +107,14 @@ export default function ContactPage() {
     {
       icon: MessageSquare,
       title: 'WhatsApp',
-      details: ['+92-300-8765432'],
+      details: ['+92-300-2211587'],
       description: 'Quick chat for instant queries',
       availability: 'Available 9 AM - 9 PM'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: ['Sialkot, Punjab, Pakistan'],
+      details: ['Karachi, Sindh, Pakistan'],
       description: 'Schedule a facility tour',
       availability: 'Mon-Sat: 9 AM - 6 PM'
     }
@@ -125,12 +157,12 @@ export default function ContactPage() {
   ];
 
   const officeDetails = {
-    address: "Industrial Area, Sialkot-51310, Punjab, Pakistan",
+    address: "Industrial Area, Karachi-74500, Sindh, Pakistan",
     coordinates: "32.4945° N, 74.5229° E",
     nearbyLandmarks: [
-      "5 minutes from Sialkot International Airport",
-      "Adjacent to Industrial Export Zone",
-      "Near Sialkot Chamber of Commerce"
+      "30 minutes from Karachi International Airport",
+      "Adjacent to Karachi Export Zone",
+      "Near Karachi Chamber of Commerce"
     ],
     facilities: [
       "50,000 sq ft manufacturing facility",
@@ -448,6 +480,17 @@ export default function ContactPage() {
                     </>
                   )}
                 </Button>
+
+                {/* Success/Error Message Display */}
+                {submitMessage && (
+                  <div className={`p-4 rounded-lg text-center ${
+                    submitStatus === 'success' 
+                      ? 'bg-green-50 text-green-800 border border-green-200' 
+                      : 'bg-red-50 text-red-800 border border-red-200'
+                  }`}>
+                    <p className="text-sm font-medium">{submitMessage}</p>
+                  </div>
+                )}
 
                 <p className="text-sm text-gray-500 text-center">
                   By submitting this form, you agree to our privacy policy. We'll respond within 24 hours.

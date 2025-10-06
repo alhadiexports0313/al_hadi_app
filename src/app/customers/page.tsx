@@ -11,26 +11,26 @@ export default function Customers() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const globalPresence = [
-    { region: 'North America', countries: ['USA', 'Canada'], clients: 45, color: 'bg-blue-500' },
-    { region: 'Europe', countries: ['UK', 'Germany', 'France', 'Italy', 'Spain'], clients: 78, color: 'bg-green-500' },
-    { region: 'Asia Pacific', countries: ['Australia', 'Japan', 'South Korea', 'Singapore'], clients: 32, color: 'bg-purple-500' },
-    { region: 'Middle East', countries: ['UAE', 'Saudi Arabia', 'Qatar'], clients: 28, color: 'bg-orange-500' },
-    { region: 'Africa', countries: ['South Africa', 'Egypt', 'Morocco'], clients: 15, color: 'bg-red-500' }
+    { region: 'North America', countries: ['USA', 'Canada'], clients: 3, color: 'bg-blue-500' },
+    { region: 'Europe', countries: ['UK', 'Germany', 'France', 'Italy', 'Spain', 'Poland'], clients: 9, color: 'bg-green-500' },
+   // { region: 'Asia Pacific', countries: ['Australia', 'Japan', 'South Korea', 'Singapore'], clients: 32, color: 'bg-purple-500' },
+    { region: 'Middle East', countries: ['Saudia Arabia'], clients: 3, color: 'bg-orange-500' },
+   // { region: 'Africa', countries: ['South Africa', 'Egypt', 'Morocco'], clients: 15, color: 'bg-red-500' }
   ];
 
   const clientLogos = [
-    { name: 'H&M', category: 'Fast Fashion', partnership: '5+ years' },
-    { name: 'Zara', category: 'Fashion Retail', partnership: '7+ years' },
-    { name: 'Uniqlo', category: 'Casual Wear', partnership: '4+ years' },
-    { name: 'Gap Inc.', category: 'American Apparel', partnership: '6+ years' },
-    { name: 'Next', category: 'UK Retail', partnership: '3+ years' },
-    { name: 'Marks & Spencer', category: 'British Retail', partnership: '8+ years' },
-    { name: 'Target', category: 'US Retail', partnership: '5+ years' },
-    { name: 'Primark', category: 'Value Fashion', partnership: '4+ years' },
-    { name: 'C&A', category: 'European Fashion', partnership: '6+ years' },
-    { name: 'Walmart', category: 'Global Retail', partnership: '7+ years' },
-    { name: 'Kohl\'s', category: 'Department Store', partnership: '3+ years' },
-    { name: 'JCPenney', category: 'American Retail', partnership: '5+ years' }
+    { name: 'Newlook', category: 'Fast Fashion', partnership: '8+ years' },
+    { name: 'Zara', category: 'Fashion Retail', partnership: '3+ years' },
+    { name: 'Kik', category: 'Casual Wear', partnership: '6+ years' },
+    { name: 'Exist', category: 'American Apparel', partnership: '6+ years' },
+    { name: 'Woolworth', category: 'Germany Retail', partnership: '7+ years' },
+    { name: 'Tedi', category: 'Germany Retail', partnership: '2+ years' },
+    { name: 'LPP', category: 'Poland Retail', partnership: '5+ years' },
+    { name: 'Styleinn', category: 'Italy Fashion', partnership: '4+ years' },
+    { name: 'Sherwin willims', category: 'Cananda', partnership: '1+ years' },
+    { name: 'Prime', category: 'suadia', partnership: '3+ years' },
+    { name: 'Miltex', category: 'USA Retail', partnership: '3+ years' },
+    { name: 'Champion', category: 'American Retail', partnership: '3+ years' }
   ];
 
   const partnershipBenefits = [
