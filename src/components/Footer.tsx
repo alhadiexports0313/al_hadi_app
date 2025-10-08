@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Globe, Facebook, Twitter, Linkedin, Instagram, Award, Shield, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, Facebook, Twitter, Linkedin, Instagram, Award, Shield, CheckCircle, Building, Handshake, Leaf, Shirt  } from 'lucide-react';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -21,10 +21,18 @@ const Footer = () => {
     { name: 'Custom Apparel', href: '/products#custom' },
   ];
 
+  const icons = {
+  SEDEX: Building,
+  BSCI: Handshake,
+  HIGG: Leaf,
+  ACCORD: Shirt
+};
+
   const certifications = [
-    { name: 'ISO 9001:2015', icon: Award },
-    { name: 'OEKO-TEX', icon: Shield },
-    { name: 'GOTS Certified', icon: CheckCircle },
+    { name: 'SEDEX', icon: icons.SEDEX },
+    { name: 'BSCI', icon: icons.BSCI },
+    { name: 'HIGG', icon: icons.HIGG },
+    { name: 'ACCORD', icon: icons.ACCORD },
   ];
 
   return (
