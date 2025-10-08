@@ -56,23 +56,62 @@ export default function Manufacturing() {
     }
   ];
 
-  // Enhanced Machinery Data with specific counts
-  const stitchingMachinery = [
-    { name: "Flat Lock", count: 85, icon: Settings, description: "Professional flat seaming" },
-    { name: "Single Needle", count: 129, icon: Zap, description: "Precision single needle stitching" },
-    { name: "Over Lock", count: 155, icon: Cog, description: "Edge finishing and seaming" },
-    { name: "Button Hole", count: 45, icon: Target, description: "Automated button hole creation" },
-    { name: "Button Attach", count: 38, icon: Package, description: "Button attachment machines" },
-    { name: "Blind Stitch", count: 22, icon: Wrench, description: "Invisible hemming machines" }
+  // Enhanced Machinery Data with specific counts - organized into 6 cards
+  const mainMachinery = [
+    { 
+      name: "Flat Lock Machines", 
+      count: 85, 
+      icon: Settings, 
+      description: "Professional flat seaming for high-quality finishes",
+      details: ["• Flat seam construction", "• Professional finishing", "• High-speed operation"]
+    },
+    { 
+      name: "Single Needle Machines", 
+      count: 129, 
+      icon: Zap, 
+      description: "Precision single needle stitching for detailed work",
+      details: ["• Precision stitching", "• Detailed construction", "• Versatile applications"]
+    },
+    { 
+      name: "Over Lock Machines", 
+      count: 155, 
+      icon: Cog, 
+      description: "Edge finishing and seaming for durability",
+      details: ["• Edge finishing", "• Seam reinforcement", "• Professional quality"]
+    }
   ];
 
-  const dyeingMachinery = [
-    { name: "Jet Dyeing", count: 12, icon: Palette, description: "High-efficiency jet dyeing machines" },
-    { name: "Beam Dyeing", count: 8, icon: Factory, description: "Large capacity beam dyeing" },
-    { name: "Sample Dyeing", count: 6, icon: Gauge, description: "Small batch sample dyeing" },
-    { name: "Washing Machines", count: 15, icon: Sparkles, description: "Industrial washing systems" },
-    { name: "Hydro Extractors", count: 10, icon: Zap, description: "Water extraction machines" },
-    { name: "Stenters", count: 4, icon: Monitor, description: "Fabric finishing machines" }
+  const supportMachinery = [
+    { 
+      name: "Press Equipment", 
+      count: 12, 
+      icon: Sparkles, 
+      description: "Professional pressing and finishing equipment",
+      details: ["• Steam pressing", "• Professional finishing", "• Quality enhancement"]
+    },
+    { 
+      name: "Two Needle Machines", 
+      count: 4, 
+      icon: Target, 
+      description: "Specialized two-needle stitching for reinforced seams",
+      details: ["• Reinforced stitching", "• Parallel seaming", "• Structural strength"]
+    },
+    { 
+      name: "Other Facilities", 
+      count: 25, 
+      icon: Package, 
+      description: "Specialized equipment for complete production",
+      details: [
+        "• Feedo Machines (3 units)",
+        "• Bar Tack Machines (4 units)", 
+        "• Button Hole Machines (3 units)",
+        "• Button Attachment (2 units)",
+        "• Eyelet Machines (3 units)",
+        "• Consie Machines (3 units)",
+        "• Press Boilers (3 units)",
+        "• Cutting Machines (3 units)"
+      ]
+    }
   ];
 
   // Enhanced Certifications with actual image logos
@@ -277,11 +316,11 @@ export default function Manufacturing() {
             </p>
           </div>
 
-          {/* Stitching Machinery */}
+          {/* Main Production Machinery */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Stitching Department</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Primary Production Equipment</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {stitchingMachinery.map((machine, index) => {
+              {mainMachinery.map((machine, index) => {
                 const IconComponent = machine.icon;
                 return (
                   <Card key={index} className="group hover:shadow-xl transition-all duration-300">
@@ -291,7 +330,12 @@ export default function Manufacturing() {
                       </div>
                       <h4 className="text-lg font-bold text-gray-900 mb-2">{machine.name}</h4>
                       <div className="text-3xl font-bold text-primary mb-2">{machine.count}</div>
-                      <p className="text-sm text-gray-600">{machine.description}</p>
+                      <p className="text-sm text-gray-600 mb-3">{machine.description}</p>
+                      <div className="text-xs text-gray-500 text-left space-y-1">
+                        {machine.details.map((detail, i) => (
+                          <div key={i}>{detail}</div>
+                        ))}
+                      </div>
                     </CardContent>
                   </Card>
                 );
@@ -299,11 +343,11 @@ export default function Manufacturing() {
             </div>
           </div>
 
-          {/* Dyeing Machinery */}
+          {/* Support & Specialized Machinery */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Dyeing Department</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Support & Specialized Equipment</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {dyeingMachinery.map((machine, index) => {
+              {supportMachinery.map((machine, index) => {
                 const IconComponent = machine.icon;
                 return (
                   <Card key={index} className="group hover:shadow-xl transition-all duration-300">
@@ -313,7 +357,12 @@ export default function Manufacturing() {
                       </div>
                       <h4 className="text-lg font-bold text-gray-900 mb-2">{machine.name}</h4>
                       <div className="text-3xl font-bold text-accent mb-2">{machine.count}</div>
-                      <p className="text-sm text-gray-600">{machine.description}</p>
+                      <p className="text-sm text-gray-600 mb-3">{machine.description}</p>
+                      <div className="text-xs text-gray-500 text-left space-y-1">
+                        {machine.details.map((detail, i) => (
+                          <div key={i}>{detail}</div>
+                        ))}
+                      </div>
                     </CardContent>
                   </Card>
                 );
@@ -444,7 +493,7 @@ export default function Manufacturing() {
                 <div className="text-sm sm:text-base text-gray-600">Compliance Rate</div>
               </div>
               <div className="space-y-2">
-                <div className="text-2xl sm:text-3xl font-bold text-blue-600">15+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">14+</div>
                 <div className="text-sm sm:text-base text-gray-600">Years Certified</div>
               </div>
               <div className="space-y-2">
