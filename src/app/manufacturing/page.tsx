@@ -80,28 +80,28 @@ export default function Manufacturing() {
       name: "SEDEX",
       fullName: "Supplier Ethical Data Exchange",
       description: "Ethical trade and responsible business practices",
-      logo: "🏢",
+      logo: "🏢", //"/images/logo/Sedex-logo.png",
       benefits: ["Ethical sourcing", "Supply chain transparency", "Worker welfare"]
     },
     {
       name: "BSCI",
       fullName: "Business Social Compliance Initiative",
       description: "Social compliance and sustainability standards",
-      logo: "🤝",
+      logo: "🤝", // "/images/logo/BSCI-logo.png",
       benefits: ["Social compliance", "Worker rights", "Environmental protection"]
     },
     {
       name: "HIGG",
       fullName: "Higg Index Facility Environmental Module",
       description: "Environmental performance measurement",
-      logo: "🌱",
+      logo: "🌱", // "/images/logo/Higg_logo.png",
       benefits: ["Environmental impact", "Sustainability metrics", "Resource efficiency"]
     },
     {
       name: "Accord Pakistan",
       fullName: "Pakistan Accord on Fire and Building Safety",
       description: "Workplace safety and building standards",
-      logo: "🛡️",
+      logo: "🛡️", // "/images/logo/accord_logo.png",
       benefits: ["Fire safety", "Building safety", "Worker protection"]
     }
   ];
@@ -133,13 +133,13 @@ export default function Manufacturing() {
               <span className="block text-accent mt-2">& Quality Excellence</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
-              State-of-the-art facilities, skilled craftspeople, and rigorous quality control processes 
+              State-of-the-art facilities, skilled craftspeople, and rigorous quality control processes
               ensure every garment meets the highest international standards.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="accent" 
-                size="lg" 
+              <Button
+                variant="accent"
+                size="lg"
                 className="text-lg"
                 onClick={() => {
                   const element = document.getElementById('manufacturing-process');
@@ -150,9 +150,9 @@ export default function Manufacturing() {
               >
                 View Our Process
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="text-lg border-white text-white hover:bg-white hover:text-primary"
                 onClick={() => {
                   // You can replace this with actual capabilities download functionality
@@ -183,7 +183,7 @@ export default function Manufacturing() {
             <div className="relative">
               {/* Timeline Line */}
               <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-green-500 via-purple-500 via-orange-500 to-red-500 transform -translate-y-1/2"></div>
-              
+
               <div className="flex justify-between items-center relative">
                 {processSteps.map((step, index) => {
                   const IconComponent = step.icon;
@@ -193,7 +193,7 @@ export default function Manufacturing() {
                       <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300 mb-6 relative z-10`}>
                         <IconComponent className="w-8 h-8 text-white" />
                       </div>
-                      
+
                       {/* Content Card */}
                       <Card className="w-64 group-hover:shadow-xl transition-all duration-300">
                         <CardContent className="p-6 text-center">
@@ -225,7 +225,7 @@ export default function Manufacturing() {
             <div className="relative">
               {/* Vertical Timeline Line */}
               <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-green-500 via-purple-500 via-orange-500 to-red-500"></div>
-              
+
               <div className="space-y-8">
                 {processSteps.map((step, index) => {
                   const IconComponent = step.icon;
@@ -235,7 +235,7 @@ export default function Manufacturing() {
                       <div className={`w-16 h-16 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-lg relative z-10 flex-shrink-0`}>
                         <IconComponent className="w-8 h-8 text-white" />
                       </div>
-                      
+
                       {/* Content Card */}
                       <Card className="flex-1 hover:shadow-xl transition-all duration-300">
                         <CardContent className="p-6">
@@ -368,32 +368,30 @@ export default function Manufacturing() {
               Our commitment to quality, ethics, and sustainability is validated by internationally recognized certifications.
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
-              <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-primary">
-                <CardContent className="p-6">
-                  {/* Logo Placeholder */}
-                  <div className="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 border-2 border-gray-300">
-                    <span className="text-4xl">{cert.logo}</span>
-                  </div>
-                  
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">{cert.name}</h3>
-                  <p className="text-xs text-gray-500 mb-3 font-medium">{cert.fullName}</p>
-                  <p className="text-sm text-gray-600 mb-4">{cert.description}</p>
-                  
-                  <div className="space-y-2">
-                    {cert.benefits.map((benefit, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
-                        <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <Card key={index}
+              className="text-center group hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-primary">
+              <CardContent className="p-6">
+                {/* Logo Placeholder */}
+                <div className="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 border-2 border-gray-300">
+                  <span className="text-4xl">{cert.logo}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{cert.name}</h3>
+                <p className="text-xs text-gray-500 mb-3 font-medium">{cert.fullName}</p>
+                <p className="text-sm text-gray-600 mb-4">{cert.description}</p>
+                <div className="space-y-2"> {cert.benefits.map((benefit, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
+                    <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                    <span>{benefit}</span> </div>
+                ))}
+                </div>
+              </CardContent>
+            </Card>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -413,9 +411,9 @@ export default function Manufacturing() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="border-white text-white hover:bg-white hover:text-primary"
               onClick={() => {
                 // You can replace this with actual brochure download functionality

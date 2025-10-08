@@ -100,7 +100,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@alhadiexports.com', 'sales@alhadiexports.com'],
+      details: ['info@alhadiexports.com'],
       description: 'Send us your detailed requirements',
       availability: 'Response within 4 hours'
     },
@@ -134,11 +134,11 @@ export default function ContactPage() {
   ];
 
   const orderQuantities = [
-    '100 - 500 pieces',
-    '500 - 1,000 pieces',
-    '1,000 - 5,000 pieces',
-    '5,000 - 10,000 pieces',
-    '10,000+ pieces'
+    '1,500 - 2,000 pieces',
+    '2,000 - 5,000 pieces',
+    '5,000 - 25,000 pieces',
+    '25,000 - 50,000 pieces',
+    '100,000+ pieces'
   ];
 
   const timelines = [
@@ -153,23 +153,22 @@ export default function ContactPage() {
     '$5,000 - $15,000',
     '$15,000 - $50,000',
     '$50,000 - $100,000',
-    '$100,000+'
+    '$500,000+'
   ];
 
   const officeDetails = {
     address: "Industrial Area, Karachi-74500, Sindh, Pakistan",
-    coordinates: "32.4945° N, 74.5229° E",
+    coordinates: "24.891086, 66.990536",
     nearbyLandmarks: [
-      "30 minutes from Karachi International Airport",
-      "Adjacent to Karachi Export Zone",
-      "Near Karachi Chamber of Commerce"
+      "",
+      "Near Ghani Chowrangi",
     ],
     facilities: [
       "50,000 sq ft manufacturing facility",
-      "Modern quality control laboratory",
+      "Modern quality control system",
       "Sample development center",
       "Client meeting rooms",
-      "Parking available"
+      "Huge parking facility"
     ]
   };
 
@@ -182,7 +181,7 @@ export default function ContactPage() {
     {
       icon: Globe,
       title: "Global Reach",
-      description: "Exporting to 25+ countries worldwide"
+      description: "Exporting to 9+ countries worldwide"
     },
     {
       icon: Shield,

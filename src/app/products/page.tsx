@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { products } from '@/data/content';
-import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck } from 'lucide-react';
+import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck, Filter, Grid, Heart, Eye, ShoppingBag } from 'lucide-react';
 
 // PDF Generation Function
 const generateProductCataloguePDF = () => {
@@ -87,34 +87,61 @@ const generateProductCataloguePDF = () => {
   URL.revokeObjectURL(url);
 };
 
-// Function to get all product images from the all_products folder
-const getProductImages = () => {
-  // This would typically be done server-side, but for demo purposes
-  // we'll create a list of known images that can be expanded
-  const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
-  const knownImages = [
-    'Fleece_Hooded_Jackets.jpg',
-    "Fleece_Hooded_Jackets_1.jpg",
-    "fleece_sweatshirts_1.jpg",
-    "fleece_sweatshirts_2.jpg",
-    "fleece_sweatshirts.jpg"
-    // Add more images as they are added to the folder
+// Dynamic Product Gallery Data
+const getProductGalleryImages = () => {
+  const kidsImages = [
+    'Boys Tee.jpeg', 'KIds T shirts.jpeg', "Kid's Jacket.jpeg", "Kid's Joggsuit.jpeg", 
+    "Kid's Polo.jpeg", "Kid's Tank top.jpeg", "Kid's Tee.jpeg", "Kid's Trouser.jpeg", 
+    "Kid's Zipper Hood.jpeg", 'Kids Hood.jpeg', 'Kids Shorts.jpeg', 'Kids Suit.jpeg',
+    'Kids Tank top.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg', 'Kids Zipper Hood.jpeg',
+    'Kids shorts And Tee.jpeg', 'Kids t shirt.jpeg'
   ];
-  
-  return knownImages.map(imageName => ({
-    name: imageName.replace(/\.[^/.]+$/, "").replace(/_/g, ' '), // Remove extension and replace underscores
-    src: `/images/products/man/${imageName}`,
-    category: 'Product Gallery'
-  }));
+
+  const mensImages = [
+    'Fleece_Hooded_Jackets.jpg', "Men's Crew Neck.jpeg", "Men's Hood.jpeg", "Men's Jacket.jpeg",
+    "Men's Joggsuit.jpeg", "Men's Night wear.jpeg", "Men's POLO.jpg", "Men's Polo.jpeg",
+    "Men's T Shirt.jpeg", "Men's Trouser.jpeg", "Men's Zipper.jpg", 'Mens Crew Neck.jpeg',
+    'Mens Garments.jpeg', 'Mens Hood.jpeg', 'Mens LS crew.jpeg', 'Mens PO Hood.jpeg',
+    'Mens Shorts.jpeg', 'Mens Suit.jpeg', 'Mens Tee.jpeg', 'Mens Zipper Hood.jpeg',
+    'POLO.jpeg'
+  ];
+
+  const womenImages = [
+    'Ladies Hood.jpeg', 'Ladies Jacket.jpeg', 'Ladies Joggsuit.jpeg', 'Ladies Polo Tee.jpeg',
+    'Ladies Polo.jpeg', 'Ladies Round Neck.jpeg', 'Ladies Shorts.jpeg', 'Ladies T-Shirt.jpeg',
+    'Ladies T-Shirts.jpeg', 'Ladies Tee.jpeg', 'Ladies Trouser.jpeg', 'Ladies V Neck Tee.jpeg',
+    'Ladies Zipper.jpeg'
+  ];
+
+  const formatImageData = (images: string[], category: string, folder: string) => {
+    return images.map(imageName => ({
+      id: `${category}-${imageName}`,
+      name: imageName.replace(/\.[^/.]+$/, "").replace(/[_']/g, ' ').replace(/\s+/g, ' ').trim(),
+      src: `/images/products/${folder}/${imageName}`,
+      category: category,
+      alt: `${category} - ${imageName.replace(/\.[^/.]+$/, "").replace(/[_']/g, ' ')}`
+    }));
+  };
+
+  return [
+    ...formatImageData(kidsImages, 'Kids', 'kids'),
+    ...formatImageData(mensImages, 'Mens', 'mens'),
+    ...formatImageData(womenImages, 'Women', 'women')
+  ];
 };
 
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
-  const [productImages, setProductImages] = useState(getProductImages());
+  const [galleryCategory, setGalleryCategory] = useState('All');
+  const [isLoading, setIsLoading] = useState(false);
+  const [galleryImages, setGalleryImages] = useState(getProductGalleryImages());
 
-  // Get unique categories
+  // Get unique categories for products
   const categories = ['All', ...Array.from(new Set(products.map(product => product.category)))];
+  
+  // Gallery categories
+  const galleryCategories = ['All', 'Kids', 'Mens', 'Women'];
 
   // Filter products
   const filteredProducts = products.filter(product => {
@@ -123,6 +150,20 @@ export default function ProductsPage() {
                          product.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // Filter gallery images
+  const filteredGalleryImages = galleryImages.filter(image => {
+    return galleryCategory === 'All' || image.category === galleryCategory;
+  });
+
+  // Handle gallery category change with loading animation
+  const handleGalleryFilter = (category: string) => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setGalleryCategory(category);
+      setIsLoading(false);
+    }, 300);
+  };
 
   // Category icons mapping
   const getCategoryIcon = (category: string) => {
@@ -366,95 +407,194 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* All Products Image Gallery */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      {/* Modern Product Gallery */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Gallery Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Grid className="w-4 h-4" />
               Product Gallery
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Explore Our Collection
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our premium collection of garments with high-quality images showcasing our craftsmanship and attention to detail.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Discover our premium range of garments across different categories. Each piece showcases our commitment to quality and craftsmanship.
             </p>
+            
+            {/* Gallery Stats */}
+            <div className="flex flex-wrap justify-center gap-8 text-sm">
+              <div className="flex items-center gap-2 text-gray-600">
+                <Package className="w-4 h-4 text-blue-600" />
+                <span>{galleryImages.length}+ Products</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <Eye className="w-4 h-4 text-blue-600" />
+                <span>HD Quality Images</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <Award className="w-4 h-4 text-blue-600" />
+                <span>Premium Collection</span>
+              </div>
+            </div>
           </div>
 
-          {/* Dynamic Product Images Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:gap-8">
-            {productImages.map((product, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden"
+          {/* Category Filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {galleryCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleGalleryFilter(category)}
+                className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                  galleryCategory === category
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-blue-300'
+                }`}
               >
-                {/* Image Container */}
-                <div className="relative aspect-square overflow-hidden rounded-t-2xl">
-                  <Image
-                    src={product.src}
-                    alt={product.name}
-                    fill
-                    className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                  />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="font-semibold text-gray-900 text-sm truncate">
-                          {product.name}
-                        </h3>
-                        <p className="text-xs text-gray-600 mt-1">
-                          Premium Quality
-                        </p>
+                <span className="relative z-10 flex items-center gap-2">
+                  {category === 'All' && <Grid className="w-4 h-4" />}
+                  {category === 'Kids' && <span className="text-sm">👶</span>}
+                  {category === 'Mens' && <span className="text-sm">👨</span>}
+                  {category === 'Women' && <span className="text-sm">👩</span>}
+                  {category}
+                </span>
+                {galleryCategory === category && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full opacity-20 animate-pulse"></div>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Gallery Grid */}
+          <div className="relative">
+            {/* Loading Overlay */}
+            {isLoading && (
+              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-2xl">
+                <div className="flex items-center gap-3 text-blue-600">
+                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                  <span className="font-medium">Loading {galleryCategory} Collection...</span>
+                </div>
+              </div>
+            )}
+
+            {/* Image Grid */}
+            <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
+              {filteredGalleryImages.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="group relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  {/* Image Container */}
+                  <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-gradient-to-br from-gray-100 to-gray-200">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                      loading="lazy"
+                    />
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-3 left-3">
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
+                        image.category === 'Kids' ? 'bg-pink-500/90 text-white' :
+                        image.category === 'Mens' ? 'bg-blue-500/90 text-white' :
+                        'bg-purple-500/90 text-white'
+                      }`}>
+                        {image.category}
+                      </span>
+                    </div>
+
+                    {/* Hover Actions */}
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex flex-col gap-2">
+                        <button className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors duration-200">
+                          <Heart className="w-4 h-4" />
+                        </button>
+                        <button className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-blue-500 transition-colors duration-200">
+                          <Eye className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                    
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                          <h3 className="font-semibold text-gray-900 text-sm truncate mb-1">
+                            {image.name}
+                          </h3>
+                          <p className="text-xs text-gray-600 mb-2">
+                            Premium Quality • Export Grade
+                          </p>
+                          <div className="flex gap-2">
+                            <button className="flex-1 bg-blue-600 text-white text-xs py-1.5 px-3 rounded-md hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-1">
+                              <ShoppingBag className="w-3 h-3" />
+                              Quote
+                            </button>
+                            <button className="flex-1 border border-gray-300 text-gray-700 text-xs py-1.5 px-3 rounded-md hover:bg-gray-50 transition-colors duration-200">
+                              Details
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Product Info */}
-                <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 text-center text-sm group-hover:text-blue-600 transition-colors duration-300">
-                    {product.name}
-                  </h3>
-                </div>
+                  {/* Product Info */}
+                  <div className="p-4">
+                    <h3 className="font-semibold text-gray-900 text-center text-sm group-hover:text-blue-600 transition-colors duration-300 truncate">
+                      {image.name}
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center mt-1">
+                      {image.category} Collection
+                    </p>
+                  </div>
 
-                {/* Decorative Border */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-200 transition-colors duration-300"></div>
-              </div>
-            ))}
-
-            {/* Add More Products Placeholder */}
-            <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border-2 border-dashed border-blue-300">
-              <div className="aspect-square flex flex-col items-center justify-center p-6">
-                <div className="w-16 h-16 bg-blue-200 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-300 transition-colors duration-300">
-                  <Package className="w-8 h-8 text-blue-600" />
+                  {/* Decorative Border */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-200 transition-colors duration-300"></div>
                 </div>
-                <h3 className="font-semibold text-blue-800 text-center text-sm mb-2">
-                  More Products
-                </h3>
-                <p className="text-xs text-blue-600 text-center">
-                  Coming Soon
+              ))}
+            </div>
+
+            {/* Empty State */}
+            {filteredGalleryImages.length === 0 && !isLoading && (
+              <div className="text-center py-16">
+                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Package className="w-12 h-12 text-gray-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
+                <p className="text-gray-600">
+                  Try selecting a different category or check back later for new additions.
                 </p>
               </div>
-            </div>
+            )}
           </div>
 
-          {/* Gallery Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">{productImages.length}+</div>
-              <div className="text-gray-600">Product Images</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">HD</div>
-              <div className="text-gray-600">Quality Images</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-              <div className="text-gray-600">Authentic Products</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-600">Gallery Updates</div>
+          {/* Gallery Footer Stats */}
+          <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">{filteredGalleryImages.length}</div>
+                <div className="text-gray-600 text-sm">
+                  {galleryCategory === 'All' ? 'Total Products' : `${galleryCategory} Items`}
+                </div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">HD</div>
+                <div className="text-gray-600 text-sm">Quality Images</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
+                <div className="text-gray-600 text-sm">Authentic Products</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+                <div className="text-gray-600 text-sm">Support Available</div>
+              </div>
             </div>
           </div>
         </div>

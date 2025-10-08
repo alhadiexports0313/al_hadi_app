@@ -243,7 +243,7 @@ export const stats = [
     description: "Serving global markets"
   },
   {
-    number: "15+",
+    number: "9+",
     label: "Countries Served",
     description: "Worldwide presence"
   },
