@@ -6,6 +6,7 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/Card'
 import { companyInfo, products, stats, whyChooseUs, testimonials } from '@/data/content';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { downloadCompanyProfilePDF } from '@/lib/utils';
 
 export default function Home() {
@@ -260,10 +261,18 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {products.slice(0, 6).map((product, index) => (
               <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className={`h-40 sm:h-48 ${index % 2 === 0 ? 'bg-gradient-primary' : 'bg-gradient-accent'} flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
-                  <div className="text-white text-center">
-                    <div className="text-4xl sm:text-6xl mb-2 group-hover:scale-110 transition-transform duration-300">👔</div>
-                    <div className="text-xs sm:text-sm opacity-75">{product.category}</div>
+                <div className="relative h-40 sm:h-48 overflow-hidden bg-gray-100">
+                  <Image
+                    src={product.image}
+                    alt={`${product.name} - ${product.category}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={index < 3}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-2 left-2 right-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="text-xs sm:text-sm font-medium">{product.category}</div>
                   </div>
                 </div>
                 <CardContent className="p-4 sm:p-6">

@@ -11,10 +11,10 @@ export default function Customers() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const globalPresence = [
-    { region: 'North America', countries: ['USA', 'Canada'], clients: 3, color: 'bg-blue-500' },
+    { region: 'North America', countries: ['USA', 'Canada'], clients: 2, color: 'bg-blue-500' },
     { region: 'Europe', countries: ['UK', 'Germany', 'France', 'Italy', 'Spain', 'Poland'], clients: 9, color: 'bg-green-500' },
    // { region: 'Asia Pacific', countries: ['Australia', 'Japan', 'South Korea', 'Singapore'], clients: 32, color: 'bg-purple-500' },
-    { region: 'Middle East', countries: ['Saudia Arabia'], clients: 3, color: 'bg-orange-500' },
+    { region: 'Middle East', countries: ['Saudia Arabia'], clients: 1, color: 'bg-orange-500' },
    // { region: 'Africa', countries: ['South Africa', 'Egypt', 'Morocco'], clients: 15, color: 'bg-red-500' }
   ];
 
@@ -79,15 +79,15 @@ export default function Customers() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent">{stats.countriesServed}+</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent">{stats[1].number}</div>
                 <div className="text-sm md:text-base opacity-90">Countries Served</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent">150+</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent">8+</div>
                 <div className="text-sm md:text-base opacity-90">Active Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent">{stats.yearsExperience}+</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent">{stats[0].number}</div>
                 <div className="text-sm md:text-base opacity-90">Years Experience</div>
               </div>
               <div className="text-center">

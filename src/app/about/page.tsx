@@ -37,7 +37,7 @@ export default function About() {
     {
       year: "2024",
       title: "Global Recognition",
-      description: "Serving 25+ countries with over 1 million garments produced annually."
+      description: `Serving ${stats[1].number} countries with over 1 million garments produced annually.`
     }
   ];
 
@@ -68,7 +68,7 @@ export default function About() {
     {
       name: "Danish Qazi",
       position: "Chief Executive Officer",
-      experience: "15+ years",
+      experience: "18+ years",
       expertise: "Strategic Leadership & Global Business Development",
       description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion.",
       image: "/images/leadership/danish_img_final.jpg"
@@ -100,7 +100,7 @@ export default function About() {
       icon: Globe,
       title: "Global Supply Chain",
       description: "Established network of suppliers and logistics partners worldwide",
-      metrics: "25+ countries served"
+      metrics: `${stats[1].number} countries served`
     },
     {
       icon: Award,
@@ -190,7 +190,7 @@ export default function About() {
                   </div>
                   <div className="flex justify-between">
                     <span>Countries Served:</span>
-                    <span className="font-semibold">25+</span>
+                    <span className="font-semibold">{stats[1].number}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Experience:</span>

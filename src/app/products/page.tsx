@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { products } from '@/data/content';
-import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck, Filter, Grid, Heart, Eye, ShoppingBag } from 'lucide-react';
+import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck, Grid, Heart, Eye, ShoppingBag } from 'lucide-react';
 
 // PDF Generation Function
 const generateProductCataloguePDF = () => {
@@ -96,12 +96,12 @@ const getProductGalleryImages = () => {
     'Kids Tank top.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg', 'Kids Zipper Hood.jpeg',
     'Kids shorts And Tee.jpeg', 'Kids t shirt.jpeg'
   ];
-
+// 'Mens Garments.jpeg', "Men's T Shirt.jpeg",
   const mensImages = [
     'Fleece_Hooded_Jackets.jpg', "Men's Crew Neck.jpeg", "Men's Hood.jpeg", "Men's Jacket.jpeg",
     "Men's Joggsuit.jpeg", "Men's Night wear.jpeg", "Men's POLO.jpg", "Men's Polo.jpeg",
-    "Men's T Shirt.jpeg", "Men's Trouser.jpeg", "Men's Zipper.jpg", 'Mens Crew Neck.jpeg',
-    'Mens Garments.jpeg', 'Mens Hood.jpeg', 'Mens LS crew.jpeg', 'Mens PO Hood.jpeg',
+     "Men's Trouser.jpeg", "Men's Zipper.jpg", 'Mens Crew Neck.jpeg',
+     'Mens Hood.jpeg', 'Mens LS crew.jpeg', 'Mens PO Hood.jpeg',
     'Mens Shorts.jpeg', 'Mens Suit.jpeg', 'Mens Tee.jpeg', 'Mens Zipper Hood.jpeg',
     'POLO.jpeg'
   ];
@@ -165,22 +165,7 @@ export default function ProductsPage() {
     }, 300);
   };
 
-  // Category icons mapping
-  const getCategoryIcon = (category: string) => {
-    const iconMap: { [key: string]: any } = {
-      'Outerwear': '🧥',
-      'Casual Wear': '👕',
-      'Nightwear': '🌙',
-      'Athletic Wear': '🏃',
-      'Denim': '👖',
-      'Formal Wear': '👔',
-      'Kids Wear': '👶',
-      'Workwear': '🔧',
-      'Knitwear': '🧶',
-      'Accessories': '👜'
-    };
-    return iconMap[category] || '📦';
-  };
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -197,7 +182,7 @@ export default function ProductsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-2 text-blue-200">
               <Package className="w-5 h-5" />
-              <span>{products.length}+ Product Categories</span>
+              <span>All Product Categories</span>
             </div>
             <div className="flex items-center gap-2 text-blue-200">
               <Globe className="w-5 h-5" />
@@ -279,7 +264,7 @@ export default function ProductsPage() {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {category === 'All' ? '🌟 All Products' : `${getCategoryIcon(category)} ${category}`}
+{category === 'All' ? 'All Products' : category}
               </button>
             ))}
           </div>
@@ -306,10 +291,17 @@ export default function ProductsPage() {
                   className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
                 >
                   {/* Product Image */}
-                  <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                    <div className="text-6xl">{getCategoryIcon(product.category)}</div>
+                  <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={`${product.name} - ${product.category}`}
+                      fill
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      priority={product.id <= 4}
+                    />
                     <div className="absolute top-4 right-4">
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-blue-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
                         {product.category}
                       </span>
                     </div>
@@ -454,9 +446,9 @@ export default function ProductsPage() {
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {category === 'All' && <Grid className="w-4 h-4" />}
-                  {category === 'Kids' && <span className="text-sm">👶</span>}
-                  {category === 'Mens' && <span className="text-sm">👨</span>}
-                  {category === 'Women' && <span className="text-sm">👩</span>}
+                  {category === 'Kids' && <Heart className="w-4 h-4" />}
+                  {category === 'Mens' && <ShoppingBag className="w-4 h-4" />}
+                  {category === 'Women' && <Star className="w-4 h-4" />}
                   {category}
                 </span>
                 {galleryCategory === category && (
@@ -509,7 +501,7 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Hover Actions */}
-                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="flex flex-col gap-2">
                         <button className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-colors duration-200">
                           <Heart className="w-4 h-4" />
@@ -518,7 +510,7 @@ export default function ProductsPage() {
                           <Eye className="w-4 h-4" />
                         </button>
                       </div>
-                    </div>
+                    </div> */}
                     
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -677,7 +669,7 @@ export default function ProductsPage() {
                   <div className="text-gray-600">Quality Pass Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-2">4+</div>
                   <div className="text-gray-600">Certifications</div>
                 </div>
                 <div className="text-center">

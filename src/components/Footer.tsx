@@ -182,7 +182,7 @@ const Footer = () => {
                 Committed to excellence in garment manufacturing and export since 2010.
               </p>
             </div>
-            <div className="flex flex-wrap justify-center lg:justify-end space-x-6 text-sm">
+            {/* <div className="flex flex-wrap justify-center lg:justify-end space-x-6 text-sm">
               <Link href="/privacy" className="text-gray-400 hover:text-blue-300 transition-colors duration-200">
                 Privacy Policy
               </Link>
@@ -192,7 +192,7 @@ const Footer = () => {
               <Link href="/sitemap" className="text-gray-400 hover:text-blue-300 transition-colors duration-200">
                 Sitemap
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

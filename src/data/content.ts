@@ -29,7 +29,7 @@ export const products = [
     features: ["Anti-Pill Fleece", "Adjustable Hood", "Kangaroo Pocket", "Ribbed Cuffs"],
     minOrder: "1500 pieces one /color",
     leadTime: "30-45 days",
-    image:"/api/placeholder/400/300",                       
+    image: "/images/products/mens/Fleece_Hooded_Jackets.jpg",                       
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -40,7 +40,7 @@ export const products = [
     features: ["100% Cotton Pique", "3-Button Placket", "Side Vents", "Pre-Shrunk"],
     minOrder: "1500 pieces one color",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Men's POLO.jpg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -51,7 +51,7 @@ export const products = [
     features: ["Soft Cotton", "Breathable Fabric", "Comfortable Fit", "Easy Care"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Men's Night wear.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -62,7 +62,7 @@ export const products = [
     features: ["Ring-Spun Cotton", "Reinforced Seams", "Tagless Labels", "Color Fast"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Men's T Shirt.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -73,7 +73,7 @@ export const products = [
     features: ["Brushed Fleece", "Drawstring Hood", "Ribbed Hem", "Preshrunk"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Men's Hood.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     features: ["100% Cotton", "Wrinkle Resistant", "French Seams", "Mother of Pearl Buttons"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Mens Crew Neck.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -95,18 +95,18 @@ export const products = [
     features: ["Moisture Wicking", "4-Way Stretch", "Anti-Odor", "UV Protection"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Mens Shorts.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
     id: 8,
-    name: "Denim Jeans & Jackets",
-    category: "Denim",
-    description: "Premium denim collection including jeans, jackets, and skirts with contemporary styling.",
-    features: ["Premium Denim", "Sustainable Wash", "Reinforced Stitching", "Custom Hardware"],
-    minOrder: "1500 piece one color",
+    name: "Home Textiles",
+    category: "Home Textiles",
+    description: "Soft and durable home textile range including fitted sheets and bedding essentials with premium quality finishing.",
+    features: ["Fitted Sheets", "High-Quality Fabric", "Durable Stitching",],
+    minOrder: "12000 pieces",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Mens Suit.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -117,7 +117,7 @@ export const products = [
     features: ["Hypoallergenic", "Soft Cotton", "Fun Prints", "Easy Wash"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/kids/Kids Suit.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -128,7 +128,7 @@ export const products = [
     features: ["Durable Fabric", "Reinforced Stress Points", "Multiple Pockets", "Easy Care"],
     minOrder: "1500 pieces",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/mens/Men's Trouser.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -139,7 +139,7 @@ export const products = [
     features: ["Fine Gauge Knit", "Soft Yarn", "Shape Retention", "Pill Resistant"],
     minOrder: "1500 pieces",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/women/Ladies Hood.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -150,7 +150,7 @@ export const products = [
     features: ["Premium Materials", "Trendy Designs", "Quality Hardware", "Versatile Styling"],
     minOrder: "1500 pieces",
     leadTime: "30-45 days",
-    image: "/api/placeholder/400/300",
+    image: "/images/products/women/Ladies T-Shirt.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   }
 ];
@@ -188,24 +188,24 @@ export const services = [
 
 export const certifications = [
   {
-    name: "OEKO-TEX Standard 100",
-    description: "Ensures textiles are free from harmful substances",
-    logo: "/api/placeholder/120/80"
+    name: "SEDEX",
+    description: "Supplier Ethical Data Exchange and responsible business practices",
+    logo: "/images/certifications/SEDEX.png"
   },
   {
-    name: "GOTS (Global Organic Textile Standard)",
-    description: "Organic fiber certification with environmental criteria",
-    logo: "/api/placeholder/120/80"
+    name: "BSCI",
+    description: "Business Social Compliance Initiative",
+    logo: "/images/certifications/BSCI.png"
   },
   {
-    name: "ISO 9001:2015",
-    description: "Quality management system certification",
-    logo: "/api/placeholder/120/80"
+    name: "HIGG",
+    description: "Higg Index Facility Environmental Module",
+    logo: "/images/certifications/HIGG.jpg"
   },
   {
-    name: "WRAP (Worldwide Responsible Accredited Production)",
-    description: "Ethical manufacturing certification",
-    logo: "/api/placeholder/120/80"
+    name: "Accord Pakistan",
+    description: "Pakistan Accord on Fire and Building Safety",
+    logo: "/images/certifications/Accord Pakistan.png"
   }
 ];
 
