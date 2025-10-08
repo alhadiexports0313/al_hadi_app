@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { CheckCircle, Clock, Cog, Factory, Shield, Award, Users, Zap, Leaf, Globe, ArrowRight, Settings, Truck, Target, Scissors, Palette, Sparkles, Package, Search, Gauge, Wrench, Monitor } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
@@ -74,34 +75,34 @@ export default function Manufacturing() {
     { name: "Stenters", count: 4, icon: Monitor, description: "Fabric finishing machines" }
   ];
 
-  // Enhanced Certifications with specific ones mentioned
+  // Enhanced Certifications with actual image logos
   const certifications = [
     {
       name: "SEDEX",
       fullName: "Supplier Ethical Data Exchange",
       description: "Ethical trade and responsible business practices",
-      logo: "🏢", //"/images/logo/Sedex-logo.png",
+      logo: "/images/logo/certi/Sedex-logo.png",
       benefits: ["Ethical sourcing", "Supply chain transparency", "Worker welfare"]
     },
     {
       name: "BSCI",
       fullName: "Business Social Compliance Initiative",
       description: "Social compliance and sustainability standards",
-      logo: "🤝", // "/images/logo/BSCI-logo.png",
+      logo: "/images/logo/certi/bsci_logo.png",
       benefits: ["Social compliance", "Worker rights", "Environmental protection"]
     },
     {
       name: "HIGG",
       fullName: "Higg Index Facility Environmental Module",
       description: "Environmental performance measurement",
-      logo: "🌱", // "/images/logo/Higg_logo.png",
+      logo: "/images/logo/certi/higg_logo.jpg",
       benefits: ["Environmental impact", "Sustainability metrics", "Resource efficiency"]
     },
     {
       name: "Accord Pakistan",
       fullName: "Pakistan Accord on Fire and Building Safety",
       description: "Workplace safety and building standards",
-      logo: "🛡️", // "/images/logo/accord_logo.png",
+      logo: "/images/logo/certi/accord_logo.png",
       benefits: ["Fire safety", "Building safety", "Worker protection"]
     }
   ];
@@ -357,41 +358,101 @@ export default function Manufacturing() {
         </div>
       </section>
 
-      {/* Enhanced Certifications Grid */}
-      <section className="py-16 sm:py-20 bg-gray-50">
+      {/* Enhanced International Certifications Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Award className="w-4 h-4" />
+              Certifications
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               International Certifications
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Our commitment to quality, ethics, and sustainability is validated by internationally recognized certifications.
+            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto">
+              Our commitment to quality, ethics, and sustainability is validated by internationally recognized certifications that ensure the highest standards in manufacturing.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* Responsive Certifications Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {certifications.map((cert, index) => (
-              <Card key={index}
-              className="text-center group hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-primary">
-              <CardContent className="p-6">
-                {/* Logo Placeholder */}
-                <div className="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 border-2 border-gray-300">
-                  <span className="text-4xl">{cert.logo}
-                  </span>
+              <div
+                key={index}
+                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100 hover:border-blue-200"
+              >
+                {/* Card Content */}
+                <div className="p-6 sm:p-8 text-center">
+                  {/* Logo Container with Rounded Background */}
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-white to-gray-50 rounded-2xl flex items-center justify-center mx-auto shadow-md group-hover:shadow-lg transition-all duration-300 border-2 border-gray-100 group-hover:border-blue-200 group-hover:scale-110">
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20">
+                        <Image
+                          src={cert.logo}
+                          alt={`${cert.name} certification logo`}
+                          fill
+                          className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 640px) 56px, (max-width: 1024px) 64px, 80px"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Decorative Ring */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-300 transition-colors duration-300 opacity-0 group-hover:opacity-100"></div>
+                  </div>
+
+                  {/* Certification Info */}
+                  <div className="space-y-3">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                      {cert.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-500 font-medium leading-tight">
+                      {cert.fullName}
+                    </p>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {cert.description}
+                    </p>
+                  </div>
+
+                  {/* Benefits List */}
+                  <div className="mt-6 space-y-2">
+                    {cert.benefits.map((benefit, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+                        <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                        <span className="text-left">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{cert.name}</h3>
-                <p className="text-xs text-gray-500 mb-3 font-medium">{cert.fullName}</p>
-                <p className="text-sm text-gray-600 mb-4">{cert.description}</p>
-                <div className="space-y-2"> {cert.benefits.map((benefit, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
-                    <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
-                    <span>{benefit}</span> </div>
-                ))}
-                </div>
-              </CardContent>
-            </Card>
+
+                {/* Hover Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-50/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              </div>
             ))}
           </div>
 
+          {/* Certifications Stats */}
+          <div className="mt-16 sm:mt-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 sm:p-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+              <div className="space-y-2">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">{certifications.length}</div>
+                <div className="text-sm sm:text-base text-gray-600">International Certifications</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">100%</div>
+                <div className="text-sm sm:text-base text-gray-600">Compliance Rate</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">15+</div>
+                <div className="text-sm sm:text-base text-gray-600">Years Certified</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">24/7</div>
+                <div className="text-sm sm:text-base text-gray-600">Quality Monitoring</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
