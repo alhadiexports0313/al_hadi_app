@@ -8,38 +8,77 @@ import { companyInfo, certifications, stats } from '@/data/content';
 import { downloadCompanyProfilePDF } from '@/lib/utils';
 
 export default function About() {
+  // const milestones = [
+  //   {
+  //     year: "2010",
+  //     title: "Company Founded",
+  //     description: "AL HADI EXPORTS was established with a vision to provide premium quality garments to global markets."
+  //   },
+  //   {
+  //     year: "2013",
+  //     title: "International Expansion",
+  //     description: "Began exporting to European markets, establishing our first international partnerships."
+  //   },
+  //   {
+  //     year: "2016",
+  //     title: "ISO Certification",
+  //     description: "Achieved ISO 9001:2015 certification, demonstrating our commitment to quality management."
+  //   },
+  //   {
+  //     year: "2019",
+  //     title: "Sustainable Practices",
+  //     description: "Implemented eco-friendly manufacturing processes and obtained GOTS certification."
+  //   },
+  //   {
+  //     year: "2022",
+  //     title: "Digital Transformation",
+  //     description: "Modernized our operations with advanced technology and digital quality control systems."
+  //   },
+  //   {
+  //     year: "2024",
+  //     title: "Global Recognition",
+  //     description: `Serving ${stats[1].number} countries with over 1 million garments produced annually.`
+  //   }
+  // ];
   const milestones = [
-    {
-      year: "2010",
-      title: "Company Founded",
-      description: "AL HADI EXPORTS was established with a vision to provide premium quality garments to global markets."
-    },
-    {
-      year: "2013",
-      title: "International Expansion",
-      description: "Began exporting to European markets, establishing our first international partnerships."
-    },
-    {
-      year: "2016",
-      title: "ISO Certification",
-      description: "Achieved ISO 9001:2015 certification, demonstrating our commitment to quality management."
-    },
-    {
-      year: "2019",
-      title: "Sustainable Practices",
-      description: "Implemented eco-friendly manufacturing processes and obtained GOTS certification."
-    },
-    {
-      year: "2022",
-      title: "Digital Transformation",
-      description: "Modernized our operations with advanced technology and digital quality control systems."
-    },
-    {
-      year: "2024",
-      title: "Global Recognition",
-      description: `Serving ${stats[1].number} countries with over 1 million garments produced annually.`
-    }
-  ];
+  {
+    year: "2010",
+    title: "Company Founded",
+    description:
+      "AL HADI EXPORTS was established with a vision to deliver premium-quality garments to international markets.",
+  },
+  {
+    year: "2013",
+    title: "Global Expansion",
+    description:
+      "Began exporting to European and Middle Eastern markets, forming our first long-term international partnerships.",
+  },
+  {
+    year: "2016",
+    title: "Certified Excellence",
+    description:
+      "Earned major global certifications including SEDEX, HIGG, BSCI, and Accord Pakistan, ensuring compliance and ethical manufacturing standards.",
+  },
+  {
+    year: "2019",
+    title: "Sustainability Commitment",
+    description:
+      "Strengthened our focus on responsible production by integrating eco-conscious methods and enhancing worker welfare initiatives.",
+  },
+  {
+    year: "2022",
+    title: "Operational Expansion",
+    description:
+      "Expanded production capacity to meet growing global demand while maintaining strict quality and ethical standards.",
+  },
+  {
+    year: "2024",
+    title: "Global Recognition",
+    description:
+      `Now proudly serving over ${stats[1].number} countries with more than 2.5 million garments produced annually, backed by 500+ skilled professionals.`
+  },
+];
+
 
   const values = [
     {
@@ -106,19 +145,19 @@ export default function About() {
       icon: Award,
       title: "Quality Certifications",
       description: "International certifications ensuring compliance with global standards",
-      metrics: "ISO, GOTS, OEKO-TEX certified"
+      metrics: "SEDEX, HIGG, BSCI, Accord Pakistan"
     },
     {
       icon: TrendingUp,
       title: "Scalable Production",
       description: "Flexible manufacturing capacity to meet varying order volumes",
-      metrics: "1M+ garments annually"
+      metrics: "2.5M+ garments annually"
     },
     {
       icon: Clock,
       title: "Timely Delivery",
-      description: "Reliable delivery schedules with 98.5% on-time performance",
-      metrics: "98.5% on-time delivery"
+      description: "Reliable delivery schedules with 98.2% on-time performance",
+      metrics: "98.2% on-time delivery"
     },
     {
       icon: CheckCircle,
@@ -145,7 +184,7 @@ export default function About() {
               About <span className="text-accent">{companyInfo.name}</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-              {stats.find(s => s.label.includes('Years'))?.number}+ years of excellence in garment manufacturing and export
+              {stats.find(s => s.label.includes('Years'))?.number} years of excellence in garment manufacturing and export
             </p>
           </div>
         </div>
@@ -160,15 +199,19 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in 2010, {companyInfo.name} has grown from a small local manufacturer
-                to a globally recognized leader in garment export. Our journey began with a simple mission:
-                to create high-quality garments that meet international standards while maintaining competitive pricing.
+                Founded in 2010, {companyInfo.name} has grown into a globally recognized leader in garment production and export. 
+                Our journey began with a clear vision — to craft premium-quality garments that meet international standards while 
+                maintaining competitive pricing.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Today, we proudly serve clients in 25+ countries, employing over 500
-                skilled professionals who share our commitment to excellence. Our state-of-the-art manufacturing
-                facility combines traditional craftsmanship with modern technology to deliver exceptional results.
+                Today, we proudly export over 2.5 million garments annually to clients in 9+ countries, supported by a team of 
+                500+ skilled professionals dedicated to precision and excellence. Our state-of-the-art manufacturing facilities 
+                combine traditional craftsmanship to ensure consistent quality and timely delivery on every order.
               </p>
+              {/* <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Unlike local or retail operations, we focus exclusively on large-scale manufacturing and bulk exports, serving 
+                leading global brands with reliability, innovation, and trust.
+              </p> */}
               <button 
                 className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 onClick={downloadCompanyProfilePDF}
@@ -430,15 +473,25 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {certifications.map((cert, index) => (
-              <Card key={index} className="text-center">
+              <Card 
+                key={index} 
+                className="text-center group hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+              >
                 <CardContent className="p-6">
-                  <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Factory className="w-10 h-10 text-primary" />
+                  <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm border border-gray-100">
+                    <Image
+                      src={cert.logo}
+                      alt={`${cert.name} certification logo`}
+                      width={80}
+                      height={80}
+                      className="object-contain transition-transform duration-300 group-hover:scale-110"
+                      priority={index < 2}
+                    />
                   </div>
-                  <h3 className="font-semibold mb-2">{cert.name}</h3>
-                  <p className="text-sm text-gray-600">{cert.description}</p>
+                  <h3 className="font-semibold mb-2 text-gray-900">{cert.name}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{cert.description}</p>
                 </CardContent>
               </Card>
             ))}

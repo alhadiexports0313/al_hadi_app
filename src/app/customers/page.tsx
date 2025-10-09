@@ -38,7 +38,7 @@ export default function Customers() {
     {
       icon: Globe,
       title: "Global Reach",
-      description: "Serving clients across 50+ countries with reliable supply chain management"
+      description: "Serving clients across 9+ countries with reliable supply chain management"
     },
     {
       icon: Users,
@@ -121,7 +121,7 @@ export default function Customers() {
                   <Globe className="w-16 h-16 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Worldwide Presence</h3>
-                <p className="text-gray-600">Manufacturing and delivering across 50+ countries</p>
+                <p className="text-gray-600">Manufacturing and delivering across 9+ countries</p>
               </div>
 
               {/* Regional Distribution */}
@@ -246,14 +246,14 @@ export default function Customers() {
                   ))}
                 </div>
                 <blockquote className="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
-                  "{testimonials[currentTestimonial].content}"
+                  "{testimonials[currentTestimonial].text}"
                 </blockquote>
                 <div className="border-t pt-6">
                   <div className="font-semibold text-gray-900 text-lg">
                     {testimonials[currentTestimonial].name}
                   </div>
                   <div className="text-gray-600">
-                    {testimonials[currentTestimonial].position}, {testimonials[currentTestimonial].company}
+                    {testimonials[currentTestimonial].country}, {testimonials[currentTestimonial].company}
                   </div>
                 </div>
               </CardContent>
