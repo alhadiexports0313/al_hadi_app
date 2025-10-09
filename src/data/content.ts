@@ -4,12 +4,12 @@ export const companyInfo = {
   description: "Leading manufacturer and exporter of high-quality garments, serving international markets with excellence since 2010. We specialize in sustainable fashion production with state-of-the-art facilities.",
   founded: "2010",
   employees: "500+",
-  countries: "15+",
+  countries: "9+",
   experience: "14+ Years",
   contact: {
     phone: "+92-21-32434479, +92-300 2211587 ",
     email: "info@alhadiexports.com",
-    address: "Industrial Estate, D/103-B S.I.T.E. Karachi-75700 Pakistan",
+    address: "D/103-B S.I.T.E. Industrial Area, Karachi-75700 Pakistan",
     website: "www.alhadiexports.com"
   },
   social: {

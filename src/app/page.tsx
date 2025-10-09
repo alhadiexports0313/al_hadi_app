@@ -54,10 +54,10 @@ export default function Home() {
         />
 
         {/* Professional Gradient Overlay for Text Readability */}
-        {/*<div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-slate-900/75"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-blue-100/20 to-slate-200/30"></div>
         
         {/* Additional Subtle Overlay for Enhanced Contrast */}
-        {/*<div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
         
 
         
@@ -68,7 +68,7 @@ export default function Home() {
             AL HADI EXPORTS
           </h1>
 
-          <p className={`text-lg sm:text-xl text-gray-900 md:text-2xl lg:text-3xl xl:text-4xl mb-8 sm:mb-10 lg:mb-12 font-bold leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          <p className={`text-lg sm:text-xl text-gray-900 md:text-2xl lg:text-3xl xl:text-4xl mb-8 sm:mb-10 lg:mb-12 font-medium leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
             Global Leaders in Knit Fashion & Retail Garments
           </p>

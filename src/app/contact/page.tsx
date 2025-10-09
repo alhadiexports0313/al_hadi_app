@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, Building2, Globe, Users, MessageSquare, FileText, CheckCircle, Star, Award, Shield } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, Building2, Globe, Users, MessageSquare, Handshake, Shirt, FileText, CheckCircle, Star, Building, Leaf } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
-import { companyInfo } from '@/data/content';
+import { companyInfo, certifications } from '@/data/content';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setSubmitMessage('');
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -55,14 +55,14 @@ export default function ContactPage() {
       if (response.ok) {
         const responseData = await response.json();
         setSubmitStatus('success');
-        
+
         // Provide different messages based on email delivery status
         if (responseData.emailSent) {
           setSubmitMessage('✅ Quote request submitted successfully! We will contact you within 24 hours with a detailed response.');
         } else {
           setSubmitMessage('✅ Quote request received! We will contact you soon. (Email delivery may be delayed)');
         }
-        
+
         // Reset form
         setFormData({
           name: '',
@@ -93,7 +93,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+92 300 2211587', '+92-322-2214479'],
+      details: ['+92-21-32434479', '+92-300 2211587'],
       description: 'Call us for immediate assistance',
       availability: '24/7 Support Available'
     },
@@ -157,10 +157,9 @@ export default function ContactPage() {
   ];
 
   const officeDetails = {
-    address: "Industrial Area, Karachi-74500, Sindh, Pakistan",
+    address: companyInfo.contact.address,//"Industrial Area, Karachi-74500, Sindh, Pakistan",
     coordinates: "24.891086, 66.990536",
     nearbyLandmarks: [
-      "",
       "Near Ghani Chowrangi",
     ],
     facilities: [
@@ -171,23 +170,33 @@ export default function ContactPage() {
       "Huge parking facility"
     ]
   };
-
   const whyChooseUs = [
     {
-      icon: Award,
-      title: "ISO 9001:2015 Certified",
-      description: "International quality management standards"
+      icon: Building,
+      title: "SEDEX",
+      description: "Supplier Ethical Data and responsible business practices"
+    },
+    {
+      icon: Handshake,
+      title: "BSCI",
+      description: "Business Social Compliance Initiative",
+    },
+    {
+      icon: Leaf,
+      title: "HIGG",
+      description: "Higg Index Facility Environmental Module",
+    },
+    {
+      icon: Shirt,
+      title: "Accord Pakistan",
+      description: "Pakistan Accord on Fire and Building Safety",
     },
     {
       icon: Globe,
       title: "Global Reach",
       description: "Exporting to 9+ countries worldwide"
     },
-    {
-      icon: Shield,
-      title: "OEKO-TEX & GOTS",
-      description: "Eco-friendly and sustainable practices"
-    },
+
     {
       icon: Star,
       title: "98.5% On-Time Delivery",
@@ -218,7 +227,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-2">
                 <Building2 className="h-5 w-5" />
-                <span>15+ Years Experience</span>
+                <span>14+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5" />
@@ -461,10 +470,10 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full" 
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -482,11 +491,10 @@ export default function ContactPage() {
 
                 {/* Success/Error Message Display */}
                 {submitMessage && (
-                  <div className={`p-4 rounded-lg text-center ${
-                    submitStatus === 'success' 
-                      ? 'bg-green-50 text-green-800 border border-green-200' 
+                  <div className={`p-4 rounded-lg text-center ${submitStatus === 'success'
+                      ? 'bg-green-50 text-green-800 border border-green-200'
                       : 'bg-red-50 text-red-800 border border-red-200'
-                  }`}>
+                    }`}>
                     <p className="text-sm font-medium">{submitMessage}</p>
                   </div>
                 )}
@@ -502,7 +510,7 @@ export default function ContactPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Visit Our Manufacturing Facility
               </h2>
-              
+
               <Card className="mb-8">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -560,7 +568,7 @@ export default function ContactPage() {
                         <span className="text-gray-700 text-sm">{landmark}</span>
                       </div>
                     ))}
-                    
+
                     <h4 className="font-medium text-gray-900 mt-4">Facility Features:</h4>
                     {officeDetails.facilities.map((facility, index) => (
                       <div key={index} className="flex items-center gap-2">
@@ -623,8 +631,8 @@ export default function ContactPage() {
             Join 500+ satisfied clients worldwide. Get your custom quote and samples within 24-48 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="secondary" 
+            <Button
+              variant="secondary"
               size="lg"
               onClick={() => {
                 const element = document.getElementById('contact-form');
@@ -636,9 +644,9 @@ export default function ContactPage() {
               <FileText className="h-5 w-5 mr-2" />
               Request Detailed Quote
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="lg"
               className="border-white text-white hover:bg-white hover:text-primary"
               onClick={() => {
                 // You can replace this with actual catalog download functionality
