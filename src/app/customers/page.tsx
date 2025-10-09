@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Globe, MapPin, Users, TrendingUp, Award, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -19,18 +20,18 @@ export default function Customers() {
   ];
 
   const clientLogos = [
-    { name: 'Newlook', category: 'Fast Fashion', partnership: '8+ years' },
-    { name: 'Zara', category: 'Fashion Retail', partnership: '3+ years' },
-    { name: 'Kik', category: 'Casual Wear', partnership: '6+ years' },
-    { name: 'Exist', category: 'American Apparel', partnership: '6+ years' },
-    { name: 'Woolworth', category: 'Germany Retail', partnership: '7+ years' },
-    { name: 'Tedi', category: 'Germany Retail', partnership: '2+ years' },
-    { name: 'LPP', category: 'Poland Retail', partnership: '5+ years' },
-    { name: 'Styleinn', category: 'Italy Fashion', partnership: '4+ years' },
-    { name: 'Sherwin willims', category: 'Cananda', partnership: '1+ years' },
-    { name: 'Prime', category: 'suadia', partnership: '3+ years' },
-    { name: 'Miltex', category: 'USA Retail', partnership: '3+ years' },
-    { name: 'Champion', category: 'American Retail', partnership: '3+ years' }
+    { name: 'Newlook', category: 'Fast Fashion', partnership: '8+ years', image: '/images/Trusted Brands/Newlook.jpg' },
+    { name: 'Zara', category: 'Fashion Retail', partnership: '3+ years', image: '/images/Trusted Brands/Zara.jpg' },
+    { name: 'Kik', category: 'Casual Wear', partnership: '6+ years', image: '/images/Trusted Brands/Kik.jpg' },
+    { name: 'Exist', category: 'American Apparel', partnership: '6+ years', image: '/images/Trusted Brands/Exist.jpg' },
+    { name: 'Woolworth', category: 'Germany Retail', partnership: '7+ years', image: '/images/Trusted Brands/Woolworth.jpg' },
+    { name: 'Tedi', category: 'Germany Retail', partnership: '2+ years', image: '/images/Trusted Brands/Tedi.jpg' },
+    { name: 'LPP', category: 'Poland Retail', partnership: '5+ years', image: '/images/Trusted Brands/LPP.jpg' },
+    { name: 'inStyle', category: 'Italy Fashion', partnership: '4+ years', image: '/images/Trusted Brands/inStyle.jpg' },
+    { name: 'Sherwin Willims', category: 'Canada', partnership: '1+ years', image: '/images/Trusted Brands/Sherwin willims.jpg' },
+    { name: 'Prime', category: 'Saudi Arabia', partnership: '3+ years', image: '/images/Trusted Brands/Prime.jpg' },
+    { name: 'Miltex', category: 'USA Retail', partnership: '3+ years', image: '/images/Trusted Brands/Miltex.jpg' },
+    { name: 'Champion', category: 'American Retail', partnership: '3+ years', image: '/images/Trusted Brands/Champion.jpg' }
   ];
 
   const partnershipBenefits = [
@@ -175,17 +176,24 @@ export default function Customers() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-5 lg:gap-6">
             {clientLogos.map((client, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white font-bold text-lg">{client.name.charAt(0)}</span>
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-gray-100 hover:border-gray-200">
+                <CardContent className="p-3 md:p-4 text-center">
+                  <div className="relative w-full h-24 md:h-28 lg:h-32 mb-3 bg-gray-50 rounded-lg overflow-hidden group-hover:bg-white transition-all duration-300 group-hover:shadow-sm">
+                    <Image
+                      src={client.image}
+                      alt={`${client.name} logo - trusted partner of AL HADI EXPORTS`}
+                      fill
+                      className="object-contain p-1.5 group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 16vw"
+                      priority={index < 6}
+                    />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{client.name}</h3>
-                  <p className="text-sm text-gray-600 mb-2">{client.category}</p>
-                  <div className="text-xs text-primary font-medium">
-                    Partnership: {client.partnership}
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1 truncate leading-tight">{client.name}</h3>
+                  <p className="text-xs text-gray-600 mb-2 truncate">{client.category}</p>
+                  <div className="text-xs text-primary font-medium bg-blue-50 px-2 py-0.5 rounded-full inline-block">
+                    {client.partnership}
                   </div>
                 </CardContent>
               </Card>
