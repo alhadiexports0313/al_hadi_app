@@ -3,9 +3,9 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
-    console.log('API route called');
+    // API route called
     const body = await request.json();
-    console.log('Request body:', body);
+    // Request body received
     
     const {
       name,
@@ -21,25 +21,21 @@ export async function POST(request: NextRequest) {
     } = body;
 
     // Validate required fields
-    if (!name || !email || !company || !phone || !subject || !message || !productInterest) {
-      console.log('Validation failed - missing required fields');
+    if (!name || !email || !company || !phone || !subject || !message) {
+      // Validation failed - missing required fields
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    console.log('Validation passed');
+    // Validation passed
 
-    // Log form data for debugging
-    console.log('Form data received:', {
-      name, email, company, phone, subject, message, 
-      productInterest, orderQuantity, timeline, budget
-    });
+    // Form data received and validated
 
     // Validate environment variables
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      console.error('Missing email credentials in environment variables');
+      // Missing email credentials in environment variables
       return NextResponse.json(
         { error: 'Email service not configured. Please contact administrator.' },
         { status: 500 }
@@ -63,9 +59,9 @@ export async function POST(request: NextRequest) {
     // Verify SMTP connection
     try {
       await transporter.verify();
-      console.log('SMTP connection verified successfully');
-    } catch (verifyError) {
-      console.error('SMTP verification failed:', verifyError);
+      // SMTP connection verified successfully
+    } catch {
+      // SMTP verification failed
       return NextResponse.json(
         { error: 'Email service connection failed. Please try again later.' },
         { status: 500 }
@@ -157,8 +153,7 @@ export async function POST(request: NextRequest) {
     // Send email with comprehensive error handling
     try {
       const emailResult = await transporter.sendMail(mailOptions);
-      console.log('Email sent successfully:', emailResult.messageId);
-      console.log('Email accepted by:', emailResult.accepted);
+      // Email sent successfully
       
       return NextResponse.json(
         { 
@@ -168,8 +163,8 @@ export async function POST(request: NextRequest) {
         },
         { status: 200 }
       );
-    } catch (emailError) {
-      console.error('Failed to send email:', emailError);
+    } catch {
+        // Failed to send email
       
       // Return success to user but log the email failure
       return NextResponse.json(
@@ -182,10 +177,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-  } catch (error) {
-    console.error('Error processing request:', error);
+  } catch {
+    // Error processing request
     return NextResponse.json(
-      { error: 'Failed to process quote request: ' + (error instanceof Error ? error.message : String(error)) },
+      { error: 'Failed to process quote request. Please try again later.' },
       { status: 500 }
     );
   }

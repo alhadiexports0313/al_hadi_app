@@ -87,7 +87,7 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
       '• Children\'s Clothing: Kids & Baby Apparel',
       '• Custom Designs: Tailored Solutions'
     ];
-    
+    ;2
     yPos = 185;
     categories.forEach(category => {
       doc.text(category, 25, yPos);
@@ -173,11 +173,11 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
     // Save the PDF
     doc.save('AL_HADI_EXPORTS_Company_Profile.pdf');
     
-    console.log('Company profile PDF downloaded successfully');
+    // Company profile PDF downloaded successfully
     return true;
     
-  } catch (error) {
-    console.error('Error generating company profile PDF:', error);
+  } catch {
+    // Error generating company profile PDF - handle silently in production
     return false;
   }
 }
@@ -369,11 +369,11 @@ export function downloadCatalogPDF() {
     // Save the PDF
     doc.save('AL_HADI_EXPORTS_Product_Catalog_2024.pdf');
     
-    console.log('Product catalog PDF downloaded successfully');
+    // Product catalog PDF downloaded successfully
     return true;
     
-  } catch (error) {
-    console.error('Error generating product catalog PDF:', error);
+  } catch {
+    // Error generating product catalog PDF - handle silently in production
     return false;
   }
 }
@@ -433,10 +433,10 @@ export function downloadCapabilitiesPDF() {
     doc.setFontSize(11);
     doc.setTextColor(51, 51, 51);
     const capacityItems = [
-      '• Monthly Production: 100,000+ garments',
-      '• Daily Output: 5,000+ pieces',
+      '• Monthly Production: 200,000+ garments',
+      '• Daily Output: 10,000+ pieces',
       '• Lead Time: 15-30 days',
-      '• Minimum Order: 500 pieces per style',
+      '• Minimum Order: 1500 pieces per style',
       '• Sample Development: 7-10 days'
     ];
 
@@ -508,14 +508,10 @@ export function downloadCapabilitiesPDF() {
     yPosition += 10;
 
     const qualityStandards = [
-      '• ISO 9001:2015 Quality Management',
       '• BSCI (Business Social Compliance Initiative)',
       '• SEDEX (Supplier Ethical Data Exchange)',
       '• HIGG Index Sustainability Assessment',
-      '• Accord on Fire and Building Safety',
-      '• OEKO-TEX Standard 100',
-      '• GOTS (Global Organic Textile Standard)',
-      '• Fair Trade Certified'
+      '• Accord on Fire and Building Safety'
     ];
 
     doc.setFontSize(11);
@@ -591,8 +587,8 @@ export function downloadCapabilitiesPDF() {
     // Save the PDF
     doc.save('AL_HADI_EXPORTS_Manufacturing_Capabilities.pdf');
 
-  } catch (error) {
-    console.error('Error generating capabilities PDF:', error);
-    alert('Error generating PDF. Please try again.');
+  } catch {
+    // Error generating capabilities PDF - handle silently in production
+    return false;
   }
 }

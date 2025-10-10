@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Globe, Facebook, Twitter, Linkedin, Instagram, Award, Shield, CheckCircle, Building, Handshake, Leaf, Shirt  } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, Facebook, Twitter, Linkedin, Instagram, Building, Handshake, Leaf, Shirt  } from 'lucide-react';
 import Link from 'next/link';
 
 const Footer = () => {

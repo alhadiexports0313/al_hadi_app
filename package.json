@@ -12,6 +12,7 @@
     "@react-google-maps/api": "^2.20.7",
     "@types/nodemailer": "^7.0.2",
     "clsx": "^2.1.1",
+    "critters": "^0.0.25",
     "jspdf": "^3.0.3",
     "lucide-react": "^0.544.0",
     "next": "15.5.4",

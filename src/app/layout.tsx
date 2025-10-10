@@ -14,11 +14,34 @@ export const metadata: Metadata = {
   description: "Leading manufacturer and exporter of premium quality garments since 2010. Specializing in custom apparel manufacturing, private labeling, and worldwide shipping from Karachi, Pakistan.",
   keywords: "garments export, clothing manufacturer, custom apparel, private label, textile export, Pakistan garments, Karachi textiles",
   authors: [{ name: "AL HADI EXPORTS" }],
+  creator: "AL HADI EXPORTS",
+  publisher: "AL HADI EXPORTS",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: "AL HADI EXPORTS - Premium Garments Manufacturer",
     description: "Leading garments manufacturer and exporter from Pakistan since 2010",
     type: "website",
     locale: "en_US",
+    url: "https://alhadiexports.com",
+    siteName: "AL HADI EXPORTS",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AL HADI EXPORTS - Premium Garments Manufacturer",
+    description: "Leading garments manufacturer and exporter from Pakistan since 2010",
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 };
 

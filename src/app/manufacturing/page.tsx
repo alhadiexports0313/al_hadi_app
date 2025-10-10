@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { downloadCapabilitiesPDF } from '@/lib/utils';
-import { CheckCircle, Clock, Cog, Factory, Shield, Award, Users, Zap, Leaf, Globe, ArrowRight, Settings, Truck, Target, Scissors, Palette, Sparkles, Package, Search, Gauge, Wrench, Monitor } from 'lucide-react';
+import { CheckCircle, Clock, Cog, Shield, Award, Zap, ArrowRight, Settings, Target, Scissors, Palette, Sparkles, Package, Search } from 'lucide-react';
 import Button from '@/components/ui/Button';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Card, CardContent } from '@/components/ui/Card';
 
 export default function Manufacturing() {
   // Enhanced Process Flow with specific manufacturing steps
@@ -121,28 +121,28 @@ export default function Manufacturing() {
       name: "SEDEX",
       fullName: "Supplier Ethical Data Exchange",
       description: "Ethical trade and responsible business practices",
-      logo: "/images/logo/certi/Sedex-logo.png",
+      logo: "/images/certifications/SEDEX.png",
       benefits: ["Ethical sourcing", "Supply chain transparency", "Worker welfare"]
     },
     {
       name: "BSCI",
       fullName: "Business Social Compliance Initiative",
       description: "Social compliance and sustainability standards",
-      logo: "/images/logo/certi/bsci_logo.png",
+      logo: "/images/certifications/BSCI.png",
       benefits: ["Social compliance", "Worker rights", "Environmental protection"]
     },
     {
       name: "HIGG",
       fullName: "Higg Index Facility Environmental Module",
       description: "Environmental performance measurement",
-      logo: "/images/logo/certi/higg_logo.jpg",
+      logo: "/images/certifications/HIGG.jpg",
       benefits: ["Environmental impact", "Sustainability metrics", "Resource efficiency"]
     },
     {
       name: "Accord Pakistan",
       fullName: "Pakistan Accord on Fire and Building Safety",
       description: "Workplace safety and building standards",
-      logo: "/images/logo/certi/accord_logo.png",
+      logo: "/images/certifications/Accord Pakistan.png",
       benefits: ["Fire safety", "Building safety", "Worker protection"]
     }
   ];
@@ -223,7 +223,7 @@ export default function Manufacturing() {
               <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-green-500 via-purple-500 via-orange-500 to-red-500 transform -translate-y-1/2"></div>
 
               <div className="flex justify-between items-center relative">
-                {processSteps.map((step, index) => {
+                {processSteps.map((step) => {
                   const IconComponent = step.icon;
                   return (
                     <div key={step.id} className="flex flex-col items-center group">
@@ -265,7 +265,7 @@ export default function Manufacturing() {
               <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-green-500 via-purple-500 via-orange-500 to-red-500"></div>
 
               <div className="space-y-8">
-                {processSteps.map((step, index) => {
+                {processSteps.map((step) => {
                   const IconComponent = step.icon;
                   return (
                     <div key={step.id} className="flex items-start gap-6">

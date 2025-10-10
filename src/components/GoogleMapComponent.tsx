@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useCallback, memo, useEffect } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-import { MapPin, ExternalLink, Navigation } from 'lucide-react';
+import { MapPin, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 const COMPANY_LOCATION = { lat: 24.891086, lng: 66.990536 };
@@ -41,8 +41,8 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps> = memo(({ className 
   const handleInfoWindowClose = useCallback(() => setIsInfoWindowOpen(false), []);
   const handleMapLoad = useCallback(() => setIsMapLoaded(true), []);
 
-  const handleError = (err: any) => {
-    console.error('Google Maps load error:', err);
+  const handleError = () => {
+    // Google Maps load error - handle silently in production
     setHasError(true);
   };
 

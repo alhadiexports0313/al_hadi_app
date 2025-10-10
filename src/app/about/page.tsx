@@ -1,11 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap } from 'lucide-react';
+import Link from 'next/link';
+import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap} from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { companyInfo, certifications, stats } from '@/data/content';
 import { downloadCompanyProfilePDF } from '@/lib/utils';
+
 
 export default function About() {
   // const milestones = [
@@ -41,43 +43,43 @@ export default function About() {
   //   }
   // ];
   const milestones = [
-  {
-    year: "2010",
-    title: "Company Founded",
-    description:
-      "AL HADI EXPORTS was established with a vision to deliver premium-quality garments to international markets.",
-  },
-  {
-    year: "2013",
-    title: "Global Expansion",
-    description:
-      "Began exporting to European and Middle Eastern markets, forming our first long-term international partnerships.",
-  },
-  {
-    year: "2016",
-    title: "Certified Excellence",
-    description:
-      "Earned major global certifications including SEDEX, HIGG, BSCI, and Accord Pakistan, ensuring compliance and ethical manufacturing standards.",
-  },
-  {
-    year: "2019",
-    title: "Sustainability Commitment",
-    description:
-      "Strengthened our focus on responsible production by integrating eco-conscious methods and enhancing worker welfare initiatives.",
-  },
-  {
-    year: "2022",
-    title: "Operational Expansion",
-    description:
-      "Expanded production capacity to meet growing global demand while maintaining strict quality and ethical standards.",
-  },
-  {
-    year: "2024",
-    title: "Global Recognition",
-    description:
-      `Now proudly serving over ${stats[1].number} countries with more than 2.5 million garments produced annually, backed by 500+ skilled professionals.`
-  },
-];
+    {
+      year: "2010",
+      title: "Company Founded",
+      description:
+        "AL HADI EXPORTS was established with a vision to deliver premium-quality garments to international markets.",
+    },
+    {
+      year: "2013",
+      title: "Global Expansion",
+      description:
+        "Began exporting to European and Middle Eastern markets, forming our first long-term international partnerships.",
+    },
+    {
+      year: "2016",
+      title: "Certified Excellence",
+      description:
+        "Earned major global certifications including SEDEX, HIGG, BSCI, and Accord Pakistan, ensuring compliance and ethical manufacturing standards.",
+    },
+    {
+      year: "2019",
+      title: "Sustainability Commitment",
+      description:
+        "Strengthened our focus on responsible production by integrating eco-conscious methods and enhancing worker welfare initiatives.",
+    },
+    {
+      year: "2022",
+      title: "Operational Expansion",
+      description:
+        "Expanded production capacity to meet growing global demand while maintaining strict quality and ethical standards.",
+    },
+    {
+      year: "2024",
+      title: "Global Recognition",
+      description:
+        `Now proudly serving over ${stats[1].number} countries with more than 2.5 million garments produced annually, backed by 500+ skilled professionals.`
+    },
+  ];
 
 
   const values = [
@@ -89,7 +91,7 @@ export default function About() {
     {
       icon: Heart,
       title: "Customer Focus",
-      description: "Our customers' success is our success. We build lasting partnerships through exceptional service."
+      description: "Our customers&apos; success is our success. We build lasting partnerships through exceptional service."
     },
     {
       icon: Shield,
@@ -199,20 +201,20 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in 2010, {companyInfo.name} has grown into a globally recognized leader in garment production and export. 
-                Our journey began with a clear vision — to craft premium-quality garments that meet international standards while 
+                Founded in 2010, {companyInfo.name} has grown into a globally recognized leader in garment production and export.
+                Our journey began with a clear vision — to craft premium-quality garments that meet international standards while
                 maintaining competitive pricing.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Today, we proudly export over 2.5 million garments annually to clients in 9+ countries, supported by a team of 
-                500+ skilled professionals dedicated to precision and excellence. Our state-of-the-art manufacturing facilities 
+                Today, we proudly export over 2.5 million garments annually to clients in 9+ countries, supported by a team of
+                500+ skilled professionals dedicated to precision and excellence. Our state-of-the-art manufacturing facilities
                 combine traditional craftsmanship to ensure consistent quality and timely delivery on every order.
               </p>
               {/* <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Unlike local or retail operations, we focus exclusively on large-scale manufacturing and bulk exports, serving 
                 leading global brands with reliability, innovation, and trust.
               </p> */}
-              <button 
+              <button
                 className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 onClick={downloadCompanyProfilePDF}
               >
@@ -275,7 +277,7 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To become the world's most trusted garment manufacturer, known for innovation,
+                  To become the world&apos;s most trusted garment manufacturer, known for innovation,
                   sustainability, and exceptional quality. We envision a future where our products
                   contribute to a more sustainable fashion industry while empowering communities globally.
                 </p>
@@ -293,7 +295,7 @@ export default function About() {
               Leadership Team
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              Meet the experienced professionals who drive our company's vision and ensure operational excellence.
+              Meet the experienced professionals who drive our company&apos;s vision and ensure operational excellence.
             </p>
           </div>
           {/*Centered grid for 2 leadership cards */}
@@ -408,7 +410,7 @@ export default function About() {
               Our Journey
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Key milestones that have shaped our company's growth and success.
+              Key milestones that have shaped our company&apos;s growth and success.
             </p>
           </div>
 
@@ -475,8 +477,8 @@ export default function About() {
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {certifications.map((cert, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="text-center group hover:shadow-lg transition-all duration-300 transform hover:scale-105"
               >
                 <CardContent className="p-6">
@@ -509,12 +511,19 @@ export default function About() {
             Join hundreds of satisfied clients who trust {companyInfo.name} for their garment manufacturing needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact">
             <Button variant="accent" size="lg">
               Start Partnership
             </Button>
+            </Link>
+
+            <Link href="/contact">
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
               Contact Us
             </Button>
+            </Link>
+
+
           </div>
         </div>
       </section>

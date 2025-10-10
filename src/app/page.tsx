@@ -10,7 +10,17 @@ import Image from 'next/image';
 import { downloadCompanyProfilePDF, downloadCatalogPDF } from '@/lib/utils';
 
 // Fallback image component to gracefully handle missing images on home page
-const FallbackImage = ({ src, alt, className, sizes, fill, priority, ...rest }: any) => {
+interface FallbackImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  sizes?: string;
+  fill?: boolean;
+  priority?: boolean;
+  [key: string]: unknown;
+}
+
+const FallbackImage = ({ src, alt, className, sizes, fill, priority, ...rest }: FallbackImageProps) => {
   const [imgSrc, setImgSrc] = useState(src);
   return (
     <Image
@@ -347,7 +357,7 @@ export default function Home() {
                       <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
+                  <p className="text-gray-600 mb-6 italic">&quot;{testimonial.text}&quot;</p>
                   <div>
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>
                     <div className="text-sm text-gray-500">{testimonial.company}</div>

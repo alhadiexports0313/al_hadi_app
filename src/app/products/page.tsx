@@ -8,7 +8,16 @@ import { downloadCatalogPDF } from '@/lib/utils';
 import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck, Grid, Heart, Eye, ShoppingBag } from 'lucide-react';
 
 // Fallback image component to gracefully handle missing images
-const FallbackImage = ({ src, alt, className, sizes, fill, ...rest }: any) => {
+interface FallbackImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  sizes?: string;
+  fill?: boolean;
+  [key: string]: unknown;
+}
+
+const FallbackImage = ({ src, alt, className, sizes, fill, ...rest }: FallbackImageProps) => {
   const [imgSrc, setImgSrc] = useState(src);
   return (
     <Image
@@ -31,12 +40,15 @@ const getProductGalleryImages = () => {
   const kidsImages = [
     'Boys Tee.jpeg', "Kid's Jacket.jpeg", "Kid's Joggsuit.jpeg", "Kid's Polo.jpeg", "Kid's Tank top.jpeg",
     'Kids Hood.jpeg', 'Kids Shorts.jpeg', 'Kids Suit.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg',
-    'Kids Zipper Hood.jpeg', 'Kids Hoood_1.jpeg', 'Kids Shorts_1.jpeg', 'Kids Suit_1.jpeg', 'Kids Suit_2.jpeg', 'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids t shirt.jpeg'
+    'Kids Zipper Hood.jpeg', 'Kids Hoood_1.jpeg', 'Kids Shorts_1.jpeg', 'Kids Suit_1.jpeg', 'Kids Suit_2.jpeg', 
+    'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids t shirt.jpeg'
+
   ];
   const mensImages = [
-    'Fleece_Hooded_Jackets.jpg', "Men's Hood.jpeg", "Men's Jacket.jpeg", "Men's Joggsuit.jpeg", "Men's Night wear.jpeg", "Men's POLO.jpg", "Men's Polo.jpeg",
-    "Men's Trouser.jpeg", 'Mens Crew Neck.jpeg', 'Mens Hoood.jpeg', 'Mens LS crew.jpeg', 'Mens PO Hood.jpeg',
-    'Mens Shorts.jpeg', 'Mens Suit.jpeg', 'Mens Hood_1.jpeg','Mens T_Shirt.jpg' ,'Mens Teee.jpeg', 'Mens Zipper Hood.jpeg', "POLO'S.jpeg"
+    'Fleece_Hooded_Jackets.jpg', "Men Hood.jpeg", "Men Jacket.jpeg", "Men Joggsuit.jpeg", "Men Night wear.jpeg", 
+    "Men POLO.jpg", "Men Polo.jpeg", "Men POLO'S.jpeg" ,"Men Trouser.jpeg", 'Men Crew Neck.jpeg', 'Men Hoood.jpeg', 
+    'Men LS crew.jpeg', 'Men PO Hood.jpeg', 'Men Shorts.jpeg', 'Men Suit.jpeg', 'Men Hood_1.jpeg',
+    'Men T_Shirt.jpg' ,'Men Teee.jpeg', 'Men Zipper Hood.jpeg', 
   ];
   const womenImages = [
     'Ladies Hood.jpeg', 'Ladies Jacket.jpeg', 'Ladies Joggsuit.jpeg',
@@ -67,7 +79,7 @@ export default function ProductsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [galleryCategory, setGalleryCategory] = useState('All');
   const [isLoading, setIsLoading] = useState(false);
-  const [galleryImages, setGalleryImages] = useState(getProductGalleryImages());
+  const galleryImages = getProductGalleryImages();
 
   // Get unique categories for products
   const categories = ['All', ...Array.from(new Set(products.map(product => product.category)))];
@@ -628,6 +640,7 @@ export default function ProductsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300">
+
                 Request Quote
               </button>
             </Link>

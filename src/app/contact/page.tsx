@@ -5,7 +5,7 @@ import { downloadCatalogPDF } from '@/lib/utils';
 import { Mail, Phone, MapPin, Clock, Send, Building2, Globe, Users, MessageSquare, Handshake, Shirt, FileText, CheckCircle, Star, Building, Leaf, ExternalLink } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
-import { companyInfo, certifications } from '@/data/content';
+import { companyInfo } from '@/data/content';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -82,7 +82,7 @@ export default function ContactPage() {
         throw new Error(errorData.error || 'Failed to send message');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      // Error submitting form - handle silently in production
       setSubmitStatus('error');
       setSubmitMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again or contact us directly.');
     } finally {
@@ -128,7 +128,7 @@ export default function ContactPage() {
     'Sportswear',
     'Denim Products',
     'Knitwear',
-    'Children\'s Clothing',
+    'Children&apos;s Clothing',
     'Uniforms & Workwear',
     'Fashion Accessories',
     'Custom Requirements'
@@ -215,7 +215,7 @@ export default function ContactPage() {
               Contact AL HADI EXPORTS
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Ready to discuss your garment requirements? We're here to help you succeed.
+              Ready to discuss your garment requirements? We&apos;re here to help you succeed.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-blue-100">
               <div className="flex items-center gap-2">
@@ -501,7 +501,7 @@ export default function ContactPage() {
                 )}
 
                 <p className="text-sm text-gray-500 text-center">
-                  By submitting this form, you agree to our privacy policy. We'll respond within 24 hours.
+                  By submitting this form, you agree to our privacy policy. We&apos;ll respond within 24 hours.
                 </p>
               </form>
             </div>
@@ -592,7 +592,7 @@ export default function ContactPage() {
             Our Location
           </h3>
           <p className="text-gray-600 mt-2">
-            Visit our state-of-the-art manufacturing facility located in Karachi's premier industrial hub. 
+            Visit our state-of-the-art manufacturing facility located in Karachi&apos;s premier industrial hub. 
             We welcome business partners and clients to tour our operations.
           </p>
         </CardHeader>
@@ -667,7 +667,7 @@ export default function ContactPage() {
             Join 500+ satisfied clients worldwide. Get your custom quote and samples within 24-48 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
+            <Button className=' hover:text-white hover:bg-purple-700'
               variant="secondary"
               size="lg"
               onClick={() => {
@@ -683,7 +683,7 @@ export default function ContactPage() {
             <Button
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary"
+              className="border-white text-white hover:text-white hover:bg-purple-700"
               onClick={downloadCatalogPDF}
             >
               <Globe className="h-5 w-5 mr-2" />

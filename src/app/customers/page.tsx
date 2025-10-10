@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Globe, MapPin, Users, TrendingUp, Award, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { testimonials, stats } from '@/data/content';
 
@@ -171,7 +171,7 @@ export default function Customers() {
               Trusted by Leading Brands
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're proud to partner with some of the world's most recognized fashion and retail brands, 
+              We&apos;re proud to partner with some of the world&apos;s most recognized fashion and retail brands, 
               delivering consistent quality and reliability.
             </p>
           </div>
@@ -246,7 +246,7 @@ export default function Customers() {
                   ))}
                 </div>
                 <blockquote className="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
-                  "{testimonials[currentTestimonial].text}"
+                  &quot;{testimonials[currentTestimonial].text}&quot;
                 </blockquote>
                 <div className="border-t pt-6">
                   <div className="font-semibold text-gray-900 text-lg">
@@ -296,7 +296,7 @@ export default function Customers() {
             Ready to Join Our Global Network?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-            Become part of our growing family of satisfied clients. Let's discuss how we can 
+            Become part of our growing family of satisfied clients. Let&apos;s discuss how we can 
             support your garment manufacturing needs with our proven expertise and reliability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Phone, Mail, MapPin, Download } from 'lucide-react';
 import { downloadCompanyProfilePDF } from '@/lib/utils';
 
@@ -27,25 +28,6 @@ const Header = () => {
     { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: '/contact' },
   ];
-
-  // Garment Icon SVG Component
-  const GarmentIcon = () => (
-    <svg
-      className="w-8 h-8 text-primary"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V20C19 21.1 18.1 22 17 22H7C5.9 22 5 21.1 5 20V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V20H17V6H7Z"
-        fill="currentColor"
-      />
-      <path
-        d="M9 8H15V10H9V8ZM9 12H15V14H9V12Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
 
   return (
     <>
@@ -84,9 +66,11 @@ const Header = () => {
                 <GarmentIcon />
               </div> */}
               <div className="relative w-20 h-20">
-                <img
+                <Image
                   src="/images/logo/logo_1.png" 
                   alt="AL HADI EXPORTS Logo"
+                  width={80}
+                  height={80}
                   className="object-contain w-full h-full rounded-lg transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

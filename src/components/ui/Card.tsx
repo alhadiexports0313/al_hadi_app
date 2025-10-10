@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
-interface CardProps {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
@@ -24,7 +24,7 @@ interface CardFooterProps {
   className?: string;
 }
 
-const Card = ({ children, className, hover = true, padding = 'md', animate = false }: CardProps) => {
+const Card = ({ children, className, hover = true, padding = 'md', animate = false, ...rest }: CardProps) => {
   const paddingClasses = {
     none: '',
     sm: 'p-4',
@@ -41,6 +41,7 @@ const Card = ({ children, className, hover = true, padding = 'md', animate = fal
         paddingClasses[padding],
         className
       )}
+      {...rest}
     >
       {children}
     </div>
