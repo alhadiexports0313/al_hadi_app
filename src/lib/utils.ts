@@ -101,11 +101,11 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
     doc.setFontSize(11);
     doc.setTextColor(51, 51, 51);
     const standards = [
-      '• ISO 9001:2015 Quality Management',
-      '• OEKO-TEX Standard 100',
-      '• GOTS (Global Organic Textile Standard)',
-      '• WRAP (Worldwide Responsible Accredited Production)',
-      '• BSCI (Business Social Compliance Initiative)'
+      '• SEDEX (Shipping Export Declaration Exchange)',
+      '• BSCI (Business Social Compliance Initiative)',
+      '• HIGG (High Integrity Garments Group)',
+      '• Accord Pakistan (Quality Assurance)',
+      
     ];
     
     yPos = 245;
@@ -127,9 +127,9 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
     
     doc.text('Head Office:', 20, 45);
     doc.text('AL HADI EXPORTS', 20, 55);
-    doc.text('Karachi, Pakistan', 20, 65);
-    
-    doc.text('Phone:', 20, 80);
+    doc.text('Karachi, Pakistan', 20, 65);  
+
+    doc.text('Whatsapp:', 20, 80);
     doc.text('+92 300 2211587', 20, 90);
     
     doc.text('Email:', 20, 105);
@@ -147,7 +147,7 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
     doc.setFontSize(11);
     doc.setTextColor(51, 51, 51);
     const whyChoose = [
-      '• 15+ Years of Industry Experience',
+      '• 14+ Years of Industry Experience',
       '• State-of-the-art Manufacturing Facility',
       '• Skilled Workforce of 500+ Employees',
       '• Global Supply Chain Network',

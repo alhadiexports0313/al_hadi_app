@@ -2,12 +2,29 @@
 
 import { ArrowRight, Award, Globe, Shield, Truck, Users, Star, CheckCircle, Clock, DollarSign, Wrench, Leaf, Target, Eye, Heart, Download } from 'lucide-react';
 import Button from '@/components/ui/Button';
-import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/Card';
+import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import { companyInfo, products, stats, whyChooseUs, testimonials } from '@/data/content';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { downloadCompanyProfilePDF } from '@/lib/utils';
+
+// Fallback image component to gracefully handle missing images on home page
+const FallbackImage = ({ src, alt, className, sizes, fill, priority, ...rest }: any) => {
+  const [imgSrc, setImgSrc] = useState(src);
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      onError={() => setImgSrc('/images/placeholder.svg')}
+      fill={fill}
+      className={className}
+      sizes={sizes}
+      priority={priority}
+      {...rest}
+    />
+  );
+};
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -54,10 +71,10 @@ export default function Home() {
         />
 
         {/* Professional Gradient Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-blue-100/20 to-slate-200/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-blue-100/20 to-slate-400/30"></div>
         
         {/* Additional Subtle Overlay for Enhanced Contrast */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/20"></div> 
         
 
         
@@ -70,7 +87,7 @@ export default function Home() {
 
           <p className={`text-lg sm:text-xl text-gray-900 md:text-2xl lg:text-3xl xl:text-4xl mb-8 sm:mb-10 lg:mb-12 font-medium leading-relaxed max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-            Global Leaders in Knit Fashion & Retail Garments
+            Excellence in Knit Fashion & Premier Garment Manufacturing
           </p>
 
           <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-lg mx-auto transition-all duration-1000 ease-out delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -262,7 +279,7 @@ export default function Home() {
             {products.slice(0, 6).map((product, index) => (
               <Card key={product.id} className="overflow-hidden group hover:shadow-lg transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="relative h-40 sm:h-48 overflow-hidden bg-gray-100">
-                  <Image
+                  <FallbackImage
                     src={product.image}
                     alt={`${product.name} - ${product.category}`}
                     fill
@@ -373,5 +390,3 @@ export default function Home() {
     </main>
   );
 }
-
-// ... existing code ...

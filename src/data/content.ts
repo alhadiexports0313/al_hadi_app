@@ -9,7 +9,7 @@ export const companyInfo = {
   contact: {
     phone: "+92-21-32434479, +92-300 2211587 ",
     email: "info@alhadiexports.com",
-    address: "D/103-B S.I.T.E. Industrial Area, Karachi-75700 Pakistan",
+    address: "D/103-A S.I.T.E. Industrial Area, Karachi-75700 Pakistan",
     website: "www.alhadiexports.com"
   },
   social: {
@@ -62,7 +62,7 @@ export const products = [
     features: ["Ring-Spun Cotton", "Reinforced Seams", "Tagless Labels", "Color Fast"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Men's T Shirt.jpeg",
+    image: "/images/products/mens/Mens T_Shirt.jpg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {

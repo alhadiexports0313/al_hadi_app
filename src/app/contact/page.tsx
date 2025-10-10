@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, Building2, Globe, Users, MessageSquare, Handshake, Shirt, FileText, CheckCircle, Star, Building, Leaf } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, Building2, Globe, Users, MessageSquare, Handshake, Shirt, FileText, CheckCircle, Star, Building, Leaf, ExternalLink } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { companyInfo, certifications } from '@/data/content';
@@ -93,7 +93,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+92-21-32434479', '+92-300 2211587'],
+      details: ['+92-21-32434479'],
       description: 'Call us for immediate assistance',
       availability: '24/7 Support Available'
     },
@@ -529,8 +529,8 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5 text-primary flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900">Direct Lines</p>
-                        <p className="text-gray-600">+92-52-4261234 (Office)</p>
-                        <p className="text-gray-600">+92-300-8765432 (Mobile/WhatsApp)</p>
+                        <p className="text-gray-600">+92-21-32434479 (Office)</p>
+                        <p className="text-gray-600">+92-300-2211587 (Mobile/WhatsApp)</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -538,7 +538,7 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-gray-900">Email Contacts</p>
                         <p className="text-gray-600">info@alhadiexports.com</p>
-                        <p className="text-gray-600">sales@alhadiexports.com</p>
+                        
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -580,19 +580,54 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              {/* Map Placeholder */}
-              <Card className="mb-8">
-                <CardContent className="p-0">
-                  <div className="h-64 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-gray-700 font-medium">Interactive Map</p>
-                      <p className="text-sm text-gray-600">Sialkot Industrial Area, Pakistan</p>
-                      <p className="text-xs text-gray-500 mt-1">Click to view in Google Maps</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+
+
+               <section className="max-w-6xl mx-auto px-4 py-12">
+      {/* Map Section */}
+      <Card className="mb-8 shadow-lg border border-gray-200 overflow-hidden">
+        <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10">
+          <h3 className="text-xl font-bold text-gray-900 flex items-center gap-3">
+            <MapPin className="h-6 w-6 text-primary" />
+            Our Location
+          </h3>
+          <p className="text-gray-600 mt-2">
+            Visit our state-of-the-art manufacturing facility located in Karachi's premier industrial hub. 
+            We welcome business partners and clients to tour our operations.
+          </p>
+        </CardHeader>
+        <CardContent className="p-0">
+          {/* Responsive Google Maps Iframe */}
+          <div className="relative w-full h-0 pb-[56.25%] md:pb-[40%] lg:pb-[35%]">
+            <iframe
+              src="https://maps.google.com/maps?q=24.891086,66.990536&z=15&output=embed"
+              className="absolute top-0 left-0 w-full h-full border-0 rounded-b-lg"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="AL HADI EXPORTS Location - Karachi, Pakistan"
+            />
+          </div>
+          
+          {/* View on Google Maps Button */}
+          <div className="p-6 bg-gray-50 border-t border-gray-100">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="text-sm text-gray-600">
+                <p className="font-medium text-gray-900">AL HADI EXPORTS</p>
+                <p>Karachi, Pakistan</p>
+                <p className="text-xs text-gray-500 mt-1">Coordinates: 24.891086, 66.990536</p>
+              </div>
+              <Button
+                onClick={() => window.open('https://maps.google.com/maps?q=24.891086,66.990536&z=15', '_blank')}
+                className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+              >
+                <ExternalLink className="h-4 w-4" />
+                View on Google Maps
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </section>
 
               {/* Why Choose Us */}
               <div>
@@ -657,9 +692,9 @@ export default function ContactPage() {
               Download Full Catalog
             </Button>
           </div>
-          <p className="text-sm text-blue-200 mt-6">
+          {/* <p className="text-sm text-blue-200 mt-6">
             🌟 Special offer: Free samples for orders above 1,000 pieces
-          </p>
+          </p> */}
         </div>
       </section>
     </div>

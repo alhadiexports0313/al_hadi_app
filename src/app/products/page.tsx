@@ -6,6 +6,22 @@ import Link from 'next/link';
 import { products } from '@/data/content';
 import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck, Grid, Heart, Eye, ShoppingBag } from 'lucide-react';
 
+// Fallback image component to gracefully handle missing images
+const FallbackImage = ({ src, alt, className, sizes, fill, ...rest }: any) => {
+  const [imgSrc, setImgSrc] = useState(src);
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      onError={() => setImgSrc('/images/placeholder.svg')}
+      fill={fill}
+      className={className}
+      sizes={sizes}
+      {...rest}
+    />
+  );
+};
+
 // PDF Generation Function
 const generateProductCataloguePDF = () => {
   // Create a simple HTML content for the PDF
@@ -35,7 +51,7 @@ const generateProductCataloguePDF = () => {
     <body>
       <div class="header">
         <div class="company-name">AL HADI EXPORTS</div>
-        <div class="tagline">Global Leaders in Knit Fashion & Retail Garments</div>
+        <div class="tagline">Excellence in Knit Fashion & Premier Garment Manufacturing</div>
         <div style="margin-top: 10px; font-size: 14px; color: #666;">Product Catalogue 2024</div>
       </div>
       
@@ -61,8 +77,8 @@ const generateProductCataloguePDF = () => {
       
       <div class="footer">
         <div><strong>AL HADI EXPORTS</strong></div>
-        <div>Contact: info@alhadiexports.com | Phone: +92-XXX-XXXXXXX</div>
-        <div>Address: Industrial Area, Sialkot, Pakistan</div>
+        <div>Contact: info@alhadiexports.com | Phone: +92-300 2211587</div>
+        <div>Address:S.I.T.E Industrial Area, Karachi, Pakistan</div>
         <div style="margin-top: 10px;">Generated on ${new Date().toLocaleDateString()}</div>
       </div>
     </body>
@@ -90,27 +106,20 @@ const generateProductCataloguePDF = () => {
 // Dynamic Product Gallery Data
 const getProductGalleryImages = () => {
   const kidsImages = [
-    'Boys Tee.jpeg', 'KIds T shirts.jpeg', "Kid's Jacket.jpeg", "Kid's Joggsuit.jpeg", 
-    "Kid's Polo.jpeg", "Kid's Tank top.jpeg", "Kid's Tee.jpeg", "Kid's Trouser.jpeg", 
-    "Kid's Zipper Hood.jpeg", 'Kids Hood.jpeg', 'Kids Shorts.jpeg', 'Kids Suit.jpeg',
-    'Kids Tank top.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg', 'Kids Zipper Hood.jpeg',
-    'Kids shorts And Tee.jpeg', 'Kids t shirt.jpeg'
+    'Boys Tee.jpeg', "Kid's Jacket.jpeg", "Kid's Joggsuit.jpeg", "Kid's Polo.jpeg", "Kid's Tank top.jpeg",
+    'Kids Hood.jpeg', 'Kids Shorts.jpeg', 'Kids Suit.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg',
+    'Kids Zipper Hood.jpeg', 'Kids Hoood_1.jpeg', 'Kids Shorts_1.jpeg', 'Kids Suit_1.jpeg', 'Kids Suit_2.jpeg', 'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids t shirt.jpeg'
   ];
-// 'Mens Garments.jpeg', "Men's T Shirt.jpeg",
   const mensImages = [
-    'Fleece_Hooded_Jackets.jpg', "Men's Crew Neck.jpeg", "Men's Hood.jpeg", "Men's Jacket.jpeg",
-    "Men's Joggsuit.jpeg", "Men's Night wear.jpeg", "Men's POLO.jpg", "Men's Polo.jpeg",
-     "Men's Trouser.jpeg", "Men's Zipper.jpg", 'Mens Crew Neck.jpeg',
-     'Mens Hood.jpeg', 'Mens LS crew.jpeg', 'Mens PO Hood.jpeg',
-    'Mens Shorts.jpeg', 'Mens Suit.jpeg', 'Mens Tee.jpeg', 'Mens Zipper Hood.jpeg',
-    'POLO.jpeg'
+    'Fleece_Hooded_Jackets.jpg', "Men's Hood.jpeg", "Men's Jacket.jpeg", "Men's Joggsuit.jpeg", "Men's Night wear.jpeg", "Men's POLO.jpg", "Men's Polo.jpeg",
+    "Men's Trouser.jpeg", 'Mens Crew Neck.jpeg', 'Mens Hoood.jpeg', 'Mens LS crew.jpeg', 'Mens PO Hood.jpeg',
+    'Mens Shorts.jpeg', 'Mens Suit.jpeg', 'Mens Hood_1.jpeg','Mens T_Shirt.jpg' ,'Mens Teee.jpeg', 'Mens Zipper Hood.jpeg', "POLO'S.jpeg"
   ];
-
   const womenImages = [
-    'Ladies Hood.jpeg', 'Ladies Jacket.jpeg', 'Ladies Joggsuit.jpeg', 'Ladies Polo Tee.jpeg',
+    'Ladies Hood.jpeg', 'Ladies Jacket.jpeg', 'Ladies Joggsuit.jpeg',
     'Ladies Polo.jpeg', 'Ladies Round Neck.jpeg', 'Ladies Shorts.jpeg', 'Ladies T-Shirt.jpeg',
     'Ladies T-Shirts.jpeg', 'Ladies Tee.jpeg', 'Ladies Trouser.jpeg', 'Ladies V Neck Tee.jpeg',
-    'Ladies Zipper.jpeg'
+    'Ladies Zipper.jpeg', 'Ladies Zipper_1.jpeg'
   ];
 
   const formatImageData = (images: string[], category: string, folder: string) => {
@@ -292,13 +301,13 @@ export default function ProductsPage() {
                 >
                   {/* Product Image */}
                   <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
-                    <Image
+                    {/* Render product image with graceful fallback */}
+                    <FallbackImage
                       src={product.image}
-                      alt={`${product.name} - ${product.category}`}
+                      alt={product.name}
                       fill
-                      className="object-cover transition-transform duration-300 hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      priority={product.id <= 4}
+                      className="object-cover object-center"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                     />
                     <div className="absolute top-4 right-4">
                       <span className="bg-blue-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -480,7 +489,7 @@ export default function ProductsPage() {
                 >
                   {/* Image Container */}
                   <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-gradient-to-br from-gray-100 to-gray-200">
-                    <Image
+                    <FallbackImage
                       src={image.src}
                       alt={image.alt}
                       fill
