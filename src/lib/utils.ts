@@ -377,3 +377,222 @@ export function downloadCatalogPDF() {
     return false;
   }
 }
+
+/**
+ * Generates and downloads a manufacturing capabilities PDF using jsPDF
+ * This creates a comprehensive capabilities brochure for AL HADI EXPORTS
+ */
+export function downloadCapabilitiesPDF() {
+  try {
+    // Create new jsPDF instance
+    const doc = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    });
+
+    // Set font
+    doc.setFont('helvetica');
+
+    // Header Section
+    doc.setFontSize(24);
+    doc.setTextColor(30, 64, 175); // Blue color
+    doc.text('AL HADI EXPORTS', 105, 25, { align: 'center' });
+    
+    doc.setFontSize(16);
+    doc.setTextColor(102, 102, 102); // Gray color
+    doc.text('Manufacturing Capabilities & Infrastructure', 105, 35, { align: 'center' });
+    
+    // Add line under header
+    doc.setDrawColor(30, 64, 175);
+    doc.setLineWidth(1);
+    doc.line(20, 40, 190, 40);
+
+    let yPosition = 55;
+
+    // Manufacturing Overview
+    doc.setFontSize(16);
+    doc.setTextColor(30, 64, 175);
+    doc.text('Manufacturing Excellence', 20, yPosition);
+    yPosition += 10;
+    
+    doc.setFontSize(11);
+    doc.setTextColor(51, 51, 51);
+    const overviewText = `AL HADI EXPORTS operates a state-of-the-art manufacturing facility spanning over 50,000 square feet in Karachi, Pakistan. Our advanced infrastructure and skilled workforce of 500+ professionals enable us to deliver premium quality garments with exceptional efficiency and precision.`;
+    
+    const splitOverview = doc.splitTextToSize(overviewText, 170);
+    doc.text(splitOverview, 20, yPosition);
+    yPosition += splitOverview.length * 5 + 10;
+
+    // Production Capacity
+    doc.setFontSize(16);
+    doc.setTextColor(30, 64, 175);
+    doc.text('Production Capacity', 20, yPosition);
+    yPosition += 10;
+
+    doc.setFontSize(11);
+    doc.setTextColor(51, 51, 51);
+    const capacityItems = [
+      '• Monthly Production: 100,000+ garments',
+      '• Daily Output: 5,000+ pieces',
+      '• Lead Time: 15-30 days',
+      '• Minimum Order: 500 pieces per style',
+      '• Sample Development: 7-10 days'
+    ];
+
+    capacityItems.forEach(item => {
+      doc.text(item, 25, yPosition);
+      yPosition += 6;
+    });
+    yPosition += 5;
+
+    // Manufacturing Capabilities
+    doc.setFontSize(16);
+    doc.setTextColor(30, 64, 175);
+    doc.text('Core Capabilities', 20, yPosition);
+    yPosition += 10;
+
+    const capabilities = [
+      '• Cut & Sew Operations',
+      '• Knit Garment Manufacturing',
+      '• Woven Garment Production',
+      '• Embroidery & Printing Services',
+      '• Quality Control & Testing',
+      '• Private Label Manufacturing',
+      '• Custom Design Development',
+      '• Sustainable Production Methods'
+    ];
+
+    doc.setFontSize(11);
+    capabilities.forEach(capability => {
+      doc.text(capability, 25, yPosition);
+      yPosition += 6;
+    });
+    yPosition += 5;
+
+    // Equipment & Technology
+    doc.setFontSize(16);
+    doc.setTextColor(30, 64, 175);
+    doc.text('Equipment & Technology', 20, yPosition);
+    yPosition += 10;
+
+    const equipment = [
+      '• 200+ Industrial Sewing Machines',
+      '• Automated Cutting Systems',
+      '• Computer-Aided Design (CAD)',
+      '• Digital Printing Equipment',
+      '• Steam Pressing & Finishing',
+      '• Quality Testing Laboratory',
+      '• ERP Management System',
+      '• Automated Inventory Control'
+    ];
+
+    doc.setFontSize(11);
+    equipment.forEach(item => {
+      doc.text(item, 25, yPosition);
+      yPosition += 6;
+    });
+
+    // Add new page if needed
+    if (yPosition > 250) {
+      doc.addPage();
+      yPosition = 30;
+    } else {
+      yPosition += 10;
+    }
+
+    // Quality Standards
+    doc.setFontSize(16);
+    doc.setTextColor(30, 64, 175);
+    doc.text('Quality Standards & Certifications', 20, yPosition);
+    yPosition += 10;
+
+    const qualityStandards = [
+      '• ISO 9001:2015 Quality Management',
+      '• BSCI (Business Social Compliance Initiative)',
+      '• SEDEX (Supplier Ethical Data Exchange)',
+      '• HIGG Index Sustainability Assessment',
+      '• Accord on Fire and Building Safety',
+      '• OEKO-TEX Standard 100',
+      '• GOTS (Global Organic Textile Standard)',
+      '• Fair Trade Certified'
+    ];
+
+    doc.setFontSize(11);
+    qualityStandards.forEach(standard => {
+      doc.text(standard, 25, yPosition);
+      yPosition += 6;
+    });
+    yPosition += 10;
+
+    // Product Categories
+    doc.setFontSize(16);
+    doc.setTextColor(30, 64, 175);
+    doc.text('Product Specializations', 20, yPosition);
+    yPosition += 10;
+
+    const productCategories = [
+      '• Men\'s Apparel: T-shirts, Polo Shirts, Hoodies, Jackets',
+      '• Women\'s Wear: Blouses, Dresses, Activewear, Tops',
+      '• Children\'s Clothing: Casual Wear, School Uniforms',
+      '• Workwear: Uniforms, Safety Apparel, Corporate Wear',
+      '• Sportswear: Athletic Wear, Team Jerseys, Activewear',
+      '• Fashion Garments: Trendy Designs, Seasonal Collections'
+    ];
+
+    doc.setFontSize(11);
+    productCategories.forEach(category => {
+      const splitCategory = doc.splitTextToSize(category, 170);
+      doc.text(splitCategory, 25, yPosition);
+      yPosition += splitCategory.length * 5;
+    });
+
+    // Add new page for contact information
+    doc.addPage();
+    yPosition = 30;
+
+    // Contact Information
+    doc.setFontSize(18);
+    doc.setTextColor(30, 64, 175);
+    doc.text('Contact Information', 105, yPosition, { align: 'center' });
+    yPosition += 20;
+
+    doc.setFontSize(12);
+    doc.setTextColor(51, 51, 51);
+    
+    const contactInfo = [
+      'AL HADI EXPORTS',
+      'S.I.T.E Industrial Area, Karachi, Pakistan',
+      '',
+      'Phone: +92-300 2211587',
+      'Email: info@alhadiexports.com',
+      'Website: www.alhadiexports.com',
+      '',
+      'Business Hours:',
+      'Monday - Saturday: 9:00 AM - 6:00 PM',
+      'Sunday: Closed'
+    ];
+
+    contactInfo.forEach(info => {
+      if (info === '') {
+        yPosition += 5;
+      } else {
+        doc.text(info, 105, yPosition, { align: 'center' });
+        yPosition += 8;
+      }
+    });
+
+    // Footer
+    yPosition = 280;
+    doc.setFontSize(10);
+    doc.setTextColor(102, 102, 102);
+    doc.text(`Generated on ${new Date().toLocaleDateString()}`, 105, yPosition, { align: 'center' });
+
+    // Save the PDF
+    doc.save('AL_HADI_EXPORTS_Manufacturing_Capabilities.pdf');
+
+  } catch (error) {
+    console.error('Error generating capabilities PDF:', error);
+    alert('Error generating PDF. Please try again.');
+  }
+}

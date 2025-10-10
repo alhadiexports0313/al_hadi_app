@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { downloadCapabilitiesPDF } from '@/lib/utils';
 import { CheckCircle, Clock, Cog, Factory, Shield, Award, Users, Zap, Leaf, Globe, ArrowRight, Settings, Truck, Target, Scissors, Palette, Sparkles, Package, Search, Gauge, Wrench, Monitor } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
@@ -193,11 +194,8 @@ export default function Manufacturing() {
               <Button
                 variant="outline"
                 size="lg"
-                className="text-lg border-white text-white hover:bg-white hover:text-primary"
-                onClick={() => {
-                  // You can replace this with actual capabilities download functionality
-                  alert('Manufacturing capabilities brochure download will be available soon. Please contact us for immediate access.');
-                }}
+                className="text-lg border-white text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
+                onClick={downloadCapabilitiesPDF}
               >
                 Download Capabilities
               </Button>
@@ -524,11 +522,8 @@ export default function Manufacturing() {
             <Button
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary"
-              onClick={() => {
-                // You can replace this with actual brochure download functionality
-                alert('Capabilities brochure download will be available soon. Please contact us for immediate access.');
-              }}
+              className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
+              onClick={downloadCapabilitiesPDF}
             >
               Download Capabilities Brochure
             </Button>
