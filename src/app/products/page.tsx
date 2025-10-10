@@ -38,15 +38,15 @@ const FallbackImage = ({ src, alt, className, sizes, fill, ...rest }: FallbackIm
 // Dynamic Product Gallery Data
 const getProductGalleryImages = () => {
   const kidsImages = [
-    'Boys Tee.jpeg', "Kid's Jacket.jpeg", "Kid's Joggsuit.jpeg", "Kid's Polo.jpeg", "Kid's Tank top.jpeg",
+    'Boys Tee.jpeg', "Kids Jacket.jpeg", "Kids Joggsuit.jpeg", "Kids Polo.jpeg", "Kids Tank top.jpeg",
     'Kids Hood.jpeg', 'Kids Shorts.jpeg', 'Kids Suit.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg',
-    'Kids Zipper Hood.jpeg', 'Kids Hoood_1.jpeg', 'Kids Shorts_1.jpeg', 'Kids Suit_1.jpeg', 'Kids Suit_2.jpeg', 
-    'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids t shirt.jpeg'
+    'Kids Zipper Hood.jpeg', 'Kids_Hood.jpeg', 'Kids Short.jpeg', 'Kids Suit_1.jpeg', 'Kids Suit_2.jpeg', 
+    'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids T Shirt.jpeg'
 
   ];
   const mensImages = [
     'Fleece_Hooded_Jackets.jpg', "Men Hood.jpeg", "Men Jacket.jpeg", "Men Joggsuit.jpeg", "Men Night wear.jpeg", 
-    "Men POLO.jpg", "Men Polo.jpeg", "Men POLO'S.jpeg" ,"Men Trouser.jpeg", 'Men Crew Neck.jpeg', 'Men Hoood.jpeg', 
+    "Men POLO.jpg", "Men Polo.jpeg", "Men POLOS.jpeg" ,"Men Trouser.jpeg", 'Men Crew Neck.jpeg', 'Men Hoood.jpeg', 
     'Men LS crew.jpeg', 'Men PO Hood.jpeg', 'Men Shorts.jpeg', 'Men Suit.jpeg', 'Men Hood_1.jpeg',
     'Men T_Shirt.jpg' ,'Men Teee.jpeg', 'Men Zipper Hood.jpeg', 
   ];

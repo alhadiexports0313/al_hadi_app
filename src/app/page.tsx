@@ -70,7 +70,7 @@ export default function Home() {
             duration-[3000ms] ease-out ${isLoaded ? 'scale-105' : 'scale-100'
             }`}
           style={{
-            backgroundImage: `url('/images/manufacturing/mac_2.jpg')`,
+            backgroundImage: `url('/images/manufacturing/hero.jpg')`,
             backgroundAttachment: 'scroll', //'fixed',
             backgroundSize: 'cover',
             backgroundPosition: 'center', //'center center',
