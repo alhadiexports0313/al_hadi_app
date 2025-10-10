@@ -112,7 +112,7 @@ export default function About() {
       experience: "18+ years",
       expertise: "Strategic Leadership & Global Business Development",
       description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion.",
-      image: "/images/leadership/danish_img_final.jpg"
+      image: "/images/Leadership/danish.jpg"
     },
     {
       name: "Zeeshan Qazi",
@@ -120,7 +120,7 @@ export default function About() {
       experience: "12+ years",
       expertise: "Operations Management & Business Development",
       description: "Driving operational excellence and strategic partnerships for global market expansion.",
-      image: "/images/leadership/zeesahn_image2.png"
+      image: "/images/Leadership/zeeshan.png"
     }
   ];
 

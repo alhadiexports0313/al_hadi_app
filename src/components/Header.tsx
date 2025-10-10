@@ -67,7 +67,7 @@ const Header = () => {
               </div> */}
               <div className="relative w-20 h-20">
                 <Image
-                  src="/images/logo/logo_1.png" 
+                  src="/images/logo/AHLogo.png" 
                   alt="AL HADI EXPORTS Logo"
                   width={80}
                   height={80}
