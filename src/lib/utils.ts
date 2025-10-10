@@ -87,7 +87,7 @@ Our state-of-the-art manufacturing facility spans over 50,000 square feet and em
       '• Children\'s Clothing: Kids & Baby Apparel',
       '• Custom Designs: Tailored Solutions'
     ];
-    ;2
+    
     yPos = 185;
     categories.forEach(category => {
       doc.text(category, 25, yPos);

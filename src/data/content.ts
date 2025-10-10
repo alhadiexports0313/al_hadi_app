@@ -40,7 +40,7 @@ export const products = [
     features: ["100% Cotton Pique", "3-Button Placket", "Side Vents", "Pre-Shrunk"],
     minOrder: "1500 pieces one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Men's POLO.jpg",
+    image: "/images/products/mens/Men POLO.jpg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -51,7 +51,7 @@ export const products = [
     features: ["Soft Cotton", "Breathable Fabric", "Comfortable Fit", "Easy Care"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Men's Night wear.jpeg",
+    image: "/images/products/mens/Men Night wear.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -62,7 +62,7 @@ export const products = [
     features: ["Ring-Spun Cotton", "Reinforced Seams", "Tagless Labels", "Color Fast"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Mens T_Shirt.jpg",
+    image: "/images/products/mens/Men T_Shirt.jpg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -73,7 +73,7 @@ export const products = [
     features: ["Brushed Fleece", "Drawstring Hood", "Ribbed Hem", "Preshrunk"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Men's Hood.jpeg",
+    image: "/images/products/mens/Men Hood.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     features: ["100% Cotton", "Wrinkle Resistant", "French Seams", "Mother of Pearl Buttons"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Mens Crew Neck.jpeg",
+    image: "/images/products/mens/Men Crew Neck.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -95,7 +95,7 @@ export const products = [
     features: ["Moisture Wicking", "4-Way Stretch", "Anti-Odor", "UV Protection"],
     minOrder: "1500 piece one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Mens Shorts.jpeg",
+    image: "/images/products/mens/Men Shorts.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -106,7 +106,7 @@ export const products = [
     features: ["Fitted Sheets", "High-Quality Fabric", "Durable Stitching",],
     minOrder: "12000 pieces",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Mens Suit.jpeg",
+    image: "/images/products/mens/Men Suit.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -128,7 +128,7 @@ export const products = [
     features: ["Durable Fabric", "Reinforced Stress Points", "Multiple Pockets", "Easy Care"],
     minOrder: "1500 pieces",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Men's Trouser.jpeg",
+    image: "/images/products/mens/Men Trouser.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
