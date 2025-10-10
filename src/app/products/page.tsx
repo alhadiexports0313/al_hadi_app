@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { products } from '@/data/content';
+import { downloadCatalogPDF } from '@/lib/utils';
 import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck, Grid, Heart, Eye, ShoppingBag } from 'lucide-react';
 
 // Fallback image component to gracefully handle missing images
@@ -23,85 +24,7 @@ const FallbackImage = ({ src, alt, className, sizes, fill, ...rest }: any) => {
 };
 
 // PDF Generation Function
-const generateProductCataloguePDF = () => {
-  // Create a simple HTML content for the PDF
-  const htmlContent = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>AL HADI EXPORTS - Product Catalogue 2024</title>
-      <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #1e40af; padding-bottom: 20px; }
-        .company-name { font-size: 28px; font-weight: bold; color: #1e40af; margin-bottom: 5px; }
-        .tagline { font-size: 14px; color: #666; }
-        .product { margin-bottom: 25px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
-        .product-name { font-size: 18px; font-weight: bold; color: #1e40af; margin-bottom: 8px; }
-        .category { background: #f3f4f6; padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #374151; display: inline-block; margin-bottom: 8px; }
-        .description { margin-bottom: 10px; color: #374151; }
-        .features { margin-bottom: 10px; }
-        .feature-item { background: #eff6ff; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 5px; display: inline-block; margin-bottom: 3px; }
-        .order-info { display: flex; gap: 20px; margin-top: 10px; font-size: 12px; }
-        .order-detail { color: #666; }
-        .certifications { margin-top: 8px; }
-        .cert-badge { background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 3px; font-size: 10px; margin-right: 5px; }
-        .footer { margin-top: 40px; text-align: center; border-top: 1px solid #ddd; padding-top: 20px; font-size: 12px; color: #666; }
-      </style>
-    </head>
-    <body>
-      <div class="header">
-        <div class="company-name">AL HADI EXPORTS</div>
-        <div class="tagline">Excellence in Knit Fashion & Premier Garment Manufacturing</div>
-        <div style="margin-top: 10px; font-size: 14px; color: #666;">Product Catalogue 2024</div>
-      </div>
-      
-      ${products.map(product => `
-        <div class="product">
-          <div class="product-name">${product.name}</div>
-          <div class="category">${product.category}</div>
-          <div class="description">${product.description}</div>
-          <div class="features">
-            <strong>Features:</strong><br>
-            ${product.features.map(feature => `<span class="feature-item">${feature}</span>`).join('')}
-          </div>
-          <div class="order-info">
-            <div class="order-detail"><strong>Min Order:</strong> ${product.minOrder}</div>
-            <div class="order-detail"><strong>Lead Time:</strong> ${product.leadTime}</div>
-          </div>
-          <div class="certifications">
-            <strong>Certifications:</strong>
-            ${product.certifications.map(cert => `<span class="cert-badge">${cert}</span>`).join('')}
-          </div>
-        </div>
-      `).join('')}
-      
-      <div class="footer">
-        <div><strong>AL HADI EXPORTS</strong></div>
-        <div>Contact: info@alhadiexports.com | Phone: +92-300 2211587</div>
-        <div>Address:S.I.T.E Industrial Area, Karachi, Pakistan</div>
-        <div style="margin-top: 10px;">Generated on ${new Date().toLocaleDateString()}</div>
-      </div>
-    </body>
-    </html>
-  `;
 
-  // Create a Blob with the HTML content
-  const blob = new Blob([htmlContent], { type: 'text/html' });
-  
-  // Create a download link
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'Al_Hadi_Exports_Catalogue.pdf';
-  
-  // Trigger download
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  
-  // Clean up
-  URL.revokeObjectURL(url);
-};
 
 // Dynamic Product Gallery Data
 const getProductGalleryImages = () => {
@@ -231,7 +154,7 @@ export default function ProductsPage() {
               </div>
             </div>
             <button
-              onClick={generateProductCataloguePDF}
+              onClick={downloadCatalogPDF}
               className="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Download className="w-6 h-6" />
@@ -709,7 +632,7 @@ export default function ProductsPage() {
               </button>
             </Link>
             <button 
-              onClick={generateProductCataloguePDF}
+              onClick={downloadCatalogPDF}
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />

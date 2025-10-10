@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { downloadCatalogPDF } from '@/lib/utils';
 import { Mail, Phone, MapPin, Clock, Send, Building2, Globe, Users, MessageSquare, Handshake, Shirt, FileText, CheckCircle, Star, Building, Leaf, ExternalLink } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
@@ -683,10 +684,7 @@ export default function ContactPage() {
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white hover:text-primary"
-              onClick={() => {
-                // You can replace this with actual catalog download functionality
-                alert('Catalog download will be available soon. Please contact us for immediate access to our full product catalog.');
-              }}
+              onClick={downloadCatalogPDF}
             >
               <Globe className="h-5 w-5 mr-2" />
               Download Full Catalog

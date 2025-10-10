@@ -7,7 +7,7 @@ import { companyInfo, products, stats, whyChooseUs, testimonials } from '@/data/
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { downloadCompanyProfilePDF } from '@/lib/utils';
+import { downloadCompanyProfilePDF, downloadCatalogPDF } from '@/lib/utils';
 
 // Fallback image component to gracefully handle missing images on home page
 const FallbackImage = ({ src, alt, className, sizes, fill, priority, ...rest }: any) => {
@@ -379,9 +379,10 @@ export default function Home() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-white text-white hover:bg-white hover:text-primary"
-              onClick={downloadCompanyProfilePDF}
+              className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              onClick={downloadCatalogPDF}
             >
+              <Download className="h-5 w-5 mr-2" />
               Download Catalog
             </Button>
           </div>
