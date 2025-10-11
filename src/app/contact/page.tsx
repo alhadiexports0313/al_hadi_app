@@ -301,6 +301,7 @@ export default function ContactPage() {
                       id="name"
                       name="name"
                       required
+                      aria-label="Full Name"
                       value={formData.name}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -316,6 +317,7 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
+                      aria-label="Email Address"
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -334,6 +336,7 @@ export default function ContactPage() {
                       id="company"
                       name="company"
                       required
+                      aria-label="Company Name"
                       value={formData.company}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -349,6 +352,7 @@ export default function ContactPage() {
                       id="phone"
                       name="phone"
                       required
+                      aria-label="Phone Number"
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -366,6 +370,7 @@ export default function ContactPage() {
                       id="productInterest"
                       name="productInterest"
                       required
+                      aria-label="Product Category"
                       value={formData.productInterest}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -383,6 +388,7 @@ export default function ContactPage() {
                     <select
                       id="orderQuantity"
                       name="orderQuantity"
+                      aria-label="Order Quantity"
                       value={formData.orderQuantity}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -403,6 +409,7 @@ export default function ContactPage() {
                     <select
                       id="timeline"
                       name="timeline"
+                      aria-label="Required Timeline"
                       value={formData.timeline}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -420,6 +427,7 @@ export default function ContactPage() {
                     <select
                       id="budget"
                       name="budget"
+                      aria-label="Budget Range"
                       value={formData.budget}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -441,6 +449,7 @@ export default function ContactPage() {
                     id="subject"
                     name="subject"
                     required
+                    aria-label="Subject"
                     value={formData.subject}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
@@ -456,6 +465,7 @@ export default function ContactPage() {
                     id="message"
                     name="message"
                     required
+                    aria-label="Detailed Requirements"
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
@@ -476,6 +486,8 @@ export default function ContactPage() {
                   size="lg"
                   className="w-full"
                   disabled={isSubmitting}
+                  isLoading={isSubmitting}
+                  aria-label="Send Detailed Inquiry"
                 >
                   {isSubmitting ? (
                     <>
@@ -493,8 +505,8 @@ export default function ContactPage() {
                 {/* Success/Error Message Display */}
                 {submitMessage && (
                   <div className={`p-4 rounded-lg text-center ${submitStatus === 'success'
-                      ? 'bg-green-50 text-green-800 border border-green-200'
-                      : 'bg-red-50 text-red-800 border border-red-200'
+                    ? 'bg-green-50 text-green-800 border border-green-200'
+                    : 'bg-red-50 text-red-800 border border-red-200'
                     }`}>
                     <p className="text-sm font-medium">{submitMessage}</p>
                   </div>
@@ -539,7 +551,7 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium text-gray-900">Email Contacts</p>
                         <p className="text-gray-600">info@alhadiexports.com</p>
-                        
+
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -583,52 +595,54 @@ export default function ContactPage() {
 
 
 
-               <section className="max-w-6xl mx-auto px-4 py-12">
-      {/* Map Section */}
-      <Card className="mb-8 shadow-lg border border-gray-200 overflow-hidden">
-        <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10">
-          <h3 className="text-xl font-bold text-gray-900 flex items-center gap-3">
-            <MapPin className="h-6 w-6 text-primary" />
-            Our Location
-          </h3>
-          <p className="text-gray-600 mt-2">
-            Visit our state-of-the-art manufacturing facility located in Karachi&apos;s premier industrial hub. 
-            We welcome business partners and clients to tour our operations.
-          </p>
-        </CardHeader>
-        <CardContent className="p-0">
-          {/* Responsive Google Maps Iframe */}
-          <div className="relative w-full h-0 pb-[56.25%] md:pb-[40%] lg:pb-[35%]">
-            <iframe
-              src="https://maps.google.com/maps?q=24.891086,66.990536&z=15&output=embed"
-              className="absolute top-0 left-0 w-full h-full border-0 rounded-b-lg"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="AL HADI EXPORTS Location - Karachi, Pakistan"
-            />
-          </div>
-          
-          {/* View on Google Maps Button */}
-          <div className="p-6 bg-gray-50 border-t border-gray-100">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="text-sm text-gray-600">
-                <p className="font-medium text-gray-900">AL HADI EXPORTS</p>
-                <p>Karachi, Pakistan</p>
-                <p className="text-xs text-gray-500 mt-1">Coordinates: 24.891086, 66.990536</p>
-              </div>
-              <Button
-                onClick={() => window.open('https://maps.google.com/maps?q=24.891086,66.990536&z=15', '_blank')}
-                className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
-              >
-                <ExternalLink className="h-4 w-4" />
-                View on Google Maps
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </section>
+              <section className="max-w-6xl mx-auto px-4 py-12">
+                {/* Map Section */}
+                <Card className="mb-8 shadow-lg border border-gray-200 overflow-hidden">
+                  <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10">
+                    <h3 className="text-xl font-bold text-gray-900 flex items-center gap-3">
+                      <MapPin className="h-6 w-6 text-primary" />
+                      Our Location
+                    </h3>
+                    <p className="text-gray-600 mt-2">
+                      Visit our state-of-the-art manufacturing facility located in Karachi&apos;s premier industrial hub.
+                      We welcome business partners and clients to tour our operations.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    {/* Responsive Google Maps Iframe */}
+                    <div className="relative w-full pb-[56.25%] md:pb-[40%] lg:pb-[35%]">
+                      <iframe
+                        title="Company Location on Google Maps"
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.891571297235!2d66.990536!3d24.891086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f0c4c96747d%3A0x9a1cf3c2c1b1234a!2s24%C2%B053'27.9%22N%2066%C2%B059'25.9%22E!5e0!3m2!1sen!2s!4v1733948200000!5m2!1sen!2s"
+                        className="absolute inset-0 w-full h-full rounded-lg border border-gray-200 shadow-md"
+                      ></iframe>
+                    </div>
+
+
+                    {/* View on Google Maps Button */}
+                    <div className="p-6 bg-gray-50 border-t border-gray-100">
+                      <div className="text-center mb-4">
+                        <p className="font-medium text-gray-900">AL HADI EXPORTS</p>
+                        <p className="text-gray-600">Karachi, Pakistan</p>
+                        <p className="text-xs text-gray-500 mt-1">Coordinates: 24.891086, 66.990536</p>
+                      </div>
+                      <div className="flex justify-center">
+                        <Button
+                          onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=24.891086,66.990536', '_blank', 'noopener,noreferrer')}
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 bg-primary text-white hover:bg-primary-dark transition-colors duration-200 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                          aria-label="Open Location in Google Maps"
+                        >
+                          <MapPin className="h-4 w-4" aria-hidden="true" />
+                          <span>Open Location in Google Maps 📍</span>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
 
               {/* Why Choose Us */}
               <div>

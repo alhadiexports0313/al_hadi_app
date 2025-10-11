@@ -144,7 +144,7 @@ export default function ProductsPage() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
               Download Our Full Product Catalogue
             </h2>
             <p className="text-xl mb-8 text-blue-100">

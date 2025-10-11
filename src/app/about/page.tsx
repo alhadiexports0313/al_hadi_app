@@ -215,7 +215,7 @@ export default function About() {
                 leading global brands with reliability, innovation, and trust.
               </p> */}
               <button
-                className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r bg-blue-700 text-white hover:shadow-lg hover:bg-purple-600 hover:text-white  transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 onClick={downloadCompanyProfilePDF}
               >
                 Download Company Profile
@@ -518,7 +518,7 @@ export default function About() {
             </Link>
 
             <Link href="/contact">
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-purple-600 hover:text-white">
               Contact Us
             </Button>
             </Link>

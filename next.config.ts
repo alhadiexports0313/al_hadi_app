@@ -18,12 +18,46 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
   
-  // Security headers
+  // Security headers and Caching
   async headers() {
     return [
+      // Cache static Next.js assets
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      // Cache images in public/images
+      {
+        source: '/images/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      // Cache favicon
+      {
+        source: '/favicon.ico',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      // Cache all SVGs under public
+      {
+        source: '/:path*.svg',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      // Default headers for all routes
       {
         source: '/(.*)',
         headers: [
+          // Revalidate HTML/document responses
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
+          },
           {
             key: 'X-Frame-Options',
             value: 'DENY',

@@ -306,7 +306,7 @@ export default function Customers() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-purple-600 hover:text-white">
                 Schedule Consultation
               </Button>
             </Link>

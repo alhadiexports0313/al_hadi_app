@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -51,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} antialiased`}>
+    <html lang="en" className="scroll-smooth">  
+      <body className={`${inter.variable} antialias`}> 
         <Header />
         <main className="min-h-screen">
           {children}

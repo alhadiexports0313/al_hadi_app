@@ -194,7 +194,7 @@ export default function Manufacturing() {
               <Button
                 variant="outline"
                 size="lg"
-                className="text-lg border-white text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
+                className="text-lg border-white text-white hover:bg-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105"
                 onClick={downloadCapabilitiesPDF}
               >
                 Download Capabilities
@@ -522,7 +522,7 @@ export default function Manufacturing() {
             <Button
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
+              className="border-white text-white hover:bg-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105"
               onClick={downloadCapabilitiesPDF}
             >
               Download Capabilities Brochure

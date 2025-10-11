@@ -18,7 +18,7 @@ const Button = ({
   disabled,
   ...props 
 }: ButtonProps) => {
-  const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variants = {
     primary: 'bg-gradient-primary text-white hover:shadow-lg transform hover:-translate-y-0.5 focus:ring-primary',
@@ -45,6 +45,7 @@ const Button = ({
         className
       )}
       disabled={disabled || isLoading}
+      aria-busy={isLoading}
       {...props}
     >
       {isLoading ? (

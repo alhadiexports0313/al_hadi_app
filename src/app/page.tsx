@@ -57,7 +57,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" >
       {/* Hero Section - MANDATORY INTERACTIVITY */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24"
@@ -131,7 +131,8 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white transition-all duration-1000 ease-out delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white transition-all duration-1000 ease-out delay-1000 
+        ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
           <div className="animate-bounce">
             <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
@@ -159,8 +160,8 @@ export default function Home() {
       {/* Company Snapshot - Vision & Mission */}
       <section className="py-16 sm:py-20" aria-label="Company vision and mission">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16" >
+            <h2 className= "text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Company Snapshot
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -389,7 +390,7 @@ export default function Home() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="border-white text-white hover:bg-purple-600 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               onClick={downloadCatalogPDF}
             >
               <Download className="h-5 w-5 mr-2" />
