@@ -38,9 +38,11 @@
 /* Dark Mode Variables when .dark is on html */
 html.dark :root, html.dark {
   --background: #0f172a; /* slate-900 */
-  --foreground: #f1f5f9; /* slate-100 */
+  --foreground: #f9fafb; /* gray-50 */
   --muted: #1e293b;      /* slate-800 */
   --border: #334155;     /* slate-700 */
+  --primary-navy: #3b82f6; /* blue-500 for better contrast in dark mode */
+  --accent-teal: #06b6d4; /* cyan-500 for better visibility */
 }
 
 @media (prefers-color-scheme: dark) {

@@ -206,9 +206,9 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-500">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
+      <section className="bg-gradient-to-r from-primary to-primary-dark dark:from-blue-800 dark:to-blue-900 text-white py-20 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -240,34 +240,34 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-16">
+      <section className="py-16 dark:bg-slate-900 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               Multiple Ways to Reach Us
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
               Choose your preferred communication method. Our dedicated team is ready to assist you with all your garment export needs.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactMethods.map((method, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <Card key={index} className="text-center hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1 dark:bg-slate-800 dark:border-slate-700">
                 <CardHeader>
-                  <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-700 rounded-full flex items-center justify-center mb-4 transition-colors duration-300">
                     <method.icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">{method.title}</h3>
-                  <p className="text-gray-600">{method.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">{method.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{method.description}</p>
                 </CardHeader>
                 <CardContent>
                   {method.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-800 font-medium mb-1">
+                    <p key={idx} className="text-gray-800 dark:text-gray-200 font-medium mb-1 transition-colors duration-300">
                       {detail}
                     </p>
                   ))}
-                  <p className="text-sm text-primary font-medium mt-2">
+                  <p className="text-sm text-primary dark:text-blue-400 font-medium mt-2 transition-colors duration-300">
                     {method.availability}
                   </p>
                 </CardContent>
@@ -278,22 +278,22 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Office Details */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-slate-800 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Enhanced Contact Form */}
             <div id="contact-form">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 transition-colors duration-300">
                 Get a Custom Quote
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
                 Fill out our detailed form and receive a comprehensive quote within 24 hours. The more information you provide, the more accurate our quote will be.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Full Name *
                     </label>
                     <input
@@ -304,12 +304,12 @@ export default function ContactPage() {
                       aria-label="Full Name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Email Address *
                     </label>
                     <input
@@ -320,7 +320,7 @@ export default function ContactPage() {
                       aria-label="Email Address"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
                       placeholder="your.email@company.com"
                     />
                   </div>
@@ -328,7 +328,7 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Company Name *
                     </label>
                     <input
@@ -339,12 +339,12 @@ export default function ContactPage() {
                       aria-label="Company Name"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
                       placeholder="Your company name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Phone Number *
                     </label>
                     <input
@@ -355,7 +355,7 @@ export default function ContactPage() {
                       aria-label="Phone Number"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -363,7 +363,7 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="productInterest" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="productInterest" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Product Category *
                     </label>
                     <select
@@ -373,7 +373,7 @@ export default function ContactPage() {
                       aria-label="Product Category"
                       value={formData.productInterest}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                     >
                       <option value="">Select a product category</option>
                       {productCategories.map((category, index) => (
@@ -382,7 +382,7 @@ export default function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="orderQuantity" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="orderQuantity" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Order Quantity
                     </label>
                     <select
@@ -391,7 +391,7 @@ export default function ContactPage() {
                       aria-label="Order Quantity"
                       value={formData.orderQuantity}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                     >
                       <option value="">Select quantity range</option>
                       {orderQuantities.map((quantity, index) => (
@@ -403,7 +403,7 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Required Timeline
                     </label>
                     <select
@@ -412,7 +412,7 @@ export default function ContactPage() {
                       aria-label="Required Timeline"
                       value={formData.timeline}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                     >
                       <option value="">Select timeline</option>
                       {timelines.map((timeline, index) => (
@@ -421,7 +421,7 @@ export default function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                       Budget Range
                     </label>
                     <select
@@ -430,7 +430,7 @@ export default function ContactPage() {
                       aria-label="Budget Range"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                     >
                       <option value="">Select budget range</option>
                       {budgetRanges.map((budget, index) => (
@@ -441,7 +441,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                     Subject *
                   </label>
                   <input
@@ -452,13 +452,13 @@ export default function ContactPage() {
                     aria-label="Subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
                     placeholder="Brief description of your inquiry"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
                     Detailed Requirements *
                   </label>
                   <textarea
@@ -469,7 +469,7 @@ export default function ContactPage() {
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
                     placeholder="Please provide detailed information about your requirements including: 
 • Product specifications and designs
 • Fabric preferences and quality standards
@@ -504,15 +504,15 @@ export default function ContactPage() {
 
                 {/* Success/Error Message Display */}
                 {submitMessage && (
-                  <div className={`p-4 rounded-lg text-center ${submitStatus === 'success'
-                    ? 'bg-green-50 text-green-800 border border-green-200'
-                    : 'bg-red-50 text-red-800 border border-red-200'
+                  <div className={`p-4 rounded-lg text-center transition-colors duration-300 ${submitStatus === 'success'
+                    ? 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-400 border border-green-200 dark:border-green-800'
+                    : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-400 border border-red-200 dark:border-red-800'
                     }`}>
                     <p className="text-sm font-medium">{submitMessage}</p>
                   </div>
                 )}
 
-                <p className="text-sm text-gray-500 text-center">
+                <p className="text-sm text-gray-500 dark:text-gray-400 text-center transition-colors duration-300">
                   By submitting this form, you agree to our privacy policy. We&apos;ll respond within 24 hours.
                 </p>
               </form>
@@ -520,47 +520,47 @@ export default function ContactPage() {
 
             {/* Enhanced Office Details */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 transition-colors duration-300">
                 Visit Our Manufacturing Facility
               </h2>
 
-              <Card className="mb-8">
+              <Card className="mb-8 dark:bg-slate-700 dark:border-slate-600 transition-colors duration-300">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
                     AL HADI EXPORTS - Head Office & Factory
                   </h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                      <MapPin className="h-5 w-5 text-primary dark:text-blue-400 mt-1 flex-shrink-0 transition-colors duration-300" />
                       <div>
-                        <p className="font-medium text-gray-900">Complete Address</p>
-                        <p className="text-gray-600">{officeDetails.address}</p>
-                        <p className="text-sm text-gray-500 mt-1">GPS: {officeDetails.coordinates}</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">Complete Address</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{officeDetails.address}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 transition-colors duration-300">GPS: {officeDetails.coordinates}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Phone className="h-5 w-5 text-primary flex-shrink-0" />
+                      <Phone className="h-5 w-5 text-primary dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
                       <div>
-                        <p className="font-medium text-gray-900">Direct Lines</p>
-                        <p className="text-gray-600">+92-21-32434479 (Office)</p>
-                        <p className="text-gray-600">+92-300-2211587 (Mobile/WhatsApp)</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">Direct Lines</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">+92-21-32434479 (Office)</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">+92-300-2211587 (Mobile/WhatsApp)</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                      <Mail className="h-5 w-5 text-primary dark:text-blue-400 flex-shrink-0 transition-colors duration-300" />
                       <div>
-                        <p className="font-medium text-gray-900">Email Contacts</p>
-                        <p className="text-gray-600">info@alhadiexports.com</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">Email Contacts</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">info@alhadiexports.com</p>
 
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <Clock className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                      <Clock className="h-5 w-5 text-primary dark:text-blue-400 mt-1 flex-shrink-0 transition-colors duration-300" />
                       <div>
-                        <p className="font-medium text-gray-900">Business Hours</p>
-                        <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                        <p className="text-gray-600">Saturday: 9:00 AM - 2:00 PM</p>
-                        <p className="text-gray-600">Sunday: Closed</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">Business Hours</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Saturday: 9:00 AM - 2:00 PM</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Sunday: Closed</p>
                       </div>
                     </div>
                   </div>
@@ -568,25 +568,25 @@ export default function ContactPage() {
               </Card>
 
               {/* Location Details */}
-              <Card className="mb-8">
+              <Card className="mb-8 dark:bg-slate-700 dark:border-slate-600 transition-colors duration-300">
                 <CardHeader>
-                  <h3 className="text-lg font-semibold text-gray-900">Location Highlights</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">Location Highlights</h3>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    <h4 className="font-medium text-gray-900">Nearby Landmarks:</h4>
+                    <h4 className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">Nearby Landmarks:</h4>
                     {officeDetails.nearbyLandmarks.map((landmark, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-gray-700 text-sm">{landmark}</span>
+                        <div className="w-2 h-2 bg-primary dark:bg-blue-400 rounded-full transition-colors duration-300"></div>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm transition-colors duration-300">{landmark}</span>
                       </div>
                     ))}
 
-                    <h4 className="font-medium text-gray-900 mt-4">Facility Features:</h4>
+                    <h4 className="font-medium text-gray-900 dark:text-gray-100 mt-4 transition-colors duration-300">Facility Features:</h4>
                     {officeDetails.facilities.map((facility, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-accent rounded-full"></div>
-                        <span className="text-gray-700 text-sm">{facility}</span>
+                        <div className="w-2 h-2 bg-accent dark:bg-purple-400 rounded-full transition-colors duration-300"></div>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm transition-colors duration-300">{facility}</span>
                       </div>
                     ))}
                   </div>
@@ -597,13 +597,13 @@ export default function ContactPage() {
 
               <section className="max-w-6xl mx-auto px-4 py-12">
                 {/* Map Section */}
-                <Card className="mb-8 shadow-lg border border-gray-200 overflow-hidden">
-                  <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10">
-                    <h3 className="text-xl font-bold text-gray-900 flex items-center gap-3">
-                      <MapPin className="h-6 w-6 text-primary" />
+                <Card className="mb-8 shadow-lg border  border-gray-200 overflow-hidden">
+                  <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10 dark:from-blue-900/50 dark:to-blue-800/50 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 flex items-center gap-3 transition-colors duration-300">
+                      <MapPin className="h-6 w-6 text-primary dark:text-blue-400 transition-colors duration-300" />
                       Our Location
                     </h3>
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-gray-600 dark:text-gray-100 mt-2 transition-colors duration-300">
                       Visit our state-of-the-art manufacturing facility located in Karachi&apos;s premier industrial hub.
                       We welcome business partners and clients to tour our operations.
                     </p>
@@ -617,22 +617,22 @@ export default function ContactPage() {
                         allowFullScreen
                         referrerPolicy="no-referrer-when-downgrade"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.891571297235!2d66.990536!3d24.891086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f0c4c96747d%3A0x9a1cf3c2c1b1234a!2s24%C2%B053'27.9%22N%2066%C2%B059'25.9%22E!5e0!3m2!1sen!2s!4v1733948200000!5m2!1sen!2s"
-                        className="absolute inset-0 w-full h-full rounded-lg border border-gray-200 shadow-md"
+                        className="absolute inset-0 w-full h-full rounded-lg border border-gray-200 dark:border-slate-600 shadow-md transition-colors duration-300"
                       ></iframe>
                     </div>
 
 
                     {/* View on Google Maps Button */}
-                    <div className="p-6 bg-gray-50 border-t border-gray-100">
+                    <div className="p-6 bg-gray-50 dark:bg-slate-800 border-t border-gray-100 dark:border-slate-600 transition-colors duration-300">
                       <div className="text-center mb-4">
-                        <p className="font-medium text-gray-900">AL HADI EXPORTS</p>
-                        <p className="text-gray-600">Karachi, Pakistan</p>
-                        <p className="text-xs text-gray-500 mt-1">Coordinates: 24.891086, 66.990536</p>
+                        <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">AL HADI EXPORTS</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Karachi, Pakistan</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 transition-colors duration-300">Coordinates: 24.891086, 66.990536</p>
                       </div>
                       <div className="flex justify-center">
                         <Button
                           onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=24.891086,66.990536', '_blank', 'noopener,noreferrer')}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 bg-primary text-white hover:bg-primary-dark transition-colors duration-200 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 bg-primary text-white hover:bg-primary-dark dark:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
                           aria-label="Open Location in Google Maps"
                         >
                           <MapPin className="h-4 w-4" aria-hidden="true" />
@@ -646,20 +646,20 @@ export default function ContactPage() {
 
               {/* Why Choose Us */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
                   Why Partner With AL HADI EXPORTS?
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {whyChooseUs.map((item, index) => {
                     const IconComponent = item.icon;
                     return (
-                      <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-100 dark:border-slate-600 hover:shadow-md dark:hover:shadow-blue-500/10 transition-all duration-300">
+                        <div className="w-8 h-8 bg-primary dark:bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300">
                           <IconComponent className="w-4 h-4 text-white" />
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900 text-sm">{item.title}</h4>
-                          <p className="text-xs text-gray-600">{item.description}</p>
+                          <h4 className="font-medium text-gray-900 dark:text-gray-100 text-sm transition-colors duration-300">{item.title}</h4>
+                          <p className="text-xs text-gray-600 dark:text-gray-300 transition-colors duration-300">{item.description}</p>
                         </div>
                       </div>
                     );
@@ -672,36 +672,37 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-primary-dark text-white">
+      <section className="py-16 bg-gradient-to-r from-primary to-primary-dark dark:from-slate-800 dark:to-slate-700 text-white transition-colors duration-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 text-white dark:text-gray-100 transition-colors duration-300">
             Ready to Start Your Partnership?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl mb-8 text-blue-100 dark:text-gray-300 transition-colors duration-300">
             Join 500+ satisfied clients worldwide. Get your custom quote and samples within 24-48 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className=' hover:text-white hover:bg-purple-700'
+            <Button 
+              className="hover:text-white hover:bg-purple-700 dark:hover:bg-purple-600 transition-colors duration-300"
               variant="secondary"
-              size="lg"
               onClick={() => {
-                const element = document.getElementById('contact-form');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
+                const form = document.getElementById('contact-form');
+                if (form) {
+                  form.scrollIntoView({ behavior: 'smooth' });
+                  const firstInput = form.querySelector('input');
+                  if (firstInput) firstInput.focus();
                 }
               }}
             >
-              <FileText className="h-5 w-5 mr-2" />
-              Request Detailed Quote
+              <MessageSquare className="h-5 w-5 mr-2" />
+              Request Custom Quote
             </Button>
             <Button
               variant="outline"
-              size="lg"
-              className="border-white text-white hover:text-white hover:bg-purple-700"
+              className="bg-white/10 border-white/20 text-white hover:bg-white/20 dark:bg-slate-600/50 dark:border-slate-500 dark:hover:bg-slate-600/70 transition-colors duration-300"
               onClick={downloadCatalogPDF}
             >
-              <Globe className="h-5 w-5 mr-2" />
-              Download Full Catalog
+              <FileText className="h-5 w-5 mr-2" />
+              Download Catalog
             </Button>
           </div>
           {/* <p className="text-sm text-blue-200 mt-6">

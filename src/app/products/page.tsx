@@ -112,27 +112,27 @@ export default function ProductsPage() {
 
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-500">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 dark:from-slate-800 dark:via-slate-700 dark:to-slate-600 text-white py-20 transition-colors duration-500">
+        <div className="absolute inset-0 bg-black/20 dark:bg-black/40 transition-colors duration-500"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white dark:text-gray-100 transition-colors duration-300">
             Our Product Range
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 text-blue-100 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
             Discover our comprehensive collection of premium garments crafted with precision and quality
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center gap-2 text-blue-200">
+            <div className="flex items-center gap-2 text-blue-200 dark:text-gray-400 transition-colors duration-300">
               <Package className="w-5 h-5" />
               <span>All Product Categories</span>
             </div>
-            <div className="flex items-center gap-2 text-blue-200">
+            <div className="flex items-center gap-2 text-blue-200 dark:text-gray-400 transition-colors duration-300">
               <Globe className="w-5 h-5" />
               <span>Global Export Quality</span>
             </div>
-            <div className="flex items-center gap-2 text-blue-200">
+            <div className="flex items-center gap-2 text-blue-200 dark:text-gray-400 transition-colors duration-300">
               <Award className="w-5 h-5" />
               <span>Certified Manufacturing</span>
             </div>
@@ -141,38 +141,38 @@ export default function ProductsPage() {
       </section>
 
       {/* Catalogue Download CTA - Prominent Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-slate-700 dark:to-slate-600 text-white py-16 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white dark:text-gray-100 transition-colors duration-300">
               Download Our Full Product Catalogue
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8 text-blue-100 dark:text-gray-300 transition-colors duration-300">
               Get instant access to our complete 2024 product catalogue with detailed specifications, 
               minimum order quantities, and certification information for all our garment categories.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="flex items-center justify-center gap-3">
-                <Package className="w-6 h-6 text-blue-200" />
-                <span>Complete Product Details</span>
+                <Package className="w-6 h-6 text-blue-200 dark:text-gray-400 transition-colors duration-300" />
+                <span className="text-white dark:text-gray-300 transition-colors duration-300">Complete Product Details</span>
               </div>
               <div className="flex items-center justify-center gap-3">
-                <Clock className="w-6 h-6 text-blue-200" />
-                <span>Lead Times & MOQs</span>
+                <Clock className="w-6 h-6 text-blue-200 dark:text-gray-400 transition-colors duration-300" />
+                <span className="text-white dark:text-gray-300 transition-colors duration-300">Lead Times & MOQs</span>
               </div>
               <div className="flex items-center justify-center gap-3">
-                <Award className="w-6 h-6 text-blue-200" />
-                <span>Certification Information</span>
+                <Award className="w-6 h-6 text-blue-200 dark:text-gray-400 transition-colors duration-300" />
+                <span className="text-white dark:text-gray-300 transition-colors duration-300">Certification Information</span>
               </div>
             </div>
             <button
               onClick={downloadCatalogPDF}
-              className="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-3 bg-white text-blue-600 dark:bg-slate-800 dark:text-blue-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition-all duration-300 transform hover:scale-105 shadow-lg dark:shadow-blue-500/20"
             >
               <Download className="w-6 h-6" />
               Download Our Full Product Catalogue (PDF)
             </button>
-            <p className="text-sm text-blue-200 mt-4">
+            <p className="text-sm text-blue-200 dark:text-gray-400 mt-4 transition-colors duration-300">
               Instant download • Updated 2024 • Al_Hadi_Exports_Catalogue.pdf
             </p>
           </div>
@@ -180,18 +180,18 @@ export default function ProductsPage() {
       </section>
 
       {/* Filters Section */}
-      <section className="bg-white py-12 border-b">
+      <section className="bg-white dark:bg-slate-800 py-12 border-b border-gray-200 dark:border-slate-700 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Search Bar */}
           <div className="mb-8">
             <div className="relative max-w-md mx-auto">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5 transition-colors duration-300" />
               <input
                 type="text"
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-300"
               />
             </div>
           </div>
@@ -204,11 +204,11 @@ export default function ProductsPage() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-lg dark:shadow-blue-500/20'
+                    : 'bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600'
                 }`}
               >
-{category === 'All' ? 'All Products' : category}
+                {category === 'All' ? 'All Products' : category}
               </button>
             ))}
           </div>
@@ -216,13 +216,13 @@ export default function ProductsPage() {
       </section>
 
       {/* Products Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-50 dark:bg-slate-900 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               {selectedCategory === 'All' ? 'All Products' : selectedCategory}
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
               {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
             </p>
           </div>
@@ -232,10 +232,10 @@ export default function ProductsPage() {
               {filteredProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
+                  className="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 dark:border-slate-700"
                 >
                   {/* Product Image */}
-                  <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
+                  <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-slate-700 dark:to-slate-600 overflow-hidden transition-colors duration-300">
                     {/* Render product image with graceful fallback */}
                     <FallbackImage
                       src={product.image}
@@ -245,7 +245,7 @@ export default function ProductsPage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                     />
                     <div className="absolute top-4 right-4">
-                      <span className="bg-blue-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-blue-600/90 dark:bg-blue-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium transition-colors duration-300">
                         {product.category}
                       </span>
                     </div>
@@ -253,27 +253,27 @@ export default function ProductsPage() {
 
                   {/* Product Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 transition-colors duration-300">
                       {product.name}
                     </h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed transition-colors duration-300">
                       {product.description}
                     </p>
 
                     {/* Features */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">Key Features:</h4>
                       <div className="flex flex-wrap gap-1">
                         {product.features.slice(0, 3).map((feature, index) => (
                           <span
                             key={index}
-                            className="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs"
+                            className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs transition-colors duration-300"
                           >
                             {feature}
                           </span>
                         ))}
                         {product.features.length > 3 && (
-                          <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
+                          <span className="bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded text-xs transition-colors duration-300">
                             +{product.features.length - 3} more
                           </span>
                         )}
@@ -283,17 +283,17 @@ export default function ProductsPage() {
                     {/* Order Information */}
                     <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                       <div className="flex items-center gap-2">
-                        <Package className="w-4 h-4 text-gray-500" />
+                        <Package className="w-4 h-4 text-gray-500 dark:text-gray-400 transition-colors duration-300" />
                         <div>
-                          <div className="text-gray-500">Min Order</div>
-                          <div className="font-semibold">{product.minOrder}</div>
+                          <div className="text-gray-500 dark:text-gray-400 transition-colors duration-300">Min Order</div>
+                          <div className="font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">{product.minOrder}</div>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-gray-500" />
+                        <Clock className="w-4 h-4 text-gray-500 dark:text-gray-400 transition-colors duration-300" />
                         <div>
-                          <div className="text-gray-500">Lead Time</div>
-                          <div className="font-semibold">{product.leadTime}</div>
+                          <div className="text-gray-500 dark:text-gray-400 transition-colors duration-300">Lead Time</div>
+                          <div className="font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">{product.leadTime}</div>
                         </div>
                       </div>
                     </div>
@@ -304,7 +304,7 @@ export default function ProductsPage() {
                         {product.certifications.map((cert, index) => (
                           <span
                             key={index}
-                            className="bg-green-50 text-green-700 px-2 py-1 rounded text-xs flex items-center gap-1"
+                            className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded text-xs transition-colors duration-300"
                           >
                             <CheckCircle className="w-3 h-3" />
                             {cert}
@@ -316,12 +316,12 @@ export default function ProductsPage() {
                     {/* Action Buttons */}
                     <div className="flex gap-3">
                       <Link href="/contact" className="flex-1">
-                        <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm font-medium">
+                        <button className="w-full bg-blue-600 dark:bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-300 text-sm font-medium">
                           Get Quote
                         </button>
                       </Link>
                       <button 
-                        className="flex-1 border border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors duration-300 text-sm font-medium"
+                        className="flex-1 border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 py-2 px-4 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors duration-300 text-sm font-medium"
                         onClick={() => alert(`Product Details:\n\nName: ${product.name}\nCategory: ${product.category}\nDescription: ${product.description}\nFeatures: ${product.features.join(', ')}\nMin Order: ${product.minOrder}\nLead Time: ${product.leadTime}\nCertifications: ${product.certifications.join(', ')}`)}
                       >
                         Details
@@ -333,9 +333,9 @@ export default function ProductsPage() {
             </div>
           ) : (
             <div className="text-center py-16">
-              <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
-              <p className="text-gray-600">
+              <Package className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4 transition-colors duration-300" />
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">No products found</h3>
+              <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
                 Try adjusting your search terms or category filter.
               </p>
             </div>
@@ -344,33 +344,33 @@ export default function ProductsPage() {
       </section>
 
       {/* Modern Product Gallery */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white dark:from-slate-800 dark:via-slate-700/30 dark:to-slate-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Gallery Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4 transition-colors duration-300">
               <Grid className="w-4 h-4" />
               Product Gallery
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6 transition-colors duration-300">
               Explore Our Collection
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
               Discover our premium range of garments across different categories. Each piece showcases our commitment to quality and craftsmanship.
             </p>
             
             {/* Gallery Stats */}
             <div className="flex flex-wrap justify-center gap-8 text-sm">
-              <div className="flex items-center gap-2 text-gray-600">
-                <Package className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">
+                <Package className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>{galleryImages.length}+ Products</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-600">
-                <Eye className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">
+                <Eye className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>HD Quality Images</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-600">
-                <Award className="w-4 h-4 text-blue-600" />
+              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">
+                <Award className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>Premium Collection</span>
               </div>
             </div>
@@ -385,7 +385,7 @@ export default function ProductsPage() {
                 className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   galleryCategory === category
                     ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-blue-300'
+                    : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-400'
                 }`}
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -406,9 +406,9 @@ export default function ProductsPage() {
           <div className="relative">
             {/* Loading Overlay */}
             {isLoading && (
-              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-2xl">
-                <div className="flex items-center gap-3 text-blue-600">
-                  <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+              <div className="absolute inset-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-2xl transition-colors duration-300">
+                <div className="flex items-center gap-3 text-blue-600 dark:text-blue-400">
+                  <div className="w-6 h-6 border-2 border-blue-600 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
                   <span className="font-medium">Loading {galleryCategory} Collection...</span>
                 </div>
               </div>
@@ -419,11 +419,11 @@ export default function ProductsPage() {
               {filteredGalleryImages.map((image, index) => (
                 <div
                   key={image.id}
-                  className="group relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+                  className="group relative bg-white dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-2xl dark:hover:shadow-blue-500/10 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {/* Image Container */}
-                  <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-gradient-to-br from-gray-100 to-gray-200">
+                  <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-700 dark:to-slate-600 transition-colors duration-300">
                     <FallbackImage
                       src={image.src}
                       alt={image.alt}
@@ -459,19 +459,19 @@ export default function ProductsPage() {
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                          <h3 className="font-semibold text-gray-900 text-sm truncate mb-1">
+                        <div className="bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm rounded-lg p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                          <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm truncate mb-1 transition-colors duration-300">
                             {image.name}
                           </h3>
-                          <p className="text-xs text-gray-600 mb-2">
+                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">
                             Premium Quality • Export Grade
                           </p>
                           <div className="flex gap-2">
-                            <button className="flex-1 bg-blue-600 text-white text-xs py-1.5 px-3 rounded-md hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-1">
+                            <button className="flex-1 bg-blue-600 dark:bg-blue-500 text-white text-xs py-1.5 px-3 rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center gap-1">
                               <ShoppingBag className="w-3 h-3" />
                               Quote
                             </button>
-                            <button className="flex-1 border border-gray-300 text-gray-700 text-xs py-1.5 px-3 rounded-md hover:bg-gray-50 transition-colors duration-200">
+                            <button className="flex-1 border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 text-xs py-1.5 px-3 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors duration-200">
                               Details
                             </button>
                           </div>
@@ -482,10 +482,10 @@ export default function ProductsPage() {
 
                   {/* Product Info */}
                   <div className="p-4">
-                    <h3 className="font-semibold text-gray-900 text-center text-sm group-hover:text-blue-600 transition-colors duration-300 truncate">
+                    <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-center text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 truncate">
                       {image.name}
                     </h3>
-                    <p className="text-xs text-gray-500 text-center mt-1">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-1 transition-colors duration-300">
                       {image.category} Collection
                     </p>
                   </div>
@@ -499,11 +499,11 @@ export default function ProductsPage() {
             {/* Empty State */}
             {filteredGalleryImages.length === 0 && !isLoading && (
               <div className="text-center py-16">
-                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Package className="w-12 h-12 text-gray-400" />
+                <div className="w-24 h-24 bg-gray-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                  <Package className="w-12 h-12 text-gray-400 dark:text-gray-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">No products found</h3>
+                <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
                   Try selecting a different category or check back later for new additions.
                 </p>
               </div>
@@ -511,25 +511,25 @@ export default function ProductsPage() {
           </div>
 
           {/* Gallery Footer Stats */}
-          <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+          <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-8 transition-colors duration-300">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-3xl font-bold text-blue-600 mb-2">{filteredGalleryImages.length}</div>
-                <div className="text-gray-600 text-sm">
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">{filteredGalleryImages.length}</div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">
                   {galleryCategory === 'All' ? 'Total Products' : `${galleryCategory} Items`}
                 </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 mb-2">HD</div>
-                <div className="text-gray-600 text-sm">Quality Images</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">HD</div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Quality Images</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                <div className="text-gray-600 text-sm">Authentic Products</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">100%</div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Authentic Products</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-                <div className="text-gray-600 text-sm">Support Available</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">24/7</div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Support Available</div>
               </div>
             </div>
           </div>
@@ -537,39 +537,39 @@ export default function ProductsPage() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-gray-100 py-16">
+      <section className="bg-gray-100 dark:bg-slate-800 py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Our Services</h2>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
               Comprehensive manufacturing and export services to meet all your garment needs
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Package className="w-8 h-8 text-blue-600" />
+            <div className="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-blue-500/10 text-center transition-all duration-300">
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                <Package className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Custom Manufacturing</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Custom Manufacturing</h3>
+              <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                 Tailored production solutions with flexible MOQs and custom specifications
               </p>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-8 h-8 text-blue-600" />
+            <div className="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-blue-500/10 text-center transition-all duration-300">
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                <Shield className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Quality Assurance</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Quality Assurance</h3>
+              <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                 Rigorous quality control processes ensuring international standards
               </p>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Truck className="w-8 h-8 text-blue-600" />
+            <div className="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-blue-500/10 text-center transition-all duration-300">
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                <Truck className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Global Shipping</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Global Shipping</h3>
+              <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                 Reliable worldwide delivery with comprehensive logistics support
               </p>
             </div>
@@ -578,51 +578,51 @@ export default function ProductsPage() {
       </section>
 
       {/* Quality Assurance */}
-      <section className="bg-white py-16">
+      <section className="bg-white dark:bg-slate-900 py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Quality Assurance</h2>
-              <p className="text-gray-600 mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 transition-colors duration-300">Quality Assurance</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
                 Our commitment to excellence ensures every product meets international quality standards 
                 through rigorous testing and certification processes.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span className="text-gray-700">Pre-production sample approval</span>
+                  <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">Pre-production sample approval</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span className="text-gray-700">In-line quality monitoring</span>
+                  <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">In-line quality monitoring</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span className="text-gray-700">Final inspection before shipment</span>
+                  <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">Final inspection before shipment</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span className="text-gray-700">International certification compliance</span>
+                  <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">International certification compliance</span>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-700 dark:to-slate-600 p-8 rounded-xl transition-colors duration-300">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">99.8%</div>
-                  <div className="text-gray-600">Quality Pass Rate</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">99.8%</div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Quality Pass Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">4+</div>
-                  <div className="text-gray-600">Certifications</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">4+</div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Certifications</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-                  <div className="text-gray-600">Quality Monitoring</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">24/7</div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Quality Monitoring</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                  <div className="text-gray-600">Inspection Coverage</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">100%</div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Inspection Coverage</div>
                 </div>
               </div>
             </div>
@@ -631,22 +631,22 @@ export default function ProductsPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800 text-white py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Start Your Order?</h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-blue-100 dark:text-blue-200 max-w-2xl mx-auto transition-colors duration-300">
             Contact our team today to discuss your requirements and get a customized quote
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300">
+              <button className="bg-white dark:bg-slate-100 text-blue-600 dark:text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-slate-200 transition-colors duration-300">
 
                 Request Quote
               </button>
             </Link>
             <button 
               onClick={downloadCatalogPDF}
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center gap-2"
+              className="border-2 border-white dark:border-slate-200 text-white dark:text-slate-200 px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 dark:hover:bg-slate-200 dark:hover:text-blue-700 transition-colors duration-300 flex items-center justify-center gap-2"
             >
               <Download className="w-5 h-5" />
               Download Catalogue

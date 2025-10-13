@@ -5,11 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, Phone, Mail, MapPin, Download } from 'lucide-react';
 import { downloadCompanyProfilePDF } from '@/lib/utils';
+import { ThemeToggle } from './ui/ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  //const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   // Handle scroll effect for transparent header
   useEffect(() => {
@@ -20,45 +20,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  // sm change .......... sm change.............
-
-  // Apply theme from localStorage or system preference
-  // useEffect(() => {
-  //   const applyTheme = (t: 'light' | 'dark') => {
-  //     setTheme(t);
-  //     try {
-  //       localStorage.setItem('theme', t);
-  //     } catch {}
-  //     const html = document.documentElement;
-  //     if (t === 'dark') html.classList.add('dark');
-  //     else html.classList.remove('dark');
-  //   };
-
-  //   try {
-  //     const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
-  //     if (saved === 'light' || saved === 'dark') {
-  //       applyTheme(saved);
-  //     } else {
-  //       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  //       applyTheme(prefersDark ? 'dark' : 'light');
-  //     }
-  //   } catch {
-  //     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  //     applyTheme(prefersDark ? 'dark' : 'light');
-  //   }
-  // }, []);
-
-  // const toggleTheme = () => {
-  //   const next = theme === 'dark' ? 'light' : 'dark';
-  //   setTheme(next);
-  //   try {
-  //     localStorage.setItem('theme', next);
-  //   } catch {}
-  //   const html = document.documentElement;
-  //   if (next === 'dark') html.classList.add('dark');
-  //   else html.classList.remove('dark');
-  // };
 
   const navigationItems = [
     { name: 'Home', href: '/' },
@@ -72,39 +33,36 @@ const Header = () => {
   return (
     <>
       {/* Top Contact Bar */}
-      <div className="bg-gradient-primary text-white py-2 px-4 hidden lg:block">
+      <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-slate-800 dark:to-slate-700 text-white py-2 px-4 hidden lg:block transition-colors duration-500 ease-in-out">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
-              <Phone className="w-4 h-4" />
-              <span>+92 300 2211587 - +92 322 2214479</span>
+              <Phone className="w-4 h-4 text-white/90" />
+              <span className="text-white/95">+92 300 2211587 - +92 322 2214479</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Mail className="w-4 h-4" />
-              <span>info@alhadiexports.com</span>
+              <Mail className="w-4 h-4 text-white/90" />
+              <span className="text-white/95">info@alhadiexports.com</span>
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <MapPin className="w-4 h-4" />
-            <span>Karachi, Pakistan</span>
+            <MapPin className="w-4 h-4 text-white/90" />
+            <span className="text-white/95">Karachi, Pakistan</span>
           </div>
         </div>
       </div>
 
       {/* Main Navigation Header */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
+        className={`sticky top-0 z-50 transition-all duration-500 ease-in-out ${isScrolled
             ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-slate-700'
-            : 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm ' // sm change ..........
+            : 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group" aria-label="AL HADI EXPORTS Home">
-              {/* <div className="relative">
-                <GarmentIcon />
-              </div> */}
               <div className="relative w-20 h-20">
                 <Image
                   src="/images/logo/AHLogo.png" 
@@ -114,11 +72,11 @@ const Header = () => {
                   className="object-contain w-full h-full rounded-lg transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-               <div className=""> {/*"hidden sm:block" */}
-                <h1 className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-200">
+               <div className="">
+                <h1 className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">
                   AL HADI EXPORTS
                 </h1>
-                <p className="text-xs lg:text-sm text-gray-600 -mt-1">Premium Garments Since 2010</p>
+                <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 -mt-1 transition-colors duration-300">Premium Garments Since 2010</p>
               </div>
             </Link>
 
@@ -128,35 +86,23 @@ const Header = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary font-medium px-3 py-2 rounded-md text-sm transition-all duration-200 hover:bg-primary/5 dark:hover:bg-white/5 relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md text-sm transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-blue-400"
                   aria-label={`Navigate to ${item.name}`}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full" aria-hidden="true"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full" aria-hidden="true"></span>
                 </Link>
               ))}
             </nav>
 
-            {/* Right-side actions: Theme Toggle + Primary CTA    sm change   */}
-            <div className="hidden lg:flex items-center space-x-3"> 
-              {/* Sliding Theme Toggle */}
-              {/* <button
-                onClick={toggleTheme}
-                role="switch"
-                aria-checked={theme === 'dark'}
-                aria-label={theme === 'dark' ? 'Dark mode enabled' : 'Dark mode disabled'}
-                className="relative inline-flex items-center w-14 h-8 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              >
-                <span
-                  className={`absolute left-1 top-1 w-6 h-6 rounded-full bg-white dark:bg-slate-200 shadow-md transform transition-transform duration-300 ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}
-                >
-                  <span className="flex items-center justify-center w-full h-full text-sm" aria-hidden="true">🌙</span>
-                </span>
-              </button> */}
+            {/* Right-side actions: Theme Toggle + Primary CTA */}
+            <div className="hidden lg:flex items-center space-x-4"> 
+              {/* Modern Sliding Theme Toggle */}
+              <ThemeToggle size="md" />
 
               <button
                 onClick={downloadCompanyProfilePDF}
-                className="bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="bg-gradient-to-r from-primary to-primary-dark dark:from-blue-600 dark:to-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:shadow-xl dark:hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center space-x-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:focus-visible:ring-blue-400 focus-visible:ring-offset-2"
                 aria-label="Download company profile PDF"
               >
                 <Download className="w-4 h-4 group-hover:animate-bounce" aria-hidden="true" />
@@ -164,31 +110,24 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Mobile actions: Theme Toggle + menu button   sm change */}
-            <div className="lg:hidden flex items-center gap-2"> 
-              {/* Sliding Theme Toggle (Mobile) */}
-              {/* <button
-                onClick={toggleTheme}
-                role="switch"
-                aria-checked={theme === 'dark'}
-                aria-label={theme === 'dark' ? 'Dark mode enabled' : 'Dark mode disabled'}
-                className="relative inline-flex items-center w-14 h-8 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              >
-                <span
-                  className={`absolute left-1 top-1 w-6 h-6 rounded-full bg-white dark:bg-slate-200 shadow-md transform transition-transform duration-300 ${theme === 'dark' ? 'translate-x-6' : 'translate-x-0'}`}
-                >
-                  <span className="flex items-center justify-center w-full h-full text-sm" aria-hidden="true">🌙</span>
-                </span>
-              </button> */}
+            {/* Mobile actions: Theme Toggle + Menu Button */}
+            <div className="lg:hidden flex items-center space-x-3">
+              {/* Mobile Theme Toggle */}
+              <ThemeToggle size="sm" />
 
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 dark:text-gray-200 hover:text-primary p-2 rounded-md transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded-md transition-colors duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
+                {isMenuOpen ? (
+                  <X className="w-6 h-6" aria-hidden="true" />
+                ) : (
+                  <Menu className="w-6 h-6" aria-hidden="true" />
+                )}
               </button>
             </div>
           </div> 
@@ -203,12 +142,12 @@ const Header = () => {
             role="navigation"
             aria-label="Mobile navigation"
           >
-            <div className="px-2 pt-2 pb-6 space-y-1 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700 shadow-xl rounded-b-lg">
+            <div className="px-2 pt-2 pb-6 space-y-1 bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-700 shadow-xl rounded-b-lg transition-colors duration-300">
               {navigationItems.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-white/5 block px-4 py-4 rounded-lg text-base font-medium transition-all duration-200 border-l-4 border-transparent hover:border-primary transform hover:translate-x-1"
+                  className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 block px-4 py-4 rounded-lg text-base font-medium transition-all duration-300 border-l-4 border-transparent hover:border-blue-600 dark:hover:border-blue-400 transform hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-400 focus-visible:ring-offset-2"
                   onClick={() => setIsMenuOpen(false)}
                   aria-label={`Navigate to ${item.name}`}
                   style={{
@@ -223,7 +162,7 @@ const Header = () => {
               {/* Mobile CTA Button */}
               <div className="pt-4 px-4">
                 <button
-                  className="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-4 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="w-full bg-gradient-to-r from-primary to-primary-dark dark:from-blue-600 dark:to-blue-700 text-white px-6 py-4 rounded-lg font-medium hover:shadow-lg dark:hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center space-x-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:focus-visible:ring-blue-400 focus-visible:ring-offset-2"
                   onClick={() => {
                     downloadCompanyProfilePDF();
                     setIsMenuOpen(false);
@@ -239,15 +178,15 @@ const Header = () => {
               <div className="pt-4 px-4 border-t border-gray-100 dark:border-slate-800 mt-4">
                 <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
                   <div className="flex items-center space-x-2">
-                    <Phone className="w-4 h-4 text-primary" aria-hidden="true" />
-                    <a href="tel:+925212345678" className="hover:text-primary transition-colors">+92 0300 2211587</a>
+                    <Phone className="w-4 h-4 text-blue-600 dark:text-blue-400" aria-hidden="true" />
+                    <a href="tel:+925212345678" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">+92 0300 2211587</a>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
-                    <a href="mailto:info@alhadiexports.com" className="hover:text-primary transition-colors">info@alhadiexports.com</a>
+                    <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400" aria-hidden="true" />
+                    <a href="mailto:info@alhadiexports.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">info@alhadiexports.com</a>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <MapPin className="w-4 h-4 text-primary" aria-hidden="true" />
+                    <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" aria-hidden="true" />
                     <span>Karachi, Pakistan</span>
                   </div>
                 </div>

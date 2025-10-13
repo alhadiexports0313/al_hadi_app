@@ -176,16 +176,16 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen dark:bg-slate-900 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="relative bg-gradient-primary text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
+      <section className="relative bg-gradient-primary dark:from-blue-700 dark:to-blue-800 text-white py-20 transition-colors duration-300">
+        <div className="absolute inset-0 bg-black opacity-10 dark:opacity-30 transition-opacity duration-300"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              About <span className="text-accent">{companyInfo.name}</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 dark:text-blue-200 transition-colors duration-300">
+              About <span className="text-accent dark:text-blue-400">{companyInfo.name}</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 dark:text-blue-100 transition-colors duration-300">
               {stats.find(s => s.label.includes('Years'))?.number} years of excellence in garment manufacturing and export
             </p>
           </div>
@@ -193,19 +193,19 @@ export default function About() {
       </section>
 
       {/* Company Overview */}
-      <section className="py-20">
+      <section className="py-20 dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6 transition-colors duration-300">
                 Our Story
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300">
                 Founded in 2010, {companyInfo.name} has grown into a globally recognized leader in garment production and export.
                 Our journey began with a clear vision — to craft premium-quality garments that meet international standards while
                 maintaining competitive pricing.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors duration-300">
                 Today, we proudly export over 2.5 million garments annually to clients in 9+ countries, supported by a team of
                 500+ skilled professionals dedicated to precision and excellence. Our state-of-the-art manufacturing facilities
                 combine traditional craftsmanship to ensure consistent quality and timely delivery on every order.
@@ -215,31 +215,31 @@ export default function About() {
                 leading global brands with reliability, innovation, and trust.
               </p> */}
               <button
-                className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r bg-blue-700 text-white hover:shadow-lg hover:bg-purple-600 hover:text-white  transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r bg-blue-700 dark:bg-blue-600 text-white hover:shadow-lg hover:bg-purple-600 dark:hover:bg-blue-500 hover:text-white transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-slate-900"
                 onClick={downloadCompanyProfilePDF}
               >
                 Download Company Profile
               </button>
             </div>
             <div className="relative">
-              <div className="bg-gradient-primary rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Quick Facts</h3>
+              <div className="bg-gradient-primary dark:from-blue-700 dark:to-blue-800 rounded-2xl p-8 text-white transition-colors duration-300">
+                <h3 className="text-2xl font-bold mb-6 dark:text-blue-200 transition-colors duration-300">Quick Facts</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span>Founded:</span>
-                    <span className="font-semibold">2010</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">Founded:</span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">2010</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Employees:</span>
-                    <span className="font-semibold">500+</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">Employees:</span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">500+</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Countries Served:</span>
-                    <span className="font-semibold">{stats[1].number}</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">Countries Served:</span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">{stats[1].number}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Experience:</span>
-                    <span className="font-semibold">14+ Years</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">Experience:</span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">14+ Years</span>
                   </div>
                 </div>
               </div>
@@ -249,18 +249,18 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
-            <Card className="text-center">
+            <Card className="text-center dark:bg-slate-700 dark:border-slate-600 hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300">
               <CardHeader>
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-gradient-primary dark:from-blue-600 dark:to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                   <Target className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Our Mission</h3>
               </CardHeader>
               <CardContent>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
                   To manufacture and export premium quality garments that exceed customer expectations
                   while maintaining sustainable and ethical business practices. We strive to be the
                   preferred partner for businesses seeking reliable, high-quality garment manufacturing solutions.
@@ -268,15 +268,15 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center dark:bg-slate-700 dark:border-slate-600 hover:shadow-lg dark:hover:shadow-purple-500/10 transition-all duration-300">
               <CardHeader>
-                <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-gradient-accent dark:from-purple-600 dark:to-purple-700 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                   <Eye className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Our Vision</h3>
               </CardHeader>
               <CardContent>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
                   To become the world&apos;s most trusted garment manufacturer, known for innovation,
                   sustainability, and exceptional quality. We envision a future where our products
                   contribute to a more sustainable fashion industry while empowering communities globally.
@@ -288,13 +288,13 @@ export default function About() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20 dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               Leadership Team
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 transition-colors duration-300">
               Meet the experienced professionals who drive our company&apos;s vision and ensure operational excellence.
             </p>
           </div>
@@ -304,11 +304,11 @@ export default function About() {
               {leadership.map((leader, index) => (
                 <Card
                   key={index}
-                  className="text-center group hover:shadow-2xl transition-all duration-300 mx-auto w-full max-w-md bg-yellow-200 rounded-2xl"
+                  className="text-center group hover:shadow-2xl dark:hover:shadow-blue-500/20 transition-all duration-300 mx-auto w-full max-w-md bg-yellow-200 dark:bg-slate-700 rounded-2xl dark:border-slate-600"
                 >
                   <CardContent className="p-6 sm:p-8">
                     {/* Full-width image section */}
-                    <div className="relative w-full h-80 sm:h-96 mb-4 overflow-hidden rounded-lg border-4 border-primary/20 shadow-lg">
+                    <div className="relative w-full h-80 sm:h-96 mb-4 overflow-hidden rounded-lg border-4 border-primary/20 dark:border-blue-500/30 shadow-lg dark:shadow-slate-900/20 transition-all duration-300">
                       <Image
                         src={leader.image}
                         alt={`${leader.name} - ${leader.position}`}
@@ -320,11 +320,11 @@ export default function About() {
 
                     {/* Text content with white color and compact spacing */}
                     <div className="space-y-0.5">
-                      <h3 className="text-2xl sm:text-3xl font-bold">{leader.name}</h3>
-                      <p className="font-semibold text-lg sm:text-xl text-blue-500">{leader.position}</p>
-                      <p className="text-base sm:text-lg font-medium text-blue-500">{leader.experience} Experience</p>
-                      <p className="text-sm sm:text-base italic text-blue-500">{leader.expertise}</p>
-                      <p className="text-base sm:text-lg leading-relaxed pt-1 text-gray-400">{leader.description}</p>
+                      <h3 className="text-2xl sm:text-3xl font-bold dark:text-gray-100 transition-colors duration-300">{leader.name}</h3>
+                      <p className="font-semibold text-lg sm:text-xl text-blue-500 dark:text-blue-400 transition-colors duration-300">{leader.position}</p>
+                      <p className="text-base sm:text-lg font-medium text-blue-500 dark:text-blue-400 transition-colors duration-300">{leader.experience} Experience</p>
+                      <p className="text-sm sm:text-base italic text-blue-500 dark:text-blue-400 transition-colors duration-300">{leader.expertise}</p>
+                      <p className="text-base sm:text-lg leading-relaxed pt-1 text-gray-400 dark:text-gray-300 transition-colors duration-300">{leader.description}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -336,13 +336,13 @@ export default function About() {
       </section>
 
       {/* Core Strengths */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               Our Core Strengths
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               The key capabilities and advantages that set us apart in the global garment manufacturing industry.
             </p>
           </div>
@@ -351,14 +351,14 @@ export default function About() {
             {coreStrengths.map((strength, index) => {
               const IconComponent = strength.icon;
               return (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                <Card key={index} className="text-center hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-700 dark:border-slate-600">
                   <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <div className="w-12 h-12 bg-gradient-primary dark:from-blue-600 dark:to-blue-700 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{strength.title}</h3>
-                    <p className="text-sm text-gray-600 mb-3 leading-relaxed">{strength.description}</p>
-                    <div className="text-xs font-medium text-primary bg-blue-50 rounded-full px-3 py-1">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">{strength.title}</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 leading-relaxed transition-colors duration-300">{strength.description}</p>
+                    <div className="text-xs font-medium text-primary dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-full px-3 py-1 transition-colors duration-300">
                       {strength.metrics}
                     </div>
                   </CardContent>
@@ -370,13 +370,13 @@ export default function About() {
       </section>
 
       {/* Company Values */}
-      <section className="py-20">
+      <section className="py-20 dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               Our Core Values
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               These values guide every decision we make and every relationship we build.
             </p>
           </div>
@@ -385,15 +385,15 @@ export default function About() {
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <Card key={index} className="text-center">
+                <Card key={index} className="text-center hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-800 dark:border-slate-700">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <div className="w-12 h-12 bg-gradient-primary dark:from-blue-600 dark:to-blue-700 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold">{value.title}</h3>
+                    <h3 className="text-lg font-semibold dark:text-gray-100 transition-colors duration-300">{value.title}</h3>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{value.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{value.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -403,33 +403,33 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               Our Journey
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               Key milestones that have shaped our company&apos;s growth and success.
             </p>
           </div>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-primary"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-primary dark:from-blue-600 dark:to-blue-700 transition-colors duration-300"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                    <Card>
+                    <Card className="hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-700 dark:border-slate-600">
                       <CardContent className="p-6">
-                        <div className="text-2xl font-bold text-primary mb-2">{milestone.year}</div>
-                        <h3 className="text-xl font-semibold mb-3">{milestone.title}</h3>
-                        <p className="text-gray-600">{milestone.description}</p>
+                        <div className="text-2xl font-bold text-primary dark:text-blue-400 mb-2 transition-colors duration-300">{milestone.year}</div>
+                        <h3 className="text-xl font-semibold dark:text-gray-100 mb-3 transition-colors duration-300">{milestone.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{milestone.description}</p>
                       </CardContent>
                     </Card>
                   </div>
                   <div className="relative z-10">
-                    <div className="w-4 h-4 bg-accent rounded-full border-4 border-white shadow-lg"></div>
+                    <div className="w-4 h-4 bg-accent dark:bg-purple-500 rounded-full border-4 border-white dark:border-slate-800 shadow-lg dark:shadow-slate-900/20 transition-all duration-300"></div>
                   </div>
                   <div className="w-1/2"></div>
                 </div>
@@ -440,13 +440,13 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20">
+      <section className="py-20 dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               Our Impact
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               Numbers that reflect our commitment to excellence and growth.
             </p>
           </div>
@@ -454,9 +454,9 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-gray-600 font-medium text-lg">{stat.label}</div>
-                <div className="text-sm text-gray-500">{stat.description}</div>
+                <div className="text-5xl font-bold text-primary dark:text-blue-400 mb-2 transition-colors duration-300">{stat.number}</div>
+                <div className="text-gray-600 dark:text-gray-300 font-medium text-lg transition-colors duration-300">{stat.label}</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">{stat.description}</div>
               </div>
             ))}
           </div>
@@ -464,13 +464,13 @@ export default function About() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
               Certifications & Standards
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               Our commitment to quality and sustainability is validated by international certifications.
             </p>
           </div>
@@ -479,10 +479,10 @@ export default function About() {
             {certifications.map((cert, index) => (
               <Card
                 key={index}
-                className="text-center group hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                className="text-center group hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 transform hover:scale-105 dark:bg-slate-700 dark:border-slate-600"
               >
                 <CardContent className="p-6">
-                  <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm border border-gray-100">
+                  <div className="w-24 h-24 bg-white dark:bg-slate-600 rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm border border-gray-100 dark:border-slate-500 transition-colors duration-300">
                     <Image
                       src={cert.logo}
                       alt={`${cert.name} certification logo`}
@@ -492,8 +492,8 @@ export default function About() {
                       priority={index < 2}
                     />
                   </div>
-                  <h3 className="font-semibold mb-2 text-gray-900">{cert.name}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{cert.description}</p>
+                  <h3 className="font-semibold mb-2 text-gray-900 dark:text-gray-100 transition-colors duration-300">{cert.name}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">{cert.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -502,12 +502,12 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary text-white">
+      <section className="py-20 bg-gradient-primary dark:from-blue-700 dark:to-blue-800 text-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-blue-200 transition-colors duration-300">
             Partner With Us
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+          <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90 dark:text-blue-100 transition-colors duration-300">
             Join hundreds of satisfied clients who trust {companyInfo.name} for their garment manufacturing needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -518,7 +518,7 @@ export default function About() {
             </Link>
 
             <Link href="/contact">
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-purple-600 hover:text-white">
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-purple-600 hover:text-white dark:border-blue-200 dark:text-blue-200 dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300">
               Contact Us
             </Button>
             </Link>
