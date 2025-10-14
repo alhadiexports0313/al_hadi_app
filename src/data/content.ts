@@ -40,7 +40,7 @@ export const products = [
     features: ["100% Cotton Pique", "3-Button Placket", "Side Vents", "Pre-Shrunk"],
     minOrder: "1500 pieces one color",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Men POLO.jpg",
+    image: "/images/products/mens/Men POLOS.jpeg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -106,7 +106,7 @@ export const products = [
     features: ["Fitted Sheets", "High-Quality Fabric", "Durable Stitching",],
     minOrder: "12000 pieces",
     leadTime: "30-45 days",
-    image: "/images/products/mens/Men Suit.jpeg",
+    image: "/images/products/mens/Home_Textile.jpg",
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   },
   {
@@ -150,7 +150,7 @@ export const products = [
     features: ["Premium Materials", "Trendy Designs", "Quality Hardware", "Versatile Styling"],
     minOrder: "1500 pieces",
     leadTime: "30-45 days",
-    image: "/images/products/women/Ladies T-Shirt.jpeg",
+    image: "/images/products/women/Fashion_Accessories.jpg", 
     certifications: ["Accord Pakistan","BSCI", "SEDEX","HIGG"]
   }
 ];

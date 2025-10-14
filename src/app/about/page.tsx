@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap} from 'lucide-react';
+import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { companyInfo, certifications, stats } from '@/data/content';
@@ -112,15 +112,15 @@ export default function About() {
       experience: "18+ years",
       expertise: "Strategic Leadership & Global Business Development",
       description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion.",
-      image: "/images/Leadership/danish.jpg"
+      image: "/images/Leadership/Danish.jpg"
     },
     {
       name: "Zeeshan Qazi",
-      position: "Director",
+      position: "Managing Director",
       experience: "12+ years",
       expertise: "Operations Management & Business Development",
       description: "Driving operational excellence and strategic partnerships for global market expansion.",
-      image: "/images/Leadership/zeeshan.png"
+      image: "/images/Leadership/Zeeshan.jpg"
     }
   ];
 
@@ -277,7 +277,7 @@ export default function About() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-                  To become the world&apos;s most trusted garment manufacturer, known for innovation,
+                  To become the world most trusted garment manufacturer, known for innovation,
                   sustainability, and exceptional quality. We envision a future where our products
                   contribute to a more sustainable fashion industry while empowering communities globally.
                 </p>
@@ -332,6 +332,151 @@ export default function About() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Meet the Management */}
+      <section className="py-16 px-6 md:px-12 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center transition-colors duration-300">
+              Meet the Management
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Mr. Hashim Gopang */}
+            <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
+              <div className="relative w-full h-48 md:h-56 lg:h-60">
+                <Image
+                  src="/images/Team_workers/Hashim.png" // <-- update with your actual file name
+                  alt="Mr. Hashim Gopang - General Manager"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                  sizes="100vw"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                Mr. Hashim Gopang
+              </h3>
+              <p className="text-blue-600 dark:text-blue-400 font-medium italic mb-3 transition-colors duration-300">
+                General Manager Factory
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                Overseeing daily factory operations, ensuring compliance, productivity, and team efficiency across all production lines.
+              </p>
+            </div>
+
+            {/* Mr. Zain Qazi */}
+            <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
+              <div className="relative w-full h-48 md:h-56 lg:h-60">
+                <Image
+                  src="/images/Team_workers/Zain.png" // <-- update with your actual file name
+                  alt="Mr. Zain Qazi - Director Production "
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                  sizes="100vw"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                Mr. Zain Qazi
+              </h3>
+              <p className="text-blue-600 dark:text-blue-400 font-medium italic mb-3 transition-colors duration-300">
+                Director Production
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                Leading production strategy and execution, ensuring high-quality output and on-time delivery that align with client expectations.
+              </p>
+            </div>
+
+            {/* Mr. Sheriyar Qazi */}
+            <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
+              <div className="relative w-full h-48 md:h-56 lg:h-60">
+                <Image
+                  src="/images/Team_workers/Sheriyar.png" // <-- update with your actual file name
+                  alt="Mr. Sheriyar Qazi - Marketing Director"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                  sizes="100vw"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                Mr. Sheriyar Qazi
+              </h3>
+              <p className="text-blue-600 dark:text-blue-400 font-medium italic mb-3 transition-colors duration-300">
+                Marketing Director
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                Driving brand growth through innovative marketing campaigns and fostering strong global client relationships.
+              </p>
+            </div>
+
+            {/* Mr. Rameez */}
+            <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
+              <div className="relative w-full h-48 md:h-56 lg:h-60">
+                <Image
+                  src="/images/Team_workers/Rameez.jpg" // <-- update with your actual file name
+                  alt="Mr. Rameez - Accounts / Finance Manager"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                  sizes="100vw"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                Mr. Rameez
+              </h3>
+              <p className="text-blue-600 dark:text-blue-400 font-medium italic mb-3 transition-colors duration-300">
+                Accounts / Finance Manager
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                Managing the financial health of the company, optimizing resource allocation, and ensuring transparency and fiscal discipline.
+              </p>
+            </div>
+
+            {/* Mr. Muhammad Arif */}
+            <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
+              <div className="relative w-full h-48 md:h-56 lg:h-60">
+                <Image
+                  src="/images/Team_workers/Arif.png" // <-- update with your actual file name
+                  alt="Mr. Muhammad Arif - Production Manager / Planning"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                  sizes="100vw"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                Mr. Muhammad Arif
+              </h3>
+              <p className="text-blue-600 dark:text-blue-400 font-medium italic mb-3 transition-colors duration-300">
+                Production Manager / Planning
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                Specializing in production planning and scheduling to ensure maximum efficiency and minimal downtime.
+              </p>
+            </div>
+
+            {/* Mr. Hamid Siddique */}
+            <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
+              <div className="relative w-full h-48 md:h-56 lg:h-60">
+                <Image
+                  src="/images/Team_workers/Hamid.jpg" // <-- update with your actual file name
+                  alt="Mr. Hamid Siddique - Production Manager"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                  sizes="100vw"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                Mr. Hamid Siddique
+              </h3>
+              <p className="text-blue-600 dark:text-blue-400 font-medium italic mb-3 transition-colors duration-300">
+                Production Manager
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                Supervising production processes and maintaining the highest standards of garment quality and operational precision.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -512,15 +657,15 @@ export default function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-            <Button variant="accent" size="lg">
-              Start Partnership
-            </Button>
+              <Button variant="accent" size="lg">
+                Start Partnership
+              </Button>
             </Link>
 
             <Link href="/contact">
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-purple-600 hover:text-white dark:border-blue-200 dark:text-blue-200 dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300">
-              Contact Us
-            </Button>
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-purple-600 hover:text-white dark:border-blue-200 dark:text-blue-200 dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300">
+                Contact Us
+              </Button>
             </Link>
 
 

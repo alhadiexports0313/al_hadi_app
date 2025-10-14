@@ -41,19 +41,19 @@ const getProductGalleryImages = () => {
     'Boys Tee.jpeg', "Kids Jacket.jpeg", "Kids Joggsuit.jpeg", "Kids Polo.jpeg", "Kids Tank top.jpeg",
     'Kids Hood.jpeg', 'Kids Shorts.jpeg', 'Kids Suit.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg',
     'Kids Zipper Hood.jpeg', 'Kids_Hood.jpeg', 'Kids Short.jpeg', 'Kids Suit_1.jpeg', 'Kids Suit_2.jpeg', 
-    'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids T Shirt.jpeg'
+    'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids_TShirts.jpeg'
 
   ];
   const mensImages = [
     'Fleece_Hooded_Jackets.jpg', "Men Hood.jpeg", "Men Jacket.jpeg", "Men Joggsuit.jpeg", "Men Night wear.jpeg", 
-    "Men POLO.jpg", "Men Polo.jpeg", "Men POLOS.jpeg" ,"Men Trouser.jpeg", 'Men Crew Neck.jpeg', 'Men Hoood.jpeg', 
+    "Home_Textile.jpg", "Men Polo.jpeg", "Men POLOS.jpeg" ,"Men Trouser.jpeg", 'Men Crew Neck.jpeg', 'Men Hoood.jpeg', 
     'Men LS crew.jpeg', 'Men PO Hood.jpeg', 'Men Shorts.jpeg', 'Men Suit.jpeg', 'Men Hood_1.jpeg',
     'Men T_Shirt.jpg' ,'Men Teee.jpeg', 'Men Zipper Hood.jpeg', 
   ];
   const womenImages = [
-    'Ladies Hood.jpeg', 'Ladies Jacket.jpeg', 'Ladies Joggsuit.jpeg',
-    'Ladies Polo.jpeg', 'Ladies Round Neck.jpeg', 'Ladies Shorts.jpeg', 'Ladies T-Shirt.jpeg',
-    'Ladies T-Shirts.jpeg', 'Ladies Tee.jpeg', 'Ladies Trouser.jpeg', 'Ladies V Neck Tee.jpeg',
+    'Fashion_Accessories.jpg', 'Ladies Hood.jpeg', 'Ladies Jacket.jpeg', 'Ladies Joggsuit.jpeg',
+    'Ladies Polo.jpeg', 'Ladies Round Neck.jpeg', 'Ladies Shorts.jpeg', 'Ladies T_Shirt.jpeg',
+    'Ladies Tee.jpeg', 'Ladies Trouser.jpeg', 'Ladies V Neck Tee.jpeg',
     'Ladies Zipper.jpeg', 'Ladies Zipper_1.jpeg'
   ];
 
