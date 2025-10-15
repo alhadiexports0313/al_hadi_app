@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { Component, ReactNode } from 'react';
-import Button from '@/components/ui/Button';
+import React, { Component, ReactNode } from "react";
+import Button from "@/components/ui/Button";
 
 interface Props {
   children: ReactNode;
@@ -59,10 +59,11 @@ class ErrorBoundary extends Component<Props, State> {
                 Something went wrong
               </h2>
               <p className="text-gray-600 mb-6">
-                We apologize for the inconvenience. Please try refreshing the page or contact us if the problem persists.
+                We apologize for the inconvenience. Please try refreshing the
+                page or contact us if the problem persists.
               </p>
             </div>
-            
+
             <div className="space-y-3">
               <Button
                 onClick={this.handleReset}
@@ -72,9 +73,9 @@ class ErrorBoundary extends Component<Props, State> {
               >
                 Try Again
               </Button>
-              
+
               <Button
-                onClick={() => window.location.href = '/'}
+                onClick={() => (window.location.href = "/")}
                 variant="outline"
                 size="lg"
                 className="w-full"
@@ -82,8 +83,8 @@ class ErrorBoundary extends Component<Props, State> {
                 Go to Homepage
               </Button>
             </div>
-            
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+
+            {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="mt-6 text-left">
                 <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
                   Error Details (Development Only)

@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
-  padding?: 'none' | 'sm' | 'md' | 'lg';
+  padding?: "none" | "sm" | "md" | "lg";
   animate?: boolean;
 }
 
@@ -24,22 +24,30 @@ interface CardFooterProps {
   className?: string;
 }
 
-const Card = ({ children, className, hover = true, padding = 'md', animate = false, ...rest }: CardProps) => {
+const Card = ({
+  children,
+  className,
+  hover = true,
+  padding = "md",
+  animate = false,
+  ...rest
+}: CardProps) => {
   const paddingClasses = {
-    none: '',
-    sm: 'p-4',
-    md: 'p-6',
-    lg: 'p-8'
+    none: "",
+    sm: "p-4",
+    md: "p-6",
+    lg: "p-8",
   };
 
   return (
     <div
       className={cn(
-        'bg-white rounded-lg border border-gray-200 shadow-sm',
-        hover && 'hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer',
-        animate && 'animate-fade-in',
+        "bg-white rounded-lg border border-gray-200 shadow-sm",
+        hover &&
+          "hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer",
+        animate && "animate-fade-in",
         paddingClasses[padding],
-        className
+        className,
       )}
       {...rest}
     >
@@ -49,24 +57,16 @@ const Card = ({ children, className, hover = true, padding = 'md', animate = fal
 };
 
 const CardHeader = ({ children, className }: CardHeaderProps) => {
-  return (
-    <div className={cn('mb-4', className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn("mb-4", className)}>{children}</div>;
 };
 
 const CardContent = ({ children, className }: CardContentProps) => {
-  return (
-    <div className={cn('', className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn("", className)}>{children}</div>;
 };
 
 const CardFooter = ({ children, className }: CardFooterProps) => {
   return (
-    <div className={cn('mt-4 pt-4 border-t border-gray-100', className)}>
+    <div className={cn("mt-4 pt-4 border-t border-gray-100", className)}>
       {children}
     </div>
   );

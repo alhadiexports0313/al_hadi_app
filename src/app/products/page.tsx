@@ -1,103 +1,142 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { products } from '@/data/content';
-import { downloadCatalogPDF } from '@/lib/utils';
-import { Search, Download, Package, Clock, Award, CheckCircle, Star, Globe, Shield, Truck, Grid, Heart, Eye, ShoppingBag } from 'lucide-react';
-
-// Fallback image component to gracefully handle missing images
-interface FallbackImageProps {
-  src: string;
-  alt: string;
-  className?: string;
-  sizes?: string;
-  fill?: boolean;
-  [key: string]: unknown;
-}
-
-const FallbackImage = ({ src, alt, className, sizes, fill, ...rest }: FallbackImageProps) => {
-  const [imgSrc, setImgSrc] = useState(src);
-  return (
-    <Image
-      src={imgSrc}
-      alt={alt}
-      onError={() => setImgSrc('/images/placeholder.svg')}
-      fill={fill}
-      className={className}
-      sizes={sizes}
-      {...rest}
-    />
-  );
-};
+import { useState } from "react";
+import Link from "next/link";
+import { products } from "@/data/content";
+import { downloadCatalogPDF } from "@/lib/utils";
+import Image from "next/image";
+import {
+  Search,
+  Download,
+  Package,
+  Clock,
+  Award,
+  CheckCircle,
+  Star,
+  Globe,
+  Shield,
+  Truck,
+  Grid,
+  Heart,
+  Eye,
+  ShoppingBag,
+} from "lucide-react";
 
 // PDF Generation Function
-
 
 // Dynamic Product Gallery Data
 const getProductGalleryImages = () => {
   const kidsImages = [
-    'Boys Tee.jpeg', "Kids Jacket.jpeg", "Kids Joggsuit.jpeg", "Kids Polo.jpeg", "Kids Tank top.jpeg",
-    'Kids Hood.jpeg', 'Kids Shorts.jpeg', 'Kids Suit.jpeg', 'Kids Trouser.jpeg', 'Kids Winter.jpeg',
-    'Kids Zipper Hood.jpeg', 'Kids_Hood.jpeg', 'Kids Short.jpeg', 'Kids Suit_1.jpeg', 'Kids Suit_2.jpeg', 
-    'Kids Suit_3.jpeg', 'Kids Zippper.jpeg', 'Kids_TShirts.jpeg'
-
+    "Boys Tee.jpeg",
+    "Kids Jacket.jpeg",
+    "Kids Joggsuit.jpeg",
+    "Kids Polo.jpeg",
+    "Kids Tank top.jpeg",
+    "Kids Hood.jpeg",
+    "Kids Shorts.jpeg",
+    "Kids Suit.jpeg",
+    "Kids Trouser.jpeg",
+    "Kids Winter.jpeg",
+    "Kids Zipper Hood.jpeg",
+    "Kids_Hood.jpeg",
+    "Kids Short.jpeg",
+    "Kids Suit_1.jpeg",
+    "Kids Suit_2.jpeg",
+    "Kids Suit_3.jpeg",
+    "Kids Zippper.jpeg",
+    "Kids_TShirts.jpeg",
   ];
   const mensImages = [
-    'Fleece_Hooded_Jackets.jpg', "Men Hood.jpeg", "Men Jacket.jpeg", "Men Joggsuit.jpeg", "Men Night wear.jpeg", 
-    "Home_Textile.jpg", "Men Polo.jpeg", "Men POLOS.jpeg" ,"Men Trouser.jpeg", 'Men Crew Neck.jpeg', 'Men Hoood.jpeg', 
-    'Men LS crew.jpeg', 'Men PO Hood.jpeg', 'Men Shorts.jpeg', 'Men Suit.jpeg', 'Men Hood_1.jpeg',
-    'Men T_Shirt.jpg' ,'Men Teee.jpeg', 'Men Zipper Hood.jpeg', 
+    "Fleece_Hooded_Jackets.jpg",
+    "Men Hood.jpeg",
+    "Men Jacket.jpeg",
+    "Men Joggsuit.jpeg",
+    "Men Night wear.jpeg",
+    "Home_Textile.jpg",
+    "Men Polo.jpeg",
+    "Men POLOS.jpeg",
+    "Men Trouser.jpeg",
+    "Men Crew Neck.jpeg",
+    "Men Hoood.jpeg",
+    "Men LS crew.jpeg",
+    "Men PO Hood.jpeg",
+    "Men Shorts.jpeg",
+    "Men Suit.jpeg",
+    "Men Hood_1.jpeg",
+    "Men T_Shirt.jpg",
+    "Men Teee.jpeg",
+    "Men Zipper Hood.jpeg",
   ];
   const womenImages = [
-    'Fashion_Accessories.jpg', 'Ladies Hood.jpeg', 'Ladies Jacket.jpeg', 'Ladies Joggsuit.jpeg',
-    'Ladies Polo.jpeg', 'Ladies Round Neck.jpeg', 'Ladies Shorts.jpeg', 'Ladies T_Shirt.jpeg',
-    'Ladies Tee.jpeg', 'Ladies Trouser.jpeg', 'Ladies V Neck Tee.jpeg',
-    'Ladies Zipper.jpeg', 'Ladies Zipper_1.jpeg'
+    "Fashion_Accessories.jpg",
+    "Ladies Hood.jpeg",
+    "Ladies Jacket.jpeg",
+    "Ladies Joggsuit.jpeg",
+    "Ladies Polo.jpeg",
+    "Ladies Round Neck.jpeg",
+    "Ladies Shorts.jpeg",
+    "Ladies T_Shirt.jpeg",
+    "Ladies Tee.jpeg",
+    "Ladies Trouser.jpeg",
+    "Ladies V Neck Tee.jpeg",
+    "Ladies Zipper.jpeg",
+    "Ladies Zipper_1.jpeg",
   ];
 
-  const formatImageData = (images: string[], category: string, folder: string) => {
-    return images.map(imageName => ({
+  const formatImageData = (
+    images: string[],
+    category: string,
+    folder: string,
+  ) => {
+    return images.map((imageName) => ({
       id: `${category}-${imageName}`,
-      name: imageName.replace(/\.[^/.]+$/, "").replace(/[_']/g, ' ').replace(/\s+/g, ' ').trim(),
+      name: imageName
+        .replace(/\.[^/.]+$/, "")
+        .replace(/[_']/g, " ")
+        .replace(/\s+/g, " ")
+        .trim(),
       src: `/images/products/${folder}/${imageName}`,
       category: category,
-      alt: `${category} - ${imageName.replace(/\.[^/.]+$/, "").replace(/[_']/g, ' ')}`
+      alt: `${category} - ${imageName.replace(/\.[^/.]+$/, "").replace(/[_']/g, " ")}`,
     }));
   };
 
   return [
-    ...formatImageData(kidsImages, 'Kids', 'kids'),
-    ...formatImageData(mensImages, 'Mens', 'mens'),
-    ...formatImageData(womenImages, 'Women', 'women')
+    ...formatImageData(kidsImages, "Kids", "kids"),
+    ...formatImageData(mensImages, "Mens", "mens"),
+    ...formatImageData(womenImages, "Women", "women"),
   ];
 };
 
 export default function ProductsPage() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [galleryCategory, setGalleryCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [galleryCategory, setGalleryCategory] = useState("All");
   const [isLoading, setIsLoading] = useState(false);
   const galleryImages = getProductGalleryImages();
 
   // Get unique categories for products
-  const categories = ['All', ...Array.from(new Set(products.map(product => product.category)))];
-  
+  const categories = [
+    "All",
+    ...Array.from(new Set(products.map((product) => product.category))),
+  ];
+
   // Gallery categories
-  const galleryCategories = ['All', 'Kids', 'Mens', 'Women'];
+  const galleryCategories = ["All", "Kids", "Mens", "Women"];
 
   // Filter products
-  const filteredProducts = products.filter(product => {
-    const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredProducts = products.filter((product) => {
+    const matchesCategory =
+      selectedCategory === "All" || product.category === selectedCategory;
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   // Filter gallery images
-  const filteredGalleryImages = galleryImages.filter(image => {
-    return galleryCategory === 'All' || image.category === galleryCategory;
+  const filteredGalleryImages = galleryImages.filter((image) => {
+    return galleryCategory === "All" || image.category === galleryCategory;
   });
 
   // Handle gallery category change with loading animation
@@ -109,8 +148,6 @@ export default function ProductsPage() {
     }, 300);
   };
 
-
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-500">
       {/* Hero Section */}
@@ -121,7 +158,8 @@ export default function ProductsPage() {
             Our Product Range
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
-            Discover our comprehensive collection of premium garments crafted with precision and quality
+            Discover our comprehensive collection of premium garments crafted
+            with precision and quality
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-2 text-blue-200 dark:text-gray-400 transition-colors duration-300">
@@ -148,21 +186,28 @@ export default function ProductsPage() {
               Download Our Full Product Catalogue
             </h2>
             <p className="text-xl mb-8 text-blue-100 dark:text-gray-300 transition-colors duration-300">
-              Get instant access to our complete 2024 product catalogue with detailed specifications, 
-              minimum order quantities, and certification information for all our garment categories.
+              Get instant access to our complete 2024 product catalogue with
+              detailed specifications, minimum order quantities, and
+              certification information for all our garment categories.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="flex items-center justify-center gap-3">
                 <Package className="w-6 h-6 text-blue-200 dark:text-gray-400 transition-colors duration-300" />
-                <span className="text-white dark:text-gray-300 transition-colors duration-300">Complete Product Details</span>
+                <span className="text-white dark:text-gray-300 transition-colors duration-300">
+                  Complete Product Details
+                </span>
               </div>
               <div className="flex items-center justify-center gap-3">
                 <Clock className="w-6 h-6 text-blue-200 dark:text-gray-400 transition-colors duration-300" />
-                <span className="text-white dark:text-gray-300 transition-colors duration-300">Lead Times & MOQs</span>
+                <span className="text-white dark:text-gray-300 transition-colors duration-300">
+                  Lead Times & MOQs
+                </span>
               </div>
               <div className="flex items-center justify-center gap-3">
                 <Award className="w-6 h-6 text-blue-200 dark:text-gray-400 transition-colors duration-300" />
-                <span className="text-white dark:text-gray-300 transition-colors duration-300">Certification Information</span>
+                <span className="text-white dark:text-gray-300 transition-colors duration-300">
+                  Certification Information
+                </span>
               </div>
             </div>
             <button
@@ -204,11 +249,11 @@ export default function ProductsPage() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-lg dark:shadow-blue-500/20'
-                    : 'bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600'
+                    ? "bg-blue-600 dark:bg-blue-500 text-white shadow-lg dark:shadow-blue-500/20"
+                    : "bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600"
                 }`}
               >
-                {category === 'All' ? 'All Products' : category}
+                {category === "All" ? "All Products" : category}
               </button>
             ))}
           </div>
@@ -220,15 +265,16 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
-              {selectedCategory === 'All' ? 'All Products' : selectedCategory}
+              {selectedCategory === "All" ? "All Products" : selectedCategory}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
-              {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
+              {filteredProducts.length} product
+              {filteredProducts.length !== 1 ? "s" : ""} found
             </p>
           </div>
 
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {filteredProducts.map((product) => (
                 <div
                   key={product.id}
@@ -237,7 +283,7 @@ export default function ProductsPage() {
                   {/* Product Image */}
                   <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-slate-700 dark:to-slate-600 overflow-hidden transition-colors duration-300">
                     {/* Render product image with graceful fallback */}
-                    <FallbackImage
+                    <Image
                       src={product.image}
                       alt={product.name}
                       fill
@@ -252,22 +298,24 @@ export default function ProductsPage() {
                   </div>
 
                   {/* Product Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 transition-colors duration-300">
+                  <div className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 transition-colors duration-300">
                       {product.name}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed transition-colors duration-300">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed transition-colors duration-300 line-clamp-3">
                       {product.description}
                     </p>
 
                     {/* Features */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">Key Features:</h4>
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">
+                        Key Features:
+                      </h4>
                       <div className="flex flex-wrap gap-1">
                         {product.features.slice(0, 3).map((feature, index) => (
                           <span
                             key={index}
-                            className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs transition-colors duration-300"
+                            className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs transition-colors duration-300 break-words"
                           >
                             {feature}
                           </span>
@@ -285,15 +333,23 @@ export default function ProductsPage() {
                       <div className="flex items-center gap-2">
                         <Package className="w-4 h-4 text-gray-500 dark:text-gray-400 transition-colors duration-300" />
                         <div>
-                          <div className="text-gray-500 dark:text-gray-400 transition-colors duration-300">Min Order</div>
-                          <div className="font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">{product.minOrder}</div>
+                          <div className="text-gray-500 dark:text-gray-400 transition-colors duration-300">
+                            Min Order
+                          </div>
+                          <div className="font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">
+                            {product.minOrder}
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-gray-500 dark:text-gray-400 transition-colors duration-300" />
                         <div>
-                          <div className="text-gray-500 dark:text-gray-400 transition-colors duration-300">Lead Time</div>
-                          <div className="font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">{product.leadTime}</div>
+                          <div className="text-gray-500 dark:text-gray-400 transition-colors duration-300">
+                            Lead Time
+                          </div>
+                          <div className="font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">
+                            {product.leadTime}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -314,15 +370,19 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
                       <Link href="/contact" className="flex-1">
                         <button className="w-full bg-blue-600 dark:bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-300 text-sm font-medium">
                           Get Quote
                         </button>
                       </Link>
-                      <button 
+                      <button
                         className="flex-1 border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 py-2 px-4 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors duration-300 text-sm font-medium"
-                        onClick={() => alert(`Product Details:\n\nName: ${product.name}\nCategory: ${product.category}\nDescription: ${product.description}\nFeatures: ${product.features.join(', ')}\nMin Order: ${product.minOrder}\nLead Time: ${product.leadTime}\nCertifications: ${product.certifications.join(', ')}`)}
+                        onClick={() =>
+                          alert(
+                            `Product Details:\n\nName: ${product.name}\nCategory: ${product.category}\nDescription: ${product.description}\nFeatures: ${product.features.join(", ")}\nMin Order: ${product.minOrder}\nLead Time: ${product.leadTime}\nCertifications: ${product.certifications.join(", ")}`,
+                          )
+                        }
                       >
                         Details
                       </button>
@@ -334,7 +394,9 @@ export default function ProductsPage() {
           ) : (
             <div className="text-center py-16">
               <Package className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4 transition-colors duration-300" />
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">No products found</h3>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">
+                No products found
+              </h3>
               <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
                 Try adjusting your search terms or category filter.
               </p>
@@ -356,9 +418,11 @@ export default function ProductsPage() {
               Explore Our Collection
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 transition-colors duration-300">
-              Discover our premium range of garments across different categories. Each piece showcases our commitment to quality and craftsmanship.
+              Discover our premium range of garments across different
+              categories. Each piece showcases our commitment to quality and
+              craftsmanship.
             </p>
-            
+
             {/* Gallery Stats */}
             <div className="flex flex-wrap justify-center gap-8 text-sm">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 transition-colors duration-300">
@@ -384,15 +448,15 @@ export default function ProductsPage() {
                 onClick={() => handleGalleryFilter(category)}
                 className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   galleryCategory === category
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25'
-                    : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-400'
+                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25"
+                    : "bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-400"
                 }`}
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  {category === 'All' && <Grid className="w-4 h-4" />}
-                  {category === 'Kids' && <Heart className="w-4 h-4" />}
-                  {category === 'Mens' && <ShoppingBag className="w-4 h-4" />}
-                  {category === 'Women' && <Star className="w-4 h-4" />}
+                  {category === "All" && <Grid className="w-4 h-4" />}
+                  {category === "Kids" && <Heart className="w-4 h-4" />}
+                  {category === "Mens" && <ShoppingBag className="w-4 h-4" />}
+                  {category === "Women" && <Star className="w-4 h-4" />}
                   {category}
                 </span>
                 {galleryCategory === category && (
@@ -409,13 +473,17 @@ export default function ProductsPage() {
               <div className="absolute inset-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm z-10 flex items-center justify-center rounded-2xl transition-colors duration-300">
                 <div className="flex items-center gap-3 text-blue-600 dark:text-blue-400">
                   <div className="w-6 h-6 border-2 border-blue-600 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                  <span className="font-medium">Loading {galleryCategory} Collection...</span>
+                  <span className="font-medium">
+                    Loading {galleryCategory} Collection...
+                  </span>
                 </div>
               </div>
             )}
 
             {/* Image Grid */}
-            <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'}`}>
+            <div
+              className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 transition-opacity duration-300 ${isLoading ? "opacity-50" : "opacity-100"}`}
+            >
               {filteredGalleryImages.map((image, index) => (
                 <div
                   key={image.id}
@@ -424,22 +492,25 @@ export default function ProductsPage() {
                 >
                   {/* Image Container */}
                   <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-700 dark:to-slate-600 transition-colors duration-300">
-                    <FallbackImage
+                    <Image
                       src={image.src}
                       alt={image.alt}
                       fill
                       className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                      loading="lazy"
                     />
-                    
+
                     {/* Category Badge */}
                     <div className="absolute top-3 left-3">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
-                        image.category === 'Kids' ? 'bg-pink-500/90 text-white' :
-                        image.category === 'Mens' ? 'bg-blue-500/90 text-white' :
-                        'bg-purple-500/90 text-white'
-                      }`}>
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${
+                          image.category === "Kids"
+                            ? "bg-pink-500/90 text-white"
+                            : image.category === "Mens"
+                              ? "bg-blue-500/90 text-white"
+                              : "bg-purple-500/90 text-white"
+                        }`}
+                      >
                         {image.category}
                       </span>
                     </div>
@@ -455,7 +526,7 @@ export default function ProductsPage() {
                         </button>
                       </div>
                     </div> */}
-                    
+
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -502,9 +573,12 @@ export default function ProductsPage() {
                 <div className="w-24 h-24 bg-gray-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
                   <Package className="w-12 h-12 text-gray-400 dark:text-gray-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">No products found</h3>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">
+                  No products found
+                </h3>
                 <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">
-                  Try selecting a different category or check back later for new additions.
+                  Try selecting a different category or check back later for new
+                  additions.
                 </p>
               </div>
             )}
@@ -514,22 +588,38 @@ export default function ProductsPage() {
           <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-8 transition-colors duration-300">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">{filteredGalleryImages.length}</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                  {filteredGalleryImages.length}
+                </div>
                 <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">
-                  {galleryCategory === 'All' ? 'Total Products' : `${galleryCategory} Items`}
+                  {galleryCategory === "All"
+                    ? "Total Products"
+                    : `${galleryCategory} Items`}
                 </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">HD</div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Quality Images</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                  HD
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">
+                  Quality Images
+                </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">100%</div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Authentic Products</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                  100%
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">
+                  Authentic Products
+                </div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">24/7</div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Support Available</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                  24/7
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">
+                  Support Available
+                </div>
               </div>
             </div>
           </div>
@@ -540,9 +630,12 @@ export default function ProductsPage() {
       <section className="bg-gray-100 dark:bg-slate-800 py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Our Services</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
+              Our Services
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
-              Comprehensive manufacturing and export services to meet all your garment needs
+              Comprehensive manufacturing and export services to meet all your
+              garment needs
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -550,25 +643,33 @@ export default function ProductsPage() {
               <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                 <Package className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Custom Manufacturing</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
+                Custom Manufacturing
+              </h3>
               <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                Tailored production solutions with flexible MOQs and custom specifications
+                Tailored production solutions with flexible MOQs and custom
+                specifications
               </p>
             </div>
             <div className="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-blue-500/10 text-center transition-all duration-300">
               <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                 <Shield className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Quality Assurance</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
+                Quality Assurance
+              </h3>
               <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                Rigorous quality control processes ensuring international standards
+                Rigorous quality control processes ensuring international
+                standards
               </p>
             </div>
             <div className="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-blue-500/10 text-center transition-all duration-300">
               <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                 <Truck className="w-8 h-8 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">Global Shipping</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
+                Global Shipping
+              </h3>
               <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                 Reliable worldwide delivery with comprehensive logistics support
               </p>
@@ -582,47 +683,74 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 transition-colors duration-300">Quality Assurance</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 transition-colors duration-300">
+                Quality Assurance
+              </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-8 transition-colors duration-300">
-                Our commitment to excellence ensures every product meets international quality standards 
-                through rigorous testing and certification processes.
+                Our commitment to excellence ensures every product meets
+                international quality standards through rigorous testing and
+                certification processes.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
-                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">Pre-production sample approval</span>
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                    Pre-production sample approval
+                  </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
-                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">In-line quality monitoring</span>
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                    In-line quality monitoring
+                  </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
-                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">Final inspection before shipment</span>
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                    Final inspection before shipment
+                  </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <CheckCircle className="w-6 h-6 text-green-500 dark:text-green-400" />
-                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">International certification compliance</span>
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                    International certification compliance
+                  </span>
                 </div>
               </div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-700 dark:to-slate-600 p-8 rounded-xl transition-colors duration-300">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">99.8%</div>
-                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Quality Pass Rate</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                    99.8%
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                    Quality Pass Rate
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">4+</div>
-                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Certifications</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                    4+
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                    Certifications
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">24/7</div>
-                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Quality Monitoring</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                    24/7
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                    Quality Monitoring
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">100%</div>
-                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Inspection Coverage</div>
+                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors duration-300">
+                    100%
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                    Inspection Coverage
+                  </div>
                 </div>
               </div>
             </div>
@@ -633,18 +761,20 @@ export default function ProductsPage() {
       {/* Final CTA */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800 text-white py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Order?</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to Start Your Order?
+          </h2>
           <p className="text-xl mb-8 text-blue-100 dark:text-blue-200 max-w-2xl mx-auto transition-colors duration-300">
-            Contact our team today to discuss your requirements and get a customized quote
+            Contact our team today to discuss your requirements and get a
+            customized quote
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <button className="bg-white dark:bg-slate-100 text-blue-600 dark:text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-slate-200 transition-colors duration-300">
-
                 Request Quote
               </button>
             </Link>
-            <button 
+            <button
               onClick={downloadCatalogPDF}
               className="border-2 border-white dark:border-slate-200 text-white dark:text-slate-200 px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 dark:hover:bg-slate-200 dark:hover:text-blue-700 transition-colors duration-300 flex items-center justify-center gap-2"
             >

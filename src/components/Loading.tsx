@@ -1,26 +1,26 @@
-import React from 'react';
+import React from "react";
 
 interface LoadingProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   text?: string;
   fullScreen?: boolean;
 }
 
-const Loading: React.FC<LoadingProps> = ({ 
-  size = 'md', 
-  text = 'Loading...', 
-  fullScreen = false 
+const Loading: React.FC<LoadingProps> = ({
+  size = "md",
+  text = "Loading...",
+  fullScreen = false,
 }) => {
   const sizeClasses = {
-    sm: 'w-4 h-4',
-    md: 'w-8 h-8',
-    lg: 'w-12 h-12'
+    sm: "w-4 h-4",
+    md: "w-8 h-8",
+    lg: "w-12 h-12",
   };
 
   const textSizeClasses = {
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg'
+    sm: "text-sm",
+    md: "text-base",
+    lg: "text-lg",
   };
 
   const LoadingSpinner = () => (

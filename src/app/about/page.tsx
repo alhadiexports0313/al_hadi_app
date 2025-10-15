@@ -1,13 +1,25 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Award, Users, Globe, Target, Eye, Heart, Factory, Shield, TrendingUp, Clock, CheckCircle, Zap } from 'lucide-react';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
-import { companyInfo, certifications, stats } from '@/data/content';
-import { downloadCompanyProfilePDF } from '@/lib/utils';
-
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Award,
+  Users,
+  Globe,
+  Target,
+  Eye,
+  Heart,
+  Factory,
+  Shield,
+  TrendingUp,
+  Clock,
+  CheckCircle,
+  Zap,
+} from "lucide-react";
+import { Card, CardHeader, CardContent } from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
+import { companyInfo, certifications, stats } from "@/data/content";
+import { downloadCompanyProfilePDF } from "@/lib/utils";
 
 export default function About() {
   // const milestones = [
@@ -76,33 +88,35 @@ export default function About() {
     {
       year: "2024",
       title: "Global Recognition",
-      description:
-        `Now proudly serving over ${stats[1].number} countries with more than 2.5 million garments produced annually, backed by 500+ skilled professionals.`
+      description: `Now proudly serving over ${stats[1].number} countries with more than 2.5 million garments produced annually, backed by 500+ skilled professionals.`,
     },
   ];
-
 
   const values = [
     {
       icon: Award,
       title: "Quality Excellence",
-      description: "We never compromise on quality, ensuring every garment meets the highest international standards."
+      description:
+        "We never compromise on quality, ensuring every garment meets the highest international standards.",
     },
     {
       icon: Heart,
       title: "Customer Focus",
-      description: "Our customers&apos; success is our success. We build lasting partnerships through exceptional service."
+      description:
+        "Our customers&apos; success is our success. We build lasting partnerships through exceptional service.",
     },
     {
       icon: Shield,
       title: "Integrity",
-      description: "We conduct business with honesty, transparency, and ethical practices in all our operations."
+      description:
+        "We conduct business with honesty, transparency, and ethical practices in all our operations.",
     },
     {
       icon: Globe,
       title: "Global Mindset",
-      description: "We embrace diversity and cultural differences, serving clients across the world with respect."
-    }
+      description:
+        "We embrace diversity and cultural differences, serving clients across the world with respect.",
+    },
   ];
 
   const leadership = [
@@ -111,68 +125,76 @@ export default function About() {
       position: "Chief Executive Officer",
       experience: "18+ years",
       expertise: "Strategic Leadership & Global Business Development",
-      description: "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion.",
-      image: "/images/Leadership/Danish.jpg"
+      description:
+        "Leading AL HADI EXPORTS with a vision for sustainable growth and international expansion.",
+      image: "/images/Leadership/Danish.webp",
     },
     {
       name: "Zeeshan Qazi",
       position: "Managing Director",
       experience: "12+ years",
       expertise: "Operations Management & Business Development",
-      description: "Driving operational excellence and strategic partnerships for global market expansion.",
-      image: "/images/Leadership/Zeeshan.jpg"
-    }
+      description:
+        "Driving operational excellence and strategic partnerships for global market expansion.",
+      image: "/images/Leadership/Zeeshan.webp",
+    },
   ];
 
   const coreStrengths = [
     {
       icon: Factory,
       title: "State-of-the-Art Manufacturing",
-      description: "Modern facilities equipped with latest technology and machinery for efficient production",
-      metrics: "50,000+ sq ft facility"
+      description:
+        "Modern facilities equipped with latest technology and machinery for efficient production",
+      metrics: "50,000+ sq ft facility",
     },
     {
       icon: Users,
       title: "Skilled Workforce",
-      description: "Experienced team of professionals dedicated to delivering exceptional quality",
-      metrics: "500+ skilled workers"
+      description:
+        "Experienced team of professionals dedicated to delivering exceptional quality",
+      metrics: "500+ skilled workers",
     },
     {
       icon: Globe,
       title: "Global Supply Chain",
-      description: "Established network of suppliers and logistics partners worldwide",
-      metrics: `${stats[1].number} countries served`
+      description:
+        "Established network of suppliers and logistics partners worldwide",
+      metrics: `${stats[1].number} countries served`,
     },
     {
       icon: Award,
       title: "Quality Certifications",
-      description: "International certifications ensuring compliance with global standards",
-      metrics: "SEDEX, HIGG, BSCI, Accord Pakistan"
+      description:
+        "International certifications ensuring compliance with global standards",
+      metrics: "SEDEX, HIGG, BSCI, Accord Pakistan",
     },
     {
       icon: TrendingUp,
       title: "Scalable Production",
-      description: "Flexible manufacturing capacity to meet varying order volumes",
-      metrics: "2.5M+ garments annually"
+      description:
+        "Flexible manufacturing capacity to meet varying order volumes",
+      metrics: "2.5M+ garments annually",
     },
     {
       icon: Clock,
       title: "Timely Delivery",
       description: "Reliable delivery schedules with 98.2% on-time performance",
-      metrics: "98.2% on-time delivery"
+      metrics: "98.2% on-time delivery",
     },
     {
       icon: CheckCircle,
       title: "Quality Assurance",
       description: "Comprehensive quality control at every stage of production",
-      metrics: "<0.5% defect rate"
+      metrics: "<0.5% defect rate",
     },
     {
       icon: Zap,
       title: "Innovation Focus",
-      description: "Continuous investment in technology and process improvements",
-      metrics: "R&D investment 5% of revenue"
-    }
+      description:
+        "Continuous investment in technology and process improvements",
+      metrics: "R&D investment 5% of revenue",
+    },
   ];
 
   return (
@@ -183,10 +205,14 @@ export default function About() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 dark:text-blue-200 transition-colors duration-300">
-              About <span className="text-accent dark:text-blue-400">{companyInfo.name}</span>
+              About{" "}
+              <span className="text-accent dark:text-blue-400">
+                {companyInfo.name}
+              </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 dark:text-blue-100 transition-colors duration-300">
-              {stats.find(s => s.label.includes('Years'))?.number} years of excellence in garment manufacturing and export
+              {stats.find((s) => s.label.includes("Years"))?.number} years of
+              excellence in garment manufacturing and export
             </p>
           </div>
         </div>
@@ -201,14 +227,19 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed transition-colors duration-300">
-                Founded in 2010, {companyInfo.name} has grown into a globally recognized leader in garment production and export.
-                Our journey began with a clear vision — to craft premium-quality garments that meet international standards while
-                maintaining competitive pricing.
+                Founded in 2010, {companyInfo.name} has grown into a globally
+                recognized leader in garment production and export. Our journey
+                began with a clear vision — to craft premium-quality garments
+                that meet international standards while maintaining competitive
+                pricing.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors duration-300">
-                Today, we proudly export over 2.5 million garments annually to clients in 9+ countries, supported by a team of
-                500+ skilled professionals dedicated to precision and excellence. Our state-of-the-art manufacturing facilities
-                combine traditional craftsmanship to ensure consistent quality and timely delivery on every order.
+                Today, we proudly export over 2.5 million garments annually to
+                clients in 9+ countries, supported by a team of 500+ skilled
+                professionals dedicated to precision and excellence. Our
+                state-of-the-art manufacturing facilities combine traditional
+                craftsmanship with modern technology to ensure consistent quality and timely delivery
+                on every order.
               </p>
               {/* <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Unlike local or retail operations, we focus exclusively on large-scale manufacturing and bulk exports, serving 
@@ -223,23 +254,41 @@ export default function About() {
             </div>
             <div className="relative">
               <div className="bg-gradient-primary dark:from-blue-700 dark:to-blue-800 rounded-2xl p-8 text-white transition-colors duration-300">
-                <h3 className="text-2xl font-bold mb-6 dark:text-blue-200 transition-colors duration-300">Quick Facts</h3>
+                <h3 className="text-2xl font-bold mb-6 dark:text-blue-200 transition-colors duration-300">
+                  Quick Facts
+                </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="dark:text-blue-100 transition-colors duration-300">Founded:</span>
-                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">2010</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">
+                      Founded:
+                    </span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">
+                      2010
+                    </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="dark:text-blue-100 transition-colors duration-300">Employees:</span>
-                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">500+</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">
+                      Employees:
+                    </span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">
+                      500+
+                    </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="dark:text-blue-100 transition-colors duration-300">Countries Served:</span>
-                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">{stats[1].number}</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">
+                      Countries Served:
+                    </span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">
+                      {stats[1].number}
+                    </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="dark:text-blue-100 transition-colors duration-300">Experience:</span>
-                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">14+ Years</span>
+                    <span className="dark:text-blue-100 transition-colors duration-300">
+                      Experience:
+                    </span>
+                    <span className="font-semibold dark:text-blue-200 transition-colors duration-300">
+                      14+ Years
+                    </span>
                   </div>
                 </div>
               </div>
@@ -257,13 +306,17 @@ export default function About() {
                 <div className="w-16 h-16 bg-gradient-primary dark:from-blue-600 dark:to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                   <Target className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">
+                  Our Mission
+                </h3>
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-                  To manufacture and export premium quality garments that exceed customer expectations
-                  while maintaining sustainable and ethical business practices. We strive to be the
-                  preferred partner for businesses seeking reliable, high-quality garment manufacturing solutions.
+                  To manufacture and export premium quality garments that exceed
+                  customer expectations while maintaining sustainable and
+                  ethical business practices. We strive to be the preferred
+                  partner for businesses seeking reliable, high-quality garment
+                  manufacturing solutions.
                 </p>
               </CardContent>
             </Card>
@@ -273,13 +326,17 @@ export default function About() {
                 <div className="w-16 h-16 bg-gradient-accent dark:from-purple-600 dark:to-purple-700 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
                   <Eye className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">
+                  Our Vision
+                </h3>
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-                  To become the world most trusted garment manufacturer, known for innovation,
-                  sustainability, and exceptional quality. We envision a future where our products
-                  contribute to a more sustainable fashion industry while empowering communities globally.
+                  To become the world most trusted garment manufacturer, known
+                  for innovation, sustainability, and exceptional quality. We
+                  envision a future where our products contribute to a more
+                  sustainable fashion industry while empowering communities
+                  globally.
                 </p>
               </CardContent>
             </Card>
@@ -295,7 +352,8 @@ export default function About() {
               Leadership Team
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 transition-colors duration-300">
-              Meet the experienced professionals who drive our company&apos;s vision and ensure operational excellence.
+              Meet the experienced professionals who drive our company&apos;s
+              vision and ensure operational excellence.
             </p>
           </div>
           {/*Centered grid for 2 leadership cards */}
@@ -320,18 +378,27 @@ export default function About() {
 
                     {/* Text content with white color and compact spacing */}
                     <div className="space-y-0.5">
-                      <h3 className="text-2xl sm:text-3xl font-bold dark:text-gray-100 transition-colors duration-300">{leader.name}</h3>
-                      <p className="font-semibold text-lg sm:text-xl text-blue-500 dark:text-blue-400 transition-colors duration-300">{leader.position}</p>
-                      <p className="text-base sm:text-lg font-medium text-blue-500 dark:text-blue-400 transition-colors duration-300">{leader.experience} Experience</p>
-                      <p className="text-sm sm:text-base italic text-blue-500 dark:text-blue-400 transition-colors duration-300">{leader.expertise}</p>
-                      <p className="text-base sm:text-lg leading-relaxed pt-1 text-gray-400 dark:text-gray-300 transition-colors duration-300">{leader.description}</p>
+                      <h3 className="text-2xl sm:text-3xl font-bold dark:text-gray-100 transition-colors duration-300">
+                        {leader.name}
+                      </h3>
+                      <p className="font-semibold text-lg sm:text-xl text-blue-500 dark:text-blue-400 transition-colors duration-300">
+                        {leader.position}
+                      </p>
+                      <p className="text-base sm:text-lg font-medium text-blue-500 dark:text-blue-400 transition-colors duration-300">
+                        {leader.experience} Experience
+                      </p>
+                      <p className="text-sm sm:text-base italic text-blue-500 dark:text-blue-400 transition-colors duration-300">
+                        {leader.expertise}
+                      </p>
+                      <p className="text-base sm:text-lg leading-relaxed pt-1 text-gray-400 dark:text-gray-300 transition-colors duration-300">
+                        {leader.description}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
@@ -349,7 +416,7 @@ export default function About() {
             <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
               <div className="relative w-full h-48 md:h-56 lg:h-60">
                 <Image
-                  src="/images/Team_workers/Hashim.png" // <-- update with your actual file name
+                  src="/images/Team_workers/Hashim.jpg" // <-- update with your actual file name
                   alt="Mr. Hashim Gopang - General Manager"
                   fill
                   className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
@@ -357,13 +424,14 @@ export default function About() {
                 />
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
-                Mr. Hashim Gopang
+                Mr. Muhammad Hashim Gopang
               </h3>
               <p className="text-blue-600 dark:text-blue-400 font-medium italic mb-3 transition-colors duration-300">
                 General Manager Factory
               </p>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
-                Overseeing daily factory operations, ensuring compliance, productivity, and team efficiency across all production lines.
+                Overseeing daily factory operations, ensuring compliance,
+                productivity, and team efficiency across all production lines.
               </p>
             </div>
 
@@ -385,7 +453,8 @@ export default function About() {
                 Director Production
               </p>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
-                Leading production strategy and execution, ensuring high-quality output and on-time delivery that align with client expectations.
+                Leading production strategy and execution, ensuring high-quality
+                output and on-time delivery that align with client expectations.
               </p>
             </div>
 
@@ -407,7 +476,8 @@ export default function About() {
                 Marketing Director
               </p>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
-                Driving brand growth through innovative marketing campaigns and fostering strong global client relationships.
+                Driving brand growth through innovative marketing campaigns and
+                fostering strong global client relationships.
               </p>
             </div>
 
@@ -415,7 +485,7 @@ export default function About() {
             <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
               <div className="relative w-full h-48 md:h-56 lg:h-60">
                 <Image
-                  src="/images/Team_workers/Rameez.jpg" // <-- update with your actual file name
+                  src="/images/Team_workers/Rameez.webp" // <-- update with your actual file name
                   alt="Mr. Rameez - Accounts / Finance Manager"
                   fill
                   className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
@@ -429,7 +499,9 @@ export default function About() {
                 Accounts / Finance Manager
               </p>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
-                Managing the financial health of the company, optimizing resource allocation, and ensuring transparency and fiscal discipline.
+                Managing the financial health of the company, optimizing
+                resource allocation, and ensuring transparency and fiscal
+                discipline.
               </p>
             </div>
 
@@ -437,7 +509,7 @@ export default function About() {
             <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
               <div className="relative w-full h-48 md:h-56 lg:h-60">
                 <Image
-                  src="/images/Team_workers/Arif.png" // <-- update with your actual file name
+                  src="/images/Team_workers/Arif.webp" // <-- update with your actual file name
                   alt="Mr. Muhammad Arif - Production Manager / Planning"
                   fill
                   className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
@@ -451,7 +523,8 @@ export default function About() {
                 Production Manager / Planning
               </p>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
-                Specializing in production planning and scheduling to ensure maximum efficiency and minimal downtime.
+                Specializing in production planning and scheduling to ensure
+                maximum efficiency and minimal downtime.
               </p>
             </div>
 
@@ -459,7 +532,7 @@ export default function About() {
             <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 rounded-2xl shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-500 ease-in-out text-center">
               <div className="relative w-full h-48 md:h-56 lg:h-60">
                 <Image
-                  src="/images/Team_workers/Hamid.jpg" // <-- update with your actual file name
+                  src="/images/Team_workers/Hamid.webp" // <-- update with your actual file name
                   alt="Mr. Hamid Siddique - Production Manager"
                   fill
                   className="object-cover transition-transform duration-500 ease-in-out hover:scale-105"
@@ -473,7 +546,8 @@ export default function About() {
                 Production Manager
               </p>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
-                Supervising production processes and maintaining the highest standards of garment quality and operational precision.
+                Supervising production processes and maintaining the highest
+                standards of garment quality and operational precision.
               </p>
             </div>
           </div>
@@ -488,7 +562,8 @@ export default function About() {
               Our Core Strengths
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
-              The key capabilities and advantages that set us apart in the global garment manufacturing industry.
+              The key capabilities and advantages that set us apart in the
+              global garment manufacturing industry.
             </p>
           </div>
 
@@ -496,13 +571,20 @@ export default function About() {
             {coreStrengths.map((strength, index) => {
               const IconComponent = strength.icon;
               return (
-                <Card key={index} className="text-center hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-700 dark:border-slate-600">
+                <Card
+                  key={index}
+                  className="text-center hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-700 dark:border-slate-600"
+                >
                   <CardContent className="p-6">
                     <div className="w-12 h-12 bg-gradient-primary dark:from-blue-600 dark:to-blue-700 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">{strength.title}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 leading-relaxed transition-colors duration-300">{strength.description}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">
+                      {strength.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 leading-relaxed transition-colors duration-300">
+                      {strength.description}
+                    </p>
                     <div className="text-xs font-medium text-primary dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-full px-3 py-1 transition-colors duration-300">
                       {strength.metrics}
                     </div>
@@ -522,7 +604,8 @@ export default function About() {
               Our Core Values
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
-              These values guide every decision we make and every relationship we build.
+              These values guide every decision we make and every relationship
+              we build.
             </p>
           </div>
 
@@ -530,15 +613,22 @@ export default function About() {
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <Card key={index} className="text-center hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-800 dark:border-slate-700">
+                <Card
+                  key={index}
+                  className="text-center hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-800 dark:border-slate-700"
+                >
                   <CardHeader>
                     <div className="w-12 h-12 bg-gradient-primary dark:from-blue-600 dark:to-blue-700 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold dark:text-gray-100 transition-colors duration-300">{value.title}</h3>
+                    <h3 className="text-lg font-semibold dark:text-gray-100 transition-colors duration-300">
+                      {value.title}
+                    </h3>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{value.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                      {value.description}
+                    </p>
                   </CardContent>
                 </Card>
               );
@@ -555,7 +645,8 @@ export default function About() {
               Our Journey
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
-              Key milestones that have shaped our company&apos;s growth and success.
+              Key milestones that have shaped our company&apos;s growth and
+              success.
             </p>
           </div>
 
@@ -563,13 +654,24 @@ export default function About() {
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-primary dark:from-blue-600 dark:to-blue-700 transition-colors duration-300"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                <div
+                  key={index}
+                  className={`flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                >
+                  <div
+                    className={`w-1/2 ${index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"}`}
+                  >
                     <Card className="hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all duration-300 dark:bg-slate-700 dark:border-slate-600">
                       <CardContent className="p-6">
-                        <div className="text-2xl font-bold text-primary dark:text-blue-400 mb-2 transition-colors duration-300">{milestone.year}</div>
-                        <h3 className="text-xl font-semibold dark:text-gray-100 mb-3 transition-colors duration-300">{milestone.title}</h3>
-                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{milestone.description}</p>
+                        <div className="text-2xl font-bold text-primary dark:text-blue-400 mb-2 transition-colors duration-300">
+                          {milestone.year}
+                        </div>
+                        <h3 className="text-xl font-semibold dark:text-gray-100 mb-3 transition-colors duration-300">
+                          {milestone.title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                          {milestone.description}
+                        </p>
                       </CardContent>
                     </Card>
                   </div>
@@ -599,9 +701,15 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-primary dark:text-blue-400 mb-2 transition-colors duration-300">{stat.number}</div>
-                <div className="text-gray-600 dark:text-gray-300 font-medium text-lg transition-colors duration-300">{stat.label}</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">{stat.description}</div>
+                <div className="text-5xl font-bold text-primary dark:text-blue-400 mb-2 transition-colors duration-300">
+                  {stat.number}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 font-medium text-lg transition-colors duration-300">
+                  {stat.label}
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">
+                  {stat.description}
+                </div>
               </div>
             ))}
           </div>
@@ -616,7 +724,8 @@ export default function About() {
               Certifications & Standards
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
-              Our commitment to quality and sustainability is validated by international certifications.
+              Our commitment to quality and sustainability is validated by
+              international certifications.
             </p>
           </div>
 
@@ -637,8 +746,12 @@ export default function About() {
                       priority={index < 2}
                     />
                   </div>
-                  <h3 className="font-semibold mb-2 text-gray-900 dark:text-gray-100 transition-colors duration-300">{cert.name}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">{cert.description}</p>
+                  <h3 className="font-semibold mb-2 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+                    {cert.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
+                    {cert.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -653,7 +766,8 @@ export default function About() {
             Partner With Us
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90 dark:text-blue-100 transition-colors duration-300">
-            Join hundreds of satisfied clients who trust {companyInfo.name} for their garment manufacturing needs.
+            Join hundreds of satisfied clients who trust {companyInfo.name} for
+            their garment manufacturing needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
@@ -663,12 +777,14 @@ export default function About() {
             </Link>
 
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-purple-600 hover:text-white dark:border-blue-200 dark:text-blue-200 dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-purple-600 hover:text-white dark:border-blue-200 dark:text-blue-200 dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300"
+              >
                 Contact Us
               </Button>
             </Link>
-
-
           </div>
         </div>
       </section>

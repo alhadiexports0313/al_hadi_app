@@ -1,12 +1,23 @@
-import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import type { ContactFormData, ApiResponse } from "@/types";
 
-export async function POST(request: NextRequest) {
+interface ExtendedContactFormData extends ContactFormData {
+  company: string;
+  phone: string;
+  subject: string;
+  productInterest?: string;
+  orderQuantity?: string;
+  timeline?: string;
+  budget?: string;
+}
+
+export async function POST(request: NextRequest): Promise<NextResponse<ApiResponse>> {
   try {
     // API route called
-    const body = await request.json();
+    const body: ExtendedContactFormData = await request.json();
     // Request body received
-    
+
     const {
       name,
       email,
@@ -17,15 +28,19 @@ export async function POST(request: NextRequest) {
       productInterest,
       orderQuantity,
       timeline,
-      budget
+      budget,
     } = body;
 
     // Validate required fields
     if (!name || !email || !company || !phone || !subject || !message) {
       // Validation failed - missing required fields
       return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
+        { 
+          success: false, 
+          message: "Missing required fields",
+          error: "Missing required fields" 
+        },
+        { status: 400 },
       );
     }
 
@@ -37,23 +52,27 @@ export async function POST(request: NextRequest) {
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
       // Missing email credentials in environment variables
       return NextResponse.json(
-        { error: 'Email service not configured. Please contact administrator.' },
-        { status: 500 }
+        {
+          success: false,
+          message: "Email service not configured. Please contact administrator.",
+          error: "Email service not configured. Please contact administrator.",
+        },
+        { status: 500 },
       );
     }
 
     // Create transporter using Gmail SMTP with enhanced configuration
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
+      host: process.env.SMTP_HOST || "smtp.gmail.com",
+      port: parseInt(process.env.SMTP_PORT || "587"),
       secure: false, // true for 465, false for other ports (587 uses STARTTLS)
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
+        pass: process.env.SMTP_PASS,
       },
       tls: {
-        rejectUnauthorized: false // Allow self-signed certificates
-      }
+        rejectUnauthorized: false, // Allow self-signed certificates
+      },
     });
 
     // Verify SMTP connection
@@ -63,11 +82,14 @@ export async function POST(request: NextRequest) {
     } catch {
       // SMTP verification failed
       return NextResponse.json(
-        { error: 'Email service connection failed. Please try again later.' },
-        { status: 500 }
+        { 
+          success: false,
+          message: "Email service connection failed. Please try again later.",
+          error: "Email service connection failed. Please try again later." 
+        },
+        { status: 500 },
       );
     }
-    
 
     // Create email content
     const emailContent = `
@@ -108,24 +130,36 @@ export async function POST(request: NextRequest) {
               <td style="padding: 8px 0; font-weight: bold; color: #555;">Product Interest:</td>
               <td style="padding: 8px 0; color: #333;">${productInterest}</td>
             </tr>
-            ${orderQuantity ? `
+            ${
+              orderQuantity
+                ? `
             <tr>
               <td style="padding: 8px 0; font-weight: bold; color: #555;">Order Quantity:</td>
               <td style="padding: 8px 0; color: #333;">${orderQuantity}</td>
             </tr>
-            ` : ''}
-            ${timeline ? `
+            `
+                : ""
+            }
+            ${
+              timeline
+                ? `
             <tr>
               <td style="padding: 8px 0; font-weight: bold; color: #555;">Timeline:</td>
               <td style="padding: 8px 0; color: #333;">${timeline}</td>
             </tr>
-            ` : ''}
-            ${budget ? `
+            `
+                : ""
+            }
+            ${
+              budget
+                ? `
             <tr>
               <td style="padding: 8px 0; font-weight: bold; color: #555;">Budget Range:</td>
               <td style="padding: 8px 0; color: #333;">${budget}</td>
             </tr>
-            ` : ''}
+            `
+                : ""
+            }
           </table>
 
           <h2 style="color: #333; border-bottom: 2px solid #667eea; padding-bottom: 10px;">Detailed Requirements</h2>
@@ -144,44 +178,54 @@ export async function POST(request: NextRequest) {
     // Email options
     const mailOptions = {
       from: `"AL HADI EXPORTS - Website" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: process.env.SMTP_TO || 'smshan425@gmail.com',
+      to: process.env.SMTP_TO || "smshan425@gmail.com",
       subject: `New Quote Request: ${subject} - ${company}`,
       html: emailContent,
-      replyTo: email
+      replyTo: email,
     };
 
     // Send email with comprehensive error handling
     try {
       const emailResult = await transporter.sendMail(mailOptions);
       // Email sent successfully
-      
+
       return NextResponse.json(
-        { 
-          message: 'Quote request submitted successfully! We will contact you within 24 hours.',
-          emailSent: true,
-          messageId: emailResult.messageId
+        {
+          success: true,
+          message:
+            "Quote request submitted successfully! We will contact you within 24 hours.",
+          data: {
+            emailSent: true,
+            messageId: emailResult.messageId,
+          }
         },
-        { status: 200 }
+        { status: 200 },
       );
     } catch {
-        // Failed to send email
-      
+      // Failed to send email
+
       // Return success to user but log the email failure
       return NextResponse.json(
-        { 
-          message: 'Quote request received! We will contact you soon.',
-          emailSent: false,
-          error: 'Email delivery may be delayed'
+        {
+          success: true,
+          message: "Quote request received! We will contact you soon.",
+          data: {
+            emailSent: false,
+          },
+          error: "Email delivery may be delayed",
         },
-        { status: 200 }
+        { status: 200 },
       );
     }
-
   } catch {
     // Error processing request
     return NextResponse.json(
-      { error: 'Failed to process quote request. Please try again later.' },
-      { status: 500 }
+      { 
+        success: false,
+        message: "Failed to process quote request. Please try again later.",
+        error: "Failed to process quote request. Please try again later." 
+      },
+      { status: 500 },
     );
   }
 }
