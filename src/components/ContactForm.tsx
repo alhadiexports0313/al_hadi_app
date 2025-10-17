@@ -47,33 +47,43 @@ export default function ContactForm({ onSubmitSuccess }: ContactFormProps) {
     setSubmitStatus("idle");
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // In a real application, you would send the data to your backend
-      //console.log("Form submitted:", formData);
-
-      setSubmitStatus("success");
-      setSubmitMessage(
-        "Thank you for your inquiry! We'll get back to you within 24 hours.",
-      );
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        phone: "",
-        subject: "",
-        message: "",
-        productInterest: "",
-        orderQuantity: "",
-        timeline: "",
-        budget: "",
+      // Call the actual API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      onSubmitSuccess?.();
-    } catch {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus("success");
+        setSubmitMessage(
+          result.message || "Thank you for your inquiry! We'll get back to you within 24 hours.",
+        );
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          subject: "",
+          message: "",
+          productInterest: "",
+          orderQuantity: "",
+          timeline: "",
+          budget: "",
+        });
+
+        onSubmitSuccess?.();
+      } else {
+        throw new Error(result.message || 'Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus("error");
       setSubmitMessage(
         "Sorry, there was an error sending your message. Please try again.",

@@ -77,9 +77,14 @@ export interface WhyChooseUsItem {
 export interface ContactFormData {
   name: string;
   email: string;
-  company?: string;
-  phone?: string;
+  company: string;
+  phone: string;
+  subject: string;
   message: string;
+  productInterest?: string;
+  orderQuantity?: string;
+  timeline?: string;
+  budget?: string;
 }
 
 export interface ContactFormErrors {
@@ -107,6 +112,7 @@ export interface ApiResponse<T = unknown> {
   success: boolean;
   message: string;
   data?: T;
+  error?: string;
 }
 
 export interface EmailResponse extends ApiResponse {

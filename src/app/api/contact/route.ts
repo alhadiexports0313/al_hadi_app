@@ -2,20 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import type { ContactFormData, ApiResponse } from "@/types";
 
-interface ExtendedContactFormData extends ContactFormData {
-  company: string;
-  phone: string;
-  subject: string;
-  productInterest?: string;
-  orderQuantity?: string;
-  timeline?: string;
-  budget?: string;
-}
-
 export async function POST(request: NextRequest): Promise<NextResponse<ApiResponse>> {
   try {
     // API route called
-    const body: ExtendedContactFormData = await request.json();
+    const body: ContactFormData = await request.json();
     // Request body received
 
     const {
@@ -178,7 +168,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ApiRespon
     // Email options
     const mailOptions = {
       from: `"AL HADI EXPORTS - Website" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: process.env.SMTP_TO || "smshan425@gmail.com",
+      to: process.env.SMTP_TO || "info@alhadiexports.com",
       subject: `New Quote Request: ${subject} - ${company}`,
       html: emailContent,
       replyTo: email,
