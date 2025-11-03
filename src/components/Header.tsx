@@ -70,7 +70,7 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
+            {/* <div className="flex items-center space-x-2">
               <Phone className="w-4 h-4 text-white/90" aria-hidden="true" />
               <a 
                 href="tel:+923002211587"
@@ -87,7 +87,7 @@ const Header = () => {
               >
                 +92 322 2214479
               </a>
-            </div>
+            </div> */}
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4 text-white/90" aria-hidden="true" />
               <a 
