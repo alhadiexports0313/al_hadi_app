@@ -621,7 +621,7 @@ export default function About() {
                     <div className="w-12 h-12 bg-gradient-primary dark:from-blue-600 dark:to-blue-700 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold dark:text-gray-100 transition-colors duration-300">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">
                       {value.title}
                     </h3>
                   </CardHeader>

@@ -80,7 +80,7 @@ const ThemeToggleInternal: React.FC<ThemeToggleProps> = ({
       <span
         className={`
           absolute ${config.padding} ${config.slider} rounded-full 
-          transform transition-all duration-500 ease-in-out
+          transform transition-all duration-300 ease-in-out
           shadow-lg border-2
           ${
             theme === "dark"
@@ -89,46 +89,7 @@ const ThemeToggleInternal: React.FC<ThemeToggleProps> = ({
           }
         `}
         aria-hidden="true"
-      >
-        {/* Icon container with rotation animation */}
-        <span
-          className={`
-            flex items-center justify-center w-full h-full
-            transition-all duration-500 ease-in-out
-            ${theme === "dark" ? "rotate-0" : "rotate-180"}
-          `}
-        >
-          {/* Icons with fade transition */}
-          <span
-            className={`
-              absolute inset-0 flex items-center justify-center ${config.icon}
-              transition-all duration-300 ease-in-out
-              ${
-                theme === "dark"
-                  ? "opacity-100 scale-100 rotate-0"
-                  : "opacity-0 scale-75 rotate-90"
-              }
-            `}
-            aria-hidden="true"
-          >
-            🌙
-          </span>
-          <span
-            className={`
-              absolute inset-0 flex items-center justify-center ${config.icon}
-              transition-all duration-300 ease-in-out
-              ${
-                theme === "light"
-                  ? "opacity-100 scale-100 rotate-0"
-                  : "opacity-0 scale-75 -rotate-90"
-              }
-            `}
-            aria-hidden="true"
-          >
-            ☀️
-          </span>
-        </span>
-      </span>
+      />
 
       {/* Subtle glow effect */}
       <span
